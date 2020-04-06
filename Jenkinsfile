@@ -41,14 +41,33 @@ pipeline {
 				steps{
 					echo "------------>Compilación backend<------------"
 					dir("alcance-backend/microservicio"){
-						sh 'gradle build -x test'
+						sh 'gradle clean build -x test'
 					}
 				}
 			
 			}
 		}
 	}
-    
+    stage('Test Unitarios -Cobertura'){
+		parallel {
+			stage('Test - Cobertura backend'){
+				steps {
+					echo '------------>test backend<------------'
+					dir("${PROJECT_PATH_BACK}"){
+						sh 'gradle --stacktrace test'
+					}
+				}
+			}
+		}
+	}
+	stage('Sonar Analysis'){
+		steps{
+			echo '------------>Analisis de código estático<------------'
+			  withSonarQubeEnv('Sonar') {
+				sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dsonar.projectKey=co.com.ceiba:GestionProyectos.raul.cuellar -Dsonar.projectName=Ceiba-ADNGestionProyectos(raul.cuellar) -Dproject.settings=./alcance-backend/microservicio/sonar-project.properties"
+			 }
+		}
+	}
       
   }
 
