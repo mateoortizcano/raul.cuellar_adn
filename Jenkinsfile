@@ -53,7 +53,7 @@ pipeline {
 			stage('Test - Cobertura backend'){
 				steps {
 					echo '------------>test backend<------------'
-					dir("${PROJECT_PATH_BACK}"){
+					dir("alcance-backend/microservicio"){
 						sh 'gradle --stacktrace test'
 					}
 				}
