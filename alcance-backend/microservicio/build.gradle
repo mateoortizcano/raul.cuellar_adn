@@ -77,3 +77,4 @@ jacocoTestReport {
         html.destination file("${buildDir}/test-results/jacocoHtml")
     }
 }
+test.finalizedBy jacocoTestReport
