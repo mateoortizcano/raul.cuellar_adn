@@ -1,0 +1,25 @@
+jasypt:
+   encryptor:
+      password: ${jasyptpwd}
+      algorithm: PBEWithMD5AndDES
+
+server:
+   port: 8083
+   servlet:
+      context-path: /alcance
+
+tiempoHealthCheck:
+   tiempo: 30000  
+
+
+spring:
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbcUrl: jdbc:mysql://localhost/alcance?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: alcance
+      password: mE4fLj6Ykl3IRWr5
+      hikari:
+         poolName: pool
+
+
