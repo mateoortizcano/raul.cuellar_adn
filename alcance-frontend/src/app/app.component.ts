@@ -10,9 +10,7 @@ import { Item } from '@ceiba/navbar';
 export class AppComponent {
   title = 'app-base';
   public companies: Item[] = [
-    { url: '/home', nombre: 'home' },
-    { url: '/producto', nombre: 'producto' }
-    
+    { url: '/home', nombre: 'home' }    
   ];
 
   
