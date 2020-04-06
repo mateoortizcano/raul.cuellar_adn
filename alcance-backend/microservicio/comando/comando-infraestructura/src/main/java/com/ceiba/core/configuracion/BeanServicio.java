@@ -3,6 +3,9 @@ package com.ceiba.core.configuracion;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.ceiba.core.repositorio.RepositorioEpica;
+import com.ceiba.core.servicio.epica.ServicioCrearEpica;
+
 import com.ceiba.core.repositorio.RepositorioUsuario;
 import com.ceiba.core.servicio.usuario.ServicioActualizarUsuario;
 import com.ceiba.core.servicio.usuario.ServicioCrearUsuario;
@@ -26,4 +29,8 @@ public class BeanServicio {
 		return new ServicioActualizarUsuario(repositorioUsuario);
 	}
 
+	@Bean
+	public ServicioCrearEpica servicioCrearEpica(RepositorioEpica repositorioEpica){
+		return new ServicioCrearEpica(repositorioEpica);
+	}
 }

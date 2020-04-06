@@ -1,19 +1,21 @@
 package com.ceiba.core.controlador;
 
-import com.ceiba.core.aplicacion.ComandoRespuesta;
-import com.ceiba.core.comando.epica.ComandoEpica;
-import com.ceiba.core.manejador.epica.ManejadorCrearEpica;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ceiba.core.aplicacion.ComandoRespuesta;
+import com.ceiba.core.comando.epica.ComandoEpica;
+import com.ceiba.core.manejador.epica.ManejadorCrearEpica;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/epicas")
-@Api(tags = { "Controlador comando usuario"})
+@Api(tags = { "Controlador comando epicas"})
 public class ComandoControladorEpica {
     private ManejadorCrearEpica manejadorCrearEpica;
 

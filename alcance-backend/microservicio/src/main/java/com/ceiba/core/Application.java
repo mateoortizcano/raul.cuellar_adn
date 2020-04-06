@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@ComponentScan({"com.ceiba"})
+@ComponentScan({"com.ceiba.core"})
 @SpringBootApplication
 @EnableScheduling
 public class Application {
