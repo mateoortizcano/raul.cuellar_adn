@@ -35,29 +35,21 @@ pipeline {
 			])
 		}
 	}
-
+	stage('Compile'){
+		parallel {
+			stage('Compile backend'){
+				steps{
+					echo "------------>Compilación backend<------------"
+					dir("alcance-backend/microservicio"){
+						sh 'gradle build -x test'
+					}
+				}
+			
+			}
+		}
+	}
     
-    stage('Compile & Unit Tests') {
-      steps{
-        echo "------------>Unit Tests<------------"
-
-      }
-    }
-
-    stage('Static Code Analysis') {
-      steps{
-        echo '------------>Análisis de código estático<------------'
-        withSonarQubeEnv('Sonar') {
-sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-        }
-      }
-    }
-
-    stage('Build') {
-      steps {
-        echo "------------>Build<------------"
-      }
-    }  
+      
   }
 
   post {
