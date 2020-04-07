@@ -12,3 +12,11 @@ create table epica (
     estimacion_comercial int(11) not null,
     primary key(id)
 );
+
+create table presupuesto (
+    id int(11) not null auto_increment,
+    valor Double not null,
+    reserva_estabilizacion Double,
+    observaciones varchar(255),
+    primary key(id)
+);

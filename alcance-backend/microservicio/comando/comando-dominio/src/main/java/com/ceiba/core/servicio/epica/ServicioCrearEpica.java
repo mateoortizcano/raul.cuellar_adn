@@ -1,6 +1,6 @@
 package com.ceiba.core.servicio.epica;
 
-import com.ceiba.core.modelo.epica.Epica;
+import com.ceiba.core.modelo.Epica;
 import com.ceiba.core.repositorio.RepositorioEpica;
 
 public class ServicioCrearEpica {

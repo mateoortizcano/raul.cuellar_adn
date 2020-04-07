@@ -4,9 +4,9 @@ import org.springframework.stereotype.Component;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
 import com.ceiba.core.aplicacion.manejador.ManejadorComandoRespuesta;
-import com.ceiba.core.comando.epica.ComandoEpica;
-import com.ceiba.core.fabrica.epica.FabricaEpica;
-import com.ceiba.core.modelo.epica.Epica;
+import com.ceiba.core.comando.ComandoEpica;
+import com.ceiba.core.fabrica.FabricaEpica;
+import com.ceiba.core.modelo.Epica;
 import com.ceiba.core.servicio.epica.ServicioCrearEpica;
 
 @Component

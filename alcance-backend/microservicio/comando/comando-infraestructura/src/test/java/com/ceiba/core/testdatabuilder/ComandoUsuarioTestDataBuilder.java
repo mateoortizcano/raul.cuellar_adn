@@ -3,7 +3,7 @@ package com.ceiba.core.testdatabuilder;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.ceiba.core.comando.usuario.ComandoUsuario;
+import com.ceiba.core.comando.ComandoUsuario;
 
 public class ComandoUsuarioTestDataBuilder {
 

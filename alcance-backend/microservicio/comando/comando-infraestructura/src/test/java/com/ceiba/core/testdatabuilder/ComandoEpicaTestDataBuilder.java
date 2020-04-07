@@ -1,7 +1,6 @@
 package com.ceiba.core.testdatabuilder;
 
-import com.ceiba.core.comando.epica.ComandoEpica;
-import com.ceiba.core.comando.usuario.ComandoUsuario;
+import com.ceiba.core.comando.ComandoEpica;
 
 import java.util.UUID;
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
-import com.ceiba.core.comando.epica.ComandoEpica;
+import com.ceiba.core.comando.ComandoEpica;
 import com.ceiba.core.manejador.epica.ManejadorCrearEpica;
 
 import io.swagger.annotations.Api;

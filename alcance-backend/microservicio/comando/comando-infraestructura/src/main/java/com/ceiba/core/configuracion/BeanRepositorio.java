@@ -1,13 +1,10 @@
 package com.ceiba.core.configuracion;
 
-import com.ceiba.core.repositorio.RepositorioEpica;
-import com.ceiba.core.repositorio.RepositorioEpicaMysql;
+import com.ceiba.core.repositorio.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
-import com.ceiba.core.repositorio.RepositorioUsuario;
-import com.ceiba.core.repositorio.RepositorioUsuarioMysql;
 
 @Configuration
 public class BeanRepositorio {
@@ -22,4 +19,8 @@ public class BeanRepositorio {
 		return new RepositorioEpicaMysql(repositorioGenerico);
 	}
 
+	@Bean
+	public RepositorioPresupuesto repositorioPresupuesto(CustomNamedParameterJdbcTemplate repositorioGenerico){
+		return new RepositorioPresupuestoMysql(repositorioGenerico);
+	}
 }

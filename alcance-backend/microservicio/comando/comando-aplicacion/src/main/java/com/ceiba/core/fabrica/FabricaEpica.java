@@ -1,9 +1,9 @@
-package com.ceiba.core.fabrica.epica;
+package com.ceiba.core.fabrica;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.core.comando.epica.ComandoEpica;
-import com.ceiba.core.modelo.epica.Epica;
+import com.ceiba.core.comando.ComandoEpica;
+import com.ceiba.core.modelo.Epica;
 
 @Component
 public class FabricaEpica {

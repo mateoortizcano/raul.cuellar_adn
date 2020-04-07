@@ -1,4 +1,4 @@
-package com.ceiba.core.modelo.epica;
+package com.ceiba.core.modelo;
 
 import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;
 

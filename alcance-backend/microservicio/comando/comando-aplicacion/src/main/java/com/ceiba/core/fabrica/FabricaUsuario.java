@@ -1,8 +1,8 @@
-package com.ceiba.core.fabrica.usuario;
+package com.ceiba.core.fabrica;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.core.comando.usuario.ComandoUsuario;
+import com.ceiba.core.comando.ComandoUsuario;
 import com.ceiba.core.modelo.usuario.Usuario;
 
 @Component

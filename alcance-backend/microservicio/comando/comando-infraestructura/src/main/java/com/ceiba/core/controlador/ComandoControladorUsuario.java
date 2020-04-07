@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
-import com.ceiba.core.comando.usuario.ComandoUsuario;
+import com.ceiba.core.comando.ComandoUsuario;
 import com.ceiba.core.manejador.usuario.ManejadorActualizarUsuario;
 import com.ceiba.core.manejador.usuario.ManejadorCrearUsuario;
 import com.ceiba.core.manejador.usuario.ManejadorEliminarUsuario;

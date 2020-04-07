@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.core.ApplicationMock;
-import com.ceiba.core.comando.usuario.ComandoUsuario;
+import com.ceiba.core.comando.ComandoUsuario;
 import com.ceiba.core.testdatabuilder.ComandoUsuarioTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

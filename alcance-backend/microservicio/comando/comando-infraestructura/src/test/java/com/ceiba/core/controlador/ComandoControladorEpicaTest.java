@@ -1,7 +1,7 @@
 package com.ceiba.core.controlador;
 
 import com.ceiba.core.ApplicationMock;
-import com.ceiba.core.comando.epica.ComandoEpica;
+import com.ceiba.core.comando.ComandoEpica;
 import com.ceiba.core.testdatabuilder.ComandoEpicaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;

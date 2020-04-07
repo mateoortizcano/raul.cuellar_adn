@@ -1,10 +1,10 @@
 package com.ceiba.core.repositorio;
 
-import com.ceiba.core.modelo.epica.Epica;
+import com.ceiba.core.modelo.Epica;
 
 public interface RepositorioEpica {
     /**
-     * Permite crear un usuario
+     * Permite crear un epica
      * @param epica
      * @return el id generado
      */

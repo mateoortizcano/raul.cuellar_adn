@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
 import com.ceiba.core.aplicacion.manejador.ManejadorComandoRespuesta;
-import com.ceiba.core.comando.usuario.ComandoUsuario;
-import com.ceiba.core.fabrica.usuario.FabricaUsuario;
+import com.ceiba.core.comando.ComandoUsuario;
+import com.ceiba.core.fabrica.FabricaUsuario;
 import com.ceiba.core.modelo.usuario.Usuario;
 import com.ceiba.core.servicio.usuario.ServicioCrearUsuario;
 
