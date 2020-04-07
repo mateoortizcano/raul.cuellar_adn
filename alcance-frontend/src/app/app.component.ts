@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { Item } from '@ceiba/navbar';
+import { MenuItem } from '@core/modelo/menu-item';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.']
+  styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
   title = 'app-base';
-  public companies: Item[] = [
-    { url: '/home', nombre: 'home' }    
+  public companies: MenuItem[] = [
+    { url: '/home', nombre: 'home' },
+    { url: '/producto', nombre: 'producto' }
+    
   ];
 
   

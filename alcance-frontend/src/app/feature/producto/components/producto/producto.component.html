@@ -1,9 +1,8 @@
-<p>producto works!</p>
 <nav>
-  <a routerLink="./" routerLinkActive="active"
+  <a id="linkProducto" routerLink="./" routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }">Producto</a>
-  <a routerLink="./crear" routerLinkActive="active">Crear producto</a>
-  <a routerLink="./borrar" routerLinkActive="active">Borrar producto</a>
-  <a routerLink="./listar" routerLinkActive="active">listar producto</a>
+  <a id="linkCrearProducto" routerLink="./crear" routerLinkActive="active">Crear producto</a>
+  <a id="linkBorrarProducto" routerLink="./borrar" routerLinkActive="active">Borrar producto</a>
+  <a id="linkListarProducto" routerLink="./listar" routerLinkActive="active">listar producto</a>
 </nav>
 <router-outlet></router-outlet>

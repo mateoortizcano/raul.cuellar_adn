@@ -4,7 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 
-
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   private UNAUTHORIZED = 401;
@@ -15,17 +14,18 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
 
-
     return next.handle(req).pipe(
-      catchError(e => {
-        if (e.status === this.UNAUTHORIZED) {
-          this.router.navigate(['/login']);
+      catchError(error => {
+        switch (error.status) {
+          case this.UNAUTHORIZED:
+            this.router.navigate(['/login']);
+            break;
+          case this.FORBIDDEN:
+            this.router.navigate(['/home']);
+            break;
+          default:
+            return throwError(error);
         }
-
-        if (e.status === this.FORBIDDEN) {
-          this.router.navigate(['/home']);
-        }
-        return throwError(e);
       })
     );
   }

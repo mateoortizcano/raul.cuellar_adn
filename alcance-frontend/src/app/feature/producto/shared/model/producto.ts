@@ -1,5 +1,9 @@
-
 export class Producto {
-    campo: string;
-    campo2: string;
+    id: string;
+    descripcion: string;
+
+    constructor(id: string, descripcion: string) {
+        this.id = id;
+        this.descripcion = descripcion;
+    }
 }

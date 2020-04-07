@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from 'src/app/core/services/base.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from '@core-service/http.service';
 import { environment } from 'src/environments/environment';
 import { Producto } from '../model/producto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService extends BaseService {
+export class ProductoService {
 
-  constructor(protected http: HttpClient) { super(http); }
-
-  public consultarCache() {
-    return this.doGet<Producto[]>(`${environment.endpoint}productos/productos`, this.optsNameCache('consultar productos con cache'));
-  }
+  constructor(protected http: HttpService) {}
 
   public consultar() {
-    return this.doGet<Producto[]>(`${environment.endpoint}/productos`, this.optsName('consultar productos'));
+    return this.http.doGet<Producto[]>(`${environment.endpoint}/tiposFamilia`, this.http.optsName('consultar productos'));
   }
 
   public guardar(producto: Producto) {
-    return this.doPost<Producto, boolean>(`${environment.endpoint}/productos`, producto, this.optsName('crear/actualizar productos'));
+    return this.http.doPost<Producto, boolean>(`${environment.endpoint}/productos`, producto,
+                                                this.http.optsName('crear/actualizar productos'));
   }
 
   public eliminar(producto: Producto) {
-    return this.doPost<Producto, boolean>(`${environment.endpoint}/productos`, producto, this.optsName('eliminar productos'));
+    return this.http.doDelte<Producto, boolean>(`${environment.endpoint}/productos/${producto.id}`,
+                                                 this.http.optsName('eliminar productos'));
   }
 }

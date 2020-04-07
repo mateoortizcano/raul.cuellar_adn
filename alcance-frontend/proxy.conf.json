@@ -1,7 +1,7 @@
 {
-    "/agw-ayv": {
-      "target": "http://dllo-sura-avregional.ceiba.com.co:8100",
-      "logLevel": "debug"
-    }
+  "/prospectos-vida": {
+    "target": "http://192.168.1.115:9002",
+    "logLevel": "debug"
+  }
 
 }

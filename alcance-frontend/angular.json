@@ -6,7 +6,9 @@
     "app-base": {
       "projectType": "application",
       "schematics": {
-        
+        "@schematics/angular:component": {
+          "style": "sass "
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -20,13 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ 
-                        
+            "styles": [
+              "src/styles.sass"
             ],
             "scripts": []
           },
@@ -43,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -52,6 +53,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -60,7 +65,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app-base:build"
+            "browserTarget": "app-base:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -86,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-               
+              "src/styles.sass"
             ],
             "scripts": []
           }
@@ -117,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "app-base"
+    }
+  },
+  "defaultProject": "app-base",
+  "cli": {
+    "analytics": false
+  }
 }
