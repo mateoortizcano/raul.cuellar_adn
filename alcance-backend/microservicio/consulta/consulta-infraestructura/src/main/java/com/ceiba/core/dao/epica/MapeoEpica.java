@@ -14,8 +14,8 @@ public class MapeoEpica implements RowMapper<DtoEpica>,MapperResult {
 
         Integer id = resultSet.getInt("id");
         String titulo = resultSet.getString("titulo");
-        Integer estimacion_comercial = resultSet.getInt("estimacion_comercial");
+        Integer estimacionComercial = resultSet.getInt("estimacion_comercial");
 
-        return new DtoEpica(id,titulo,estimacion_comercial);
+        return new DtoEpica(id,titulo,estimacionComercial);
     }
 }

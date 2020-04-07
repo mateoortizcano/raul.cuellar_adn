@@ -12,5 +12,5 @@ import lombok.Setter;
 public class ComandoEpica {
     private Long id;
     private String titulo;
-    private Integer estimacion_comercial;
+    private Integer estimacionComercial;
 }

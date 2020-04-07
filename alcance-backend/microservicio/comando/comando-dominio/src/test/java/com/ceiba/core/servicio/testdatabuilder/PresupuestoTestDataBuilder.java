@@ -5,16 +5,16 @@ import com.ceiba.core.modelo.Presupuesto;
 public class PresupuestoTestDataBuilder {
 
     private Double valor;
-    private Double reserva_estabilizacion;
+    private Double reservaEstabilizacion;
     private String observaciones;
 
-    public PresupuestoTestDataBuilder(Double valor, Double reserva_estabilizacion, String observaciones) {
+    public PresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion, String observaciones) {
         this.valor = valor;
-        this.reserva_estabilizacion = reserva_estabilizacion;
+        this.reservaEstabilizacion = reservaEstabilizacion;
         this.observaciones = observaciones;
     }
 
     public Presupuesto build() {
-    	return new Presupuesto(Integer.toUnsignedLong(0), valor, reserva_estabilizacion, observaciones);
+    	return new Presupuesto(Integer.toUnsignedLong(0), valor, reservaEstabilizacion, observaciones);
     }
 }

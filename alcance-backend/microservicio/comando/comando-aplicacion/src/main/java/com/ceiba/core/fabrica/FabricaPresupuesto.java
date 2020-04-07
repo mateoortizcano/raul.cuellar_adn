@@ -10,7 +10,7 @@ public class FabricaPresupuesto {
         return new Presupuesto(
                 comandoPresupuesto.getId(),
                 comandoPresupuesto.getValor(),
-                comandoPresupuesto.getReserva_estabilizacion(),
+                comandoPresupuesto.getReservaEstabilizacion(),
                 comandoPresupuesto.getObservaciones()
         );
     }

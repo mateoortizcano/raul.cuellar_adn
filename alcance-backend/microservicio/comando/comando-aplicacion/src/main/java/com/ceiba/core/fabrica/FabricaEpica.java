@@ -11,7 +11,7 @@ public class FabricaEpica {
         return new Epica(
                 comandoEpica.getId(),
                 comandoEpica.getTitulo(),
-                comandoEpica.getEstimacion_comercial()
+                comandoEpica.getEstimacionComercial()
         );
     }
 }

@@ -12,6 +12,6 @@ import lombok.Setter;
 public class ComandoPresupuesto {
     private Long id;
     private Double valor;
-    private Double reserva_estabilizacion;
+    private Double reservaEstabilizacion;
     private String observaciones;
 }

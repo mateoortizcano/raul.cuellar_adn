@@ -8,14 +8,14 @@ public class ComandoEpicaTestDataBuilder {
 
 	private Long id;
     private String titulo;
-    private Integer estimacion_comercial;
+    private Integer estimacionComercial;
 
     public ComandoEpicaTestDataBuilder() {
 		titulo = UUID.randomUUID().toString();
-		estimacion_comercial = 999999;
+        estimacionComercial = 999999;
 	}
 
     public ComandoEpica build() {
-    	return new ComandoEpica(id, titulo, estimacion_comercial);
+    	return new ComandoEpica(id, titulo, estimacionComercial);
     }
 }

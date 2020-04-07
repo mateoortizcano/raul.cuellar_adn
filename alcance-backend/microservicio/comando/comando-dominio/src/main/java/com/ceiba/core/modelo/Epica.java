@@ -7,16 +7,16 @@ public class Epica {
     private static final String MSG_ESTIMACION_COMERCIAL_OBLIGATORIA = "La épica debe tener una estimación comercial";
     private Long id;
     private String titulo;
-    private Integer estimacion_comercial;
+    private Integer estimacionComercial;
 
-    public Epica(Long id, String titulo, Integer estimacion_comercial) {
+    public Epica(Long id, String titulo, Integer estimacionComercial) {
 
         validarObligatorio(titulo, MSG_TITULO_OBLIGATORIO);
-        validarObligatorio(estimacion_comercial, MSG_ESTIMACION_COMERCIAL_OBLIGATORIA);
+        validarObligatorio(estimacionComercial, MSG_ESTIMACION_COMERCIAL_OBLIGATORIA);
         
         this.id = id;
         this.titulo = titulo;
-        this.estimacion_comercial = estimacion_comercial;
+        this.estimacionComercial = estimacionComercial;
     }
 
     public Long getId() {
@@ -27,7 +27,7 @@ public class Epica {
         return titulo;
     }
 
-    public Integer getEstimacion_comercial() {
-        return estimacion_comercial;
+    public Integer getEstimacionComercial() {
+        return estimacionComercial;
     }
 }
