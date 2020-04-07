@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 import com.ceiba.core.BasePrueba;
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.core.dominio.excepcion.ExcepcionLongitudValor;
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.Usuario;
 import com.ceiba.core.repositorio.RepositorioUsuario;
 import com.ceiba.core.servicio.testdatabuilder.UsuarioTestDataBuilder;
 

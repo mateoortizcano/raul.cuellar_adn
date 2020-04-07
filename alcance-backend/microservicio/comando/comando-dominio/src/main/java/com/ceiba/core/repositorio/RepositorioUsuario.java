@@ -1,6 +1,6 @@
 package com.ceiba.core.repositorio;
 
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.Usuario;
 
 public interface RepositorioUsuario {
 	/**

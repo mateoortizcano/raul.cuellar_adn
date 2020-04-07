@@ -6,7 +6,7 @@ import com.ceiba.core.aplicacion.ComandoRespuesta;
 import com.ceiba.core.aplicacion.manejador.ManejadorComandoRespuesta;
 import com.ceiba.core.comando.ComandoUsuario;
 import com.ceiba.core.fabrica.FabricaUsuario;
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.Usuario;
 import com.ceiba.core.servicio.usuario.ServicioCrearUsuario;
 
 @Component

@@ -1,7 +1,7 @@
 package com.ceiba.core.servicio.usuario;
 
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.Usuario;
 import com.ceiba.core.repositorio.RepositorioUsuario;
 
 public class ServicioActualizarUsuario {

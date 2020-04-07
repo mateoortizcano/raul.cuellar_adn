@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.ceiba.core.aplicacion.manejador.ManejadorComando;
 import com.ceiba.core.comando.ComandoUsuario;
 import com.ceiba.core.fabrica.FabricaUsuario;
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.Usuario;
 import com.ceiba.core.servicio.usuario.ServicioActualizarUsuario;
 
 @Component

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.Usuario;
 
 @Repository
 public class RepositorioUsuarioMysql implements RepositorioUsuario {
