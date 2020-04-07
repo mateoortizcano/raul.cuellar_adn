@@ -20,7 +20,7 @@ public class ManejadorCrearPresupuesto implements ManejadorComandoRespuesta<Coma
     }
 
     public ComandoRespuesta<Long> ejecutar(ComandoPresupuesto comandoPresupuesto){
-        Presupuesto Presupuesto = this.fabricaPresupuesto.crear(comandoPresupuesto);
-        return new ComandoRespuesta<>(this.servicioCrearPresupuesto.ejecutar(Presupuesto));
+        Presupuesto presupuesto = this.fabricaPresupuesto.crear(comandoPresupuesto);
+        return new ComandoRespuesta<>(this.servicioCrearPresupuesto.ejecutar(presupuesto));
     }
 }
