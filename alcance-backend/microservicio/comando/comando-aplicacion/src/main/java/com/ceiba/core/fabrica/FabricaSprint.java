@@ -11,11 +11,11 @@ public class FabricaSprint {
 	    return new Sprint(
 	    	comandoSprint.getId(),
 	        comandoSprint.getNombre(),
-				comandoSprint.getFechaInicial(),
-				comandoSprint.getFechaFinal(),
-				comandoSprint.getDiasHabiles(),
-				comandoSprint.getNumeroPersonas(),
-				comandoSprint.getIdProyecto()
+			comandoSprint.getFechaInicial(),
+			comandoSprint.getFechaFinal(),
+			comandoSprint.getDiasHabiles(),
+			comandoSprint.getNumeroPersonas(),
+			comandoSprint.getIdProyecto()
 	    );
 	}
 
