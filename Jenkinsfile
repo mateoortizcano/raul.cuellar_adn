@@ -76,7 +76,7 @@ pipeline {
     }
     success {
 		echo 'This will run only if successful'
-		junit 'alcance-backend/microservicio/consulta/comando-dominio/build/reports/jacoco/test/*.xml' 
+		// junit 'alcance-backend/microservicio/consulta/comando-dominio/build/reports/jacoco/test/*.xml' 
 	}
     failure {
 		echo 'This will run only if failed'
