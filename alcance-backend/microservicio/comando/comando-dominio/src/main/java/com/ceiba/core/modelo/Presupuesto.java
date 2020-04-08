@@ -10,8 +10,9 @@ public class Presupuesto {
     private Double valor;
     private Double reservaEstabilizacion;
     private String observaciones;
+    private Integer idProyecto;
 
-    public Presupuesto(Long id, Double valor, Double reservaEstabilizacion, String observaciones) {
+    public Presupuesto(Long id, Double valor, Double reservaEstabilizacion, String observaciones, Integer idProyecto) {
 
         validarPositivo(valor, MSG_VALOR_POSITIVO_MAYOR_0);
         validarPositivo(reservaEstabilizacion, MSG_RESERVA_POSITIVO_MAYOR_0);
@@ -20,6 +21,7 @@ public class Presupuesto {
         this.valor = valor;
         this.reservaEstabilizacion = reservaEstabilizacion;
         this.observaciones = observaciones;
+        this.idProyecto = idProyecto;
     }
 
     public Long getId() {
@@ -36,5 +38,9 @@ public class Presupuesto {
 
     public String getObservaciones() {
         return observaciones;
+    }
+
+    public Integer getIdProyecto() {
+        return idProyecto;
     }
 }

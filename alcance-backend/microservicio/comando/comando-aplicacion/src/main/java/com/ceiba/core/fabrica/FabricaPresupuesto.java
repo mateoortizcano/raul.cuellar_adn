@@ -11,7 +11,8 @@ public class FabricaPresupuesto {
                 comandoPresupuesto.getId(),
                 comandoPresupuesto.getValor(),
                 comandoPresupuesto.getReservaEstabilizacion(),
-                comandoPresupuesto.getObservaciones()
+                comandoPresupuesto.getObservaciones(),
+                comandoPresupuesto.getIdProyecto()
         );
     }
 }

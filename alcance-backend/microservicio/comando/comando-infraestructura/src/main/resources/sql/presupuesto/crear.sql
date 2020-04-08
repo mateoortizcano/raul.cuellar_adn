@@ -1,1 +1,1 @@
-INSERT INTO presupuesto (valor, reserva_estabilizacion,observaciones) values (:valor, :reservaEstabilizacion, :observaciones)
+INSERT INTO presupuesto (valor, reserva_estabilizacion,observaciones, id_proyecto) values (:valor, :reservaEstabilizacion, :observaciones, :idProyecto);

@@ -18,5 +18,12 @@ create table presupuesto (
     valor Double not null,
     reserva_estabilizacion Double,
     observaciones varchar(255),
+    id_proyecto int(11) not null,
+    primary key(id)
+);
+
+create table proyecto (
+    id int(11) not null auto_increment,
+    nombre varchar(100) not null,
     primary key(id)
 );

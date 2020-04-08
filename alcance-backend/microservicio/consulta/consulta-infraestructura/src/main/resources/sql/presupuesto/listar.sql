@@ -1,1 +1,1 @@
-SELECT id, valor, reserva_estabilizacion, observaciones FROM presupuesto
+SELECT id, valor, reserva_estabilizacion, observaciones, id_proyecto FROM presupuesto

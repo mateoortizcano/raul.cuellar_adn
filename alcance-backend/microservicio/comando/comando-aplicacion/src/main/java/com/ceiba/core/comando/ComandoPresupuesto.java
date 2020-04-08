@@ -14,4 +14,5 @@ public class ComandoPresupuesto {
     private Double valor;
     private Double reservaEstabilizacion;
     private String observaciones;
+    private Integer idProyecto;
 }
