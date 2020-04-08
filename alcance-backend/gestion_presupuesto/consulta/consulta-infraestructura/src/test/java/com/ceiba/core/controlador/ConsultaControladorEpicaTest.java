@@ -33,7 +33,9 @@ public class ConsultaControladorEpicaTest {
     		      .contentType(MediaType.APPLICATION_JSON))
     		      .andExpect(status().isOk())
     		      .andExpect(jsonPath("$", hasSize(1)))
-    		      .andExpect(jsonPath("$[0].titulo", is("test")));
+				.andExpect(jsonPath("$[0].id", is(1)))
+				.andExpect(jsonPath("$[0].titulo", is("test")))
+				.andExpect(jsonPath("$[0].estimacionComercial", is(1234)));
     }
     
 

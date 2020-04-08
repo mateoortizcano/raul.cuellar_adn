@@ -30,10 +30,13 @@ public class ConsultaControladorPresupuestoTest {
 
         // act - assert
     	mocMvc.perform(get("/presupuestos")
-    		      .contentType(MediaType.APPLICATION_JSON))
-    		      .andExpect(status().isOk())
-    		      .andExpect(jsonPath("$", hasSize(1)))
-    		      .andExpect(jsonPath("$[0].valor", is(10.0)));
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$[0].id", is(1)))
+				.andExpect(jsonPath("$[0].valor", is(10.0)))
+				.andExpect(jsonPath("$[0].reservaEstabilizacion", is(1.0)))
+				.andExpect(jsonPath("$[0].idProyecto", is(1)));
     }
     
 

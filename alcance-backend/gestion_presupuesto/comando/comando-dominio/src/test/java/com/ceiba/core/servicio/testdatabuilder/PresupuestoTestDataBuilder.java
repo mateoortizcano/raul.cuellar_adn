@@ -9,11 +9,11 @@ public class PresupuestoTestDataBuilder {
     private String observaciones;
     private Integer idProyecto;
 
-    public PresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion, String observaciones) {
+    public PresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion, String observaciones, Integer idProyecto) {
         this.valor = valor;
         this.reservaEstabilizacion = reservaEstabilizacion;
         this.observaciones = observaciones;
-        this.idProyecto = 1;
+        this.idProyecto = idProyecto;
     }
 
     public Presupuesto build() {

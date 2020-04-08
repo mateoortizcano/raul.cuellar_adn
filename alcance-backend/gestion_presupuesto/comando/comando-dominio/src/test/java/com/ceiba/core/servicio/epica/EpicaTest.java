@@ -7,7 +7,7 @@ import com.ceiba.core.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.core.servicio.testdatabuilder.EpicaTestDataBuilder;
 import org.junit.Test;
 
-public class ServicioCrearEpicaTest {
+public class EpicaTest {
 
 	@Test
 	public void validarSinTitulo() {
