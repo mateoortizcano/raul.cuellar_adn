@@ -1,4 +1,4 @@
-package com.ceiba.core.servicio.usuario;
+package com.ceiba.core.servicio.presupuesto;
 
 import com.ceiba.core.BasePrueba;
 import com.ceiba.core.dominio.excepcion.ExcepcionValorInvalido;

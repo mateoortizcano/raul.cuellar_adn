@@ -1,6 +1,6 @@
 package com.ceiba.core.modelo;
 
-import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.core.dominio.ValidadorArgumento.*;
 
 public class Epica {
     private static final String MSG_TITULO_OBLIGATORIO = "La épica debe tener un título";
@@ -12,8 +12,10 @@ public class Epica {
     public Epica(Long id, String titulo, Integer estimacionComercial) {
 
         validarObligatorio(titulo, MSG_TITULO_OBLIGATORIO);
+        validarLongitudMinima(titulo, 1,  MSG_TITULO_OBLIGATORIO);
         validarObligatorio(estimacionComercial, MSG_ESTIMACION_COMERCIAL_OBLIGATORIA);
-        
+        validarPositivo(estimacionComercial, MSG_ESTIMACION_COMERCIAL_OBLIGATORIA);
+
         this.id = id;
         this.titulo = titulo;
         this.estimacionComercial = estimacionComercial;
