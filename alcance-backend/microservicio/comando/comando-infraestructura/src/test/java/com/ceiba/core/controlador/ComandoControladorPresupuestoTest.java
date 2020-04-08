@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.UUID;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -60,5 +61,17 @@ public class ComandoControladorPresupuestoTest {
                 .content(objectMapper.writeValueAsString(presupuesto)))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'valor': 2}"));
+    }
+
+    @Test
+    public void eliminar() throws Exception {
+        // arrange
+        Long id = 1L;
+
+        // act - assert
+        mocMvc.perform(delete("/presupuestos/{id}",id)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 }

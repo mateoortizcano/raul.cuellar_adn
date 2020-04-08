@@ -9,4 +9,10 @@ public interface RepositorioPresupuesto {
      * @return el id generado
      */
     Long crear(Presupuesto presupuesto);
+
+    /**
+     * Permite eliminar un presupuesto
+     * @param id
+     */
+    void eliminar(Long id);
 }

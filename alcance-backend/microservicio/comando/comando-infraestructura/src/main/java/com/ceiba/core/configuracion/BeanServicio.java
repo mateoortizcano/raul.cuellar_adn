@@ -1,5 +1,6 @@
 package com.ceiba.core.configuracion;
 
+import com.ceiba.core.servicio.presupuesto.ServicioEliminarPresupuesto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -40,5 +41,10 @@ public class BeanServicio {
 	@Bean
 	public ServicioCrearPresupuesto servicioCrearPresupuesto(RepositorioPresupuesto repositorioPresupuesto){
 		return new ServicioCrearPresupuesto(repositorioPresupuesto);
+	}
+
+	@Bean
+	public ServicioEliminarPresupuesto servicioEliminarPresupuesto(RepositorioPresupuesto repositorioPresupuesto){
+		return new ServicioEliminarPresupuesto(repositorioPresupuesto);
 	}
 }
