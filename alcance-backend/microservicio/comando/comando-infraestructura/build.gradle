@@ -24,11 +24,3 @@ dependencies {
 	implementation project(':comun:comun-aplicacion-comando')
 }
 
-test {
-	finalizedBy jacocoTestReport
-}
-
-jacocoTestReport {reports {xml.enabled true}}
-
-jacocoTestReport.dependsOn(test)
-

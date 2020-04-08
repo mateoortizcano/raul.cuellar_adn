@@ -70,6 +70,10 @@ bootJar {
     version =  version
 }
 
+test {
+	finalizedBy jacocoTestReport
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -77,3 +81,5 @@ jacocoTestReport {
         html.destination file("${buildDir}/test-results/jacocoHtml")
     }
 }
+
+jacocoTestReport.dependsOn(test)
