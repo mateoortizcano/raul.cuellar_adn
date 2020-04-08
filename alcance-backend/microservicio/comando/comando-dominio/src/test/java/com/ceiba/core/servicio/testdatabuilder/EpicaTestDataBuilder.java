@@ -14,6 +14,6 @@ public class EpicaTestDataBuilder {
     }
 
     public Epica build() {
-    	return new Epica(Integer.toUnsignedLong(0), titulo, estimacionComercial);
+    	return new Epica(0L, titulo, estimacionComercial);
     }
 }

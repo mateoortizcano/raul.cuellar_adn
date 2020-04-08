@@ -15,13 +15,7 @@ public interface RepositorioUsuario {
 	 * @param usuario
 	 */
     void actualizar(Usuario usuario);
-    
-    /**
-     * Permite eliminar un usuario
-     * @param id
-     */
-    void eliminar(Long id);
-    
+
     /**
      * Permite validar si existe un usuario con un nombre
      * @param nombre

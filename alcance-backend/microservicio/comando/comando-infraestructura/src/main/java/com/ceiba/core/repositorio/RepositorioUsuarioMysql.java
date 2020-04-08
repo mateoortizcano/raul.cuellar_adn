@@ -18,9 +18,6 @@ public class RepositorioUsuarioMysql implements RepositorioUsuario {
 	@SqlStatement(namespace="usuario", value="actualizar")
 	private String sqlActualizar;
 	
-	@SqlStatement(namespace="usuario", value="eliminar")
-	private String sqlEliminar;
-	
 	@SqlStatement(namespace="usuario", value="existe")
 	private String sqlExiste;
 	
@@ -34,14 +31,6 @@ public class RepositorioUsuarioMysql implements RepositorioUsuario {
 	public Long crear(Usuario usuario) {
 		return this.customNamedParameterJdbcTemplate.crear(usuario, this.sqlCrear);
 	}
-
-    @Override
-    public void eliminar(Long id) {
-    	MapSqlParameterSource paramSource = new MapSqlParameterSource();
-	    paramSource.addValue("id", id);
-	    
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
-    }
 
 	@Override
 	public boolean existe(String nombre) {

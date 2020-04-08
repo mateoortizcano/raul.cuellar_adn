@@ -10,7 +10,6 @@ import com.ceiba.core.servicio.epica.ServicioCrearEpica;
 import com.ceiba.core.repositorio.RepositorioUsuario;
 import com.ceiba.core.servicio.usuario.ServicioActualizarUsuario;
 import com.ceiba.core.servicio.usuario.ServicioCrearUsuario;
-import com.ceiba.core.servicio.usuario.ServicioEliminarUsuario;
 
 import com.ceiba.core.repositorio.RepositorioPresupuesto;
 import com.ceiba.core.servicio.presupuesto.ServicioCrearPresupuesto;
@@ -23,11 +22,6 @@ public class BeanServicio {
 		return new ServicioCrearUsuario(repositorioUsuario);
 	}
 
-	@Bean
-	public ServicioEliminarUsuario servicioEliminarUsuario(RepositorioUsuario repositorioUsuario) {
-		return new ServicioEliminarUsuario(repositorioUsuario);
-	}
-	
 	@Bean
 	public ServicioActualizarUsuario servicioActualizarUsuario(RepositorioUsuario repositorioUsuario) {
 		return new ServicioActualizarUsuario(repositorioUsuario);
