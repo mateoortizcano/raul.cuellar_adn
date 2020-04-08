@@ -1,20 +1,20 @@
 package com.ceiba.core.manejador.presupuesto;
 
 import com.ceiba.core.aplicacion.manejador.ManejadorComando;
-import com.ceiba.core.servicio.presupuesto.ServicioEliminarPresupuesto;
+import com.ceiba.core.repositorio.RepositorioPresupuesto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ManejadorEliminarPresupuesto implements ManejadorComando<Long> {
 
-	private final ServicioEliminarPresupuesto servicioEliminarPresupuesto;
+	private final RepositorioPresupuesto repositorioPresupuesto;
 
-	public ManejadorEliminarPresupuesto(ServicioEliminarPresupuesto servicioEliminarPresupuesto) {
-		this.servicioEliminarPresupuesto = servicioEliminarPresupuesto;
+	public ManejadorEliminarPresupuesto(RepositorioPresupuesto repositorioPresupuesto) {
+		this.repositorioPresupuesto = repositorioPresupuesto;
 	}
 
 	public void ejecutar(Long idUsuario) {
-		this.servicioEliminarPresupuesto.ejecutar(idUsuario);
+		this.repositorioPresupuesto.eliminar(idUsuario);
 
 	}
 }

@@ -5,22 +5,22 @@ import com.ceiba.core.aplicacion.manejador.ManejadorComandoRespuesta;
 import com.ceiba.core.comando.ComandoPresupuesto;
 import com.ceiba.core.fabrica.FabricaPresupuesto;
 import com.ceiba.core.modelo.Presupuesto;
-import com.ceiba.core.servicio.presupuesto.ServicioCrearPresupuesto;
+import com.ceiba.core.repositorio.RepositorioPresupuesto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ManejadorCrearPresupuesto implements ManejadorComandoRespuesta<ComandoPresupuesto, ComandoRespuesta<Long>> {
 
     private final FabricaPresupuesto fabricaPresupuesto;
-    private final ServicioCrearPresupuesto servicioCrearPresupuesto;
+    private final RepositorioPresupuesto repositorioPresupuesto;
 
-    public ManejadorCrearPresupuesto(FabricaPresupuesto fabricaPresupuesto, ServicioCrearPresupuesto servicioCrearPresupuesto) {
+    public ManejadorCrearPresupuesto(FabricaPresupuesto fabricaPresupuesto, RepositorioPresupuesto repositorioPresupuesto) {
         this.fabricaPresupuesto = fabricaPresupuesto;
-        this.servicioCrearPresupuesto = servicioCrearPresupuesto;
+        this.repositorioPresupuesto = repositorioPresupuesto;
     }
 
     public ComandoRespuesta<Long> ejecutar(ComandoPresupuesto comandoPresupuesto){
         Presupuesto presupuesto = this.fabricaPresupuesto.crear(comandoPresupuesto);
-        return new ComandoRespuesta<>(this.servicioCrearPresupuesto.ejecutar(presupuesto));
+        return new ComandoRespuesta<>(this.repositorioPresupuesto.crear(presupuesto));
     }
 }
