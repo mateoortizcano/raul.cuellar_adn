@@ -20,3 +20,10 @@ dependencies {
 	annotationProcessor project.ext.lombok
 }
 
+test {
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {reports {xml.enabled true}}
+
+jacocoTestReport.dependsOn(test)
