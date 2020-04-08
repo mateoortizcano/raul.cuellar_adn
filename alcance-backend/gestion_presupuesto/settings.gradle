@@ -1,4 +1,4 @@
-rootProject.name = 'alcance'
+rootProject.name = 'gestion_presupuesto'
 
 include ':comun', 
 		':comun:comun-infraestructura', 

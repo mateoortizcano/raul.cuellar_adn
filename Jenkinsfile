@@ -40,7 +40,7 @@ pipeline {
 			stage('Compile backend'){
 				steps{
 					echo "------------>Compilación backend<------------"
-					dir("alcance-backend/microservicio"){
+					dir("alcance-backend/gestion_presupuesto"){
 						sh 'gradle clean build -x test'
 					}
 				}
@@ -53,7 +53,7 @@ pipeline {
 			stage('Test - Cobertura backend'){
 				steps {
 					echo '------------>test backend<------------'
-					dir("alcance-backend/microservicio"){
+					dir("alcance-backend/gestion_presupuesto"){
 						sh 'gradle --stacktrace test'
 					}
 				}
@@ -76,7 +76,7 @@ pipeline {
     }
     success {
 		echo 'This will run only if successful'
-		// junit 'alcance-backend/microservicio/consulta/comando-dominio/build/reports/jacoco/test/*.xml' 
+		// junit 'alcance-backend/gestion_presupuesto/consulta/comando-dominio/build/reports/jacoco/test/*.xml' 
 	}
     failure {
 		echo 'This will run only if failed'
