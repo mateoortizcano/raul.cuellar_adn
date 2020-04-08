@@ -17,8 +17,8 @@ public class ConsultaControladorPresupuesto {
 
 	private final ManejadorListarPresupuestos manejadorListarPresupuestos;
 
-	public ConsultaControladorPresupuesto(ManejadorListarPresupuestos manejadorListraPresupuestos) {
-		this.manejadorListarPresupuestos = manejadorListraPresupuestos;
+	public ConsultaControladorPresupuesto(ManejadorListarPresupuestos manejadorListarPresupuestos) {
+		this.manejadorListarPresupuestos = manejadorListarPresupuestos;
 	}
 
 	@GetMapping
