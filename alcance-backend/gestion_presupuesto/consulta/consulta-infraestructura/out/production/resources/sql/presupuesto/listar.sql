@@ -1,0 +1,1 @@
+SELECT id, valor, reserva_estabilizacion, observaciones, id_proyecto FROM presupuesto
