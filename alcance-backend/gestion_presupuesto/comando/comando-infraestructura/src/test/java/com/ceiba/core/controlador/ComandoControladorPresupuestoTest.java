@@ -47,21 +47,6 @@ public class ComandoControladorPresupuestoTest {
         		.andExpect(status().isOk())
         		.andExpect(content().json("{'valor': 1}"));
     }
-    @Test
-    public void crearSinObservaciones() throws Exception{
-        // arrange
-        ComandoPresupuesto presupuesto = new ComandoPresupuestoTestDataBuilder(
-                988478952.0,
-                98847895.0
-        ).build();
-
-        // act - assert
-        mocMvc.perform(post("/presupuestos")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsString(presupuesto)))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
-    }
 
     @Test
     public void eliminar() throws Exception {
