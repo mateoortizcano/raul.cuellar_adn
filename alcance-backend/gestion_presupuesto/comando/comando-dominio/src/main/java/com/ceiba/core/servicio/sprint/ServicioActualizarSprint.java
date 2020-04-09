@@ -1,8 +1,6 @@
 package com.ceiba.core.servicio.sprint;
 
-import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.core.modelo.Sprint;
-import com.ceiba.core.modelo.Usuario;
 import com.ceiba.core.repositorio.RepositorioSprint;
 
 public class ServicioActualizarSprint {
