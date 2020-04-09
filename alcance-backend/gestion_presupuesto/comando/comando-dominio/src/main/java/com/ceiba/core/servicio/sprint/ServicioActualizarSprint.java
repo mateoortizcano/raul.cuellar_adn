@@ -4,9 +4,7 @@ import com.ceiba.core.modelo.Sprint;
 import com.ceiba.core.repositorio.RepositorioSprint;
 
 public class ServicioActualizarSprint {
-
-    private static final String EL_USUARIO_YA_EXISTE_EN_EL_SISTEMA = "El usuario ya existe en el sistema";
-
+    
 	private final RepositorioSprint repositorioSprint;
 
     public ServicioActualizarSprint(RepositorioSprint repositorioSprint) {
