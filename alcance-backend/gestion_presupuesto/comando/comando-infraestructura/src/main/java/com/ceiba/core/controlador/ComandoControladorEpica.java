@@ -25,7 +25,7 @@ public class ComandoControladorEpica {
     }
 
     @PostMapping
-    @ApiOperation("Crear Usuario")
+    @ApiOperation("Crear Epica")
     public ComandoRespuesta<Long> crear(@RequestBody ComandoEpica comandoEpica){
         return manejadorCrearEpica.ejecutar(comandoEpica);
     }

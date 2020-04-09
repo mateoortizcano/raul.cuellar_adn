@@ -13,8 +13,8 @@ public class ManejadorEliminarPresupuesto implements ManejadorComando<Long> {
 		this.repositorioPresupuesto = repositorioPresupuesto;
 	}
 
-	public void ejecutar(Long idUsuario) {
-		this.repositorioPresupuesto.eliminar(idUsuario);
+	public void ejecutar(Long idPresupuesto) {
+		this.repositorioPresupuesto.eliminar(idPresupuesto);
 
 	}
 }

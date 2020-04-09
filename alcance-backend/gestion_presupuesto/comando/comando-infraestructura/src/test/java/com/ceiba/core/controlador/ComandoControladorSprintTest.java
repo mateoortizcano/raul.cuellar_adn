@@ -2,9 +2,7 @@ package com.ceiba.core.controlador;
 
 import com.ceiba.core.ApplicationMock;
 import com.ceiba.core.comando.ComandoSprint;
-import com.ceiba.core.comando.ComandoUsuario;
 import com.ceiba.core.testdatabuilder.ComandoSprintTestDataBuilder;
-import com.ceiba.core.testdatabuilder.ComandoUsuarioTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
