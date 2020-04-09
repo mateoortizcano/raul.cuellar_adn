@@ -39,4 +39,23 @@ public class Sprint {
         return nombre;
     }
 
+    public LocalDateTime getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public LocalDateTime getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public Integer getDiasHabiles() {
+        return diasHabiles;
+    }
+
+    public Integer getNumeroPersonas() {
+        return numeroPersonas;
+    }
+
+    public Integer getIdProyecto() {
+        return idProyecto;
+    }
 }

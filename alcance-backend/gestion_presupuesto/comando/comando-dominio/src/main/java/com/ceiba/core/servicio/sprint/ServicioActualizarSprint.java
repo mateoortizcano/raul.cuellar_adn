@@ -4,7 +4,7 @@ import com.ceiba.core.modelo.Sprint;
 import com.ceiba.core.repositorio.RepositorioSprint;
 
 public class ServicioActualizarSprint {
-
+    
 	private final RepositorioSprint repositorioSprint;
 
     public ServicioActualizarSprint(RepositorioSprint repositorioSprint) {

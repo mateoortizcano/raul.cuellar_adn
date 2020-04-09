@@ -34,4 +34,20 @@ public class Presupuesto {
     public Long getId() {
         return id;
     }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public Double getReservaEstabilizacion() {
+        return reservaEstabilizacion;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public Integer getIdProyecto() {
+        return idProyecto;
+    }
 }

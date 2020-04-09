@@ -24,4 +24,12 @@ public class Epica {
     public Long getId() {
         return id;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public Integer getEstimacionComercial() {
+        return estimacionComercial;
+    }
 }
