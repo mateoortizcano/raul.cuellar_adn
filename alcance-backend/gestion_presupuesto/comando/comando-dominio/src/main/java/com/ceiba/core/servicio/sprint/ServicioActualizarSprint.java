@@ -21,7 +21,9 @@ public class ServicioActualizarSprint {
     }
 
     private void validarNombreExistente(Sprint sprint) {
-        boolean existe = this.repositorioSprint.existeNombreExcluyendoId(sprint.getId(), sprint.getNombre());
+        boolean existe = this.repositorioSprint.existeNombreExcluyendoId(
+                sprint.getId(),
+                sprint.getNombre());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_NOMBRE_SPRINT_YA_EXISTE);
         }

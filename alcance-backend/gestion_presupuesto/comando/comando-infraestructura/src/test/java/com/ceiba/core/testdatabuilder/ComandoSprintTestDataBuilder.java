@@ -1,10 +1,8 @@
 package com.ceiba.core.testdatabuilder;
 
 import com.ceiba.core.comando.ComandoSprint;
-import com.ceiba.core.comando.ComandoUsuario;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class ComandoSprintTestDataBuilder {
 

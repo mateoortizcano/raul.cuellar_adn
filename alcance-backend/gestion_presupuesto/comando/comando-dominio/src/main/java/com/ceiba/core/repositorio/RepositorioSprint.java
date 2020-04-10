@@ -5,6 +5,28 @@ import java.time.LocalDateTime;
 
 public interface RepositorioSprint {
 
+	/**
+	 * Permite crear un sprint
+	 * @param sprint
+	 * @return el id generado
+	 */
+	Long crear(Sprint sprint);
+
+	/**
+	 * Permite validar si existe un sprint con un nombre
+	 * @param nombre
+	 * @return si existe o no
+	 */
+	boolean existeNombre(String nombre);
+
+	/**
+	 * Permite validar si existe un sprint con un periodo de fechas en conflicto
+	 * @param fechaInicial
+	 * @param fechaFinal
+	 * @return si existe o no
+	 */
+	boolean existePeriodo(LocalDateTime fechaInicial, LocalDateTime fechaFinal);
+
     /**
 	 * Permite actualizar un sprint
 	 * @param sprint

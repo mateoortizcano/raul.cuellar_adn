@@ -10,11 +10,6 @@ import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 public class BeanRepositorio {
 
 	@Bean
-	public RepositorioUsuario repositorioUsuario(CustomNamedParameterJdbcTemplate repositorioGenerico) {
-		return new RepositorioUsuarioMysql(repositorioGenerico);
-	}
-
-	@Bean
 	public RepositorioEpica repositorioEpica(CustomNamedParameterJdbcTemplate repositorioGenerico){
 		return new RepositorioEpicaMysql(repositorioGenerico);
 	}

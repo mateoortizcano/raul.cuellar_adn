@@ -15,7 +15,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -30,10 +32,36 @@ public class ComandoControladorSprintTest {
     private MockMvc mocMvc;
 
     @Test
+    public void crear() throws Exception{
+        // arrange
+        ComandoSprint sprint = new ComandoSprintTestDataBuilder(
+                1L,
+                "Sprint 1",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                10,
+                3
+        ).build();
+
+        // act - assert
+        mocMvc.perform(post("/sprint")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(sprint)))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'valor': 1}"));
+    }
+
+    @Test
     public void actualizar() throws Exception{
         // arrange
-    	Long id = 1L;
-        ComandoSprint sprint = new ComandoSprintTestDataBuilder(id, "Otro nombre", LocalDateTime.now(), LocalDateTime.now(), 10, 3).build();
+        Long id = 1L;
+        ComandoSprint sprint = new ComandoSprintTestDataBuilder(
+                id,
+                "Otro nombre",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                10,
+                3).build();
 
         // act - assert
         mocMvc.perform(put("/sprint/{id}",id)
