@@ -32,12 +32,25 @@ public class ConsultaControladorPresupuestoTest {
     	mocMvc.perform(get("/presupuestos")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$", hasSize(2)))
 				.andExpect(jsonPath("$[0].id", is(1)))
 				.andExpect(jsonPath("$[0].valor", is(10.0)))
 				.andExpect(jsonPath("$[0].reservaEstabilizacion", is(1.0)))
 				.andExpect(jsonPath("$[0].idProyecto", is(1)));
     }
-    
+
+	@Test
+	public void listarGlobal() throws Exception {
+		// arrange
+		Long idProyecto = 1L;
+		// act - assert
+		mocMvc.perform(get("/presupuestos/global/{idProyecto}", idProyecto)
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$[0].valor", is(22.0)))
+				.andExpect(jsonPath("$[0].reservaEstabilizacion", is(2.0)))
+				.andExpect(jsonPath("$[0].idProyecto", is(1)));
+	}
 
 }
