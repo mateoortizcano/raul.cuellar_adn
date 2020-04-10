@@ -40,7 +40,7 @@ public class SprintTest {
                 1L);
         //Act - Assert
         BasePrueba.assertThrows(() -> sprintTestDataBuilder.build(),
-                ExcepcionValorObligatorio.class, "Proporcione una fecha de finalizacion de sprint");
+                ExcepcionValorObligatorio.class, "Proporcione una fecha de finalización de sprint");
     }
     @Test
     public void validarFechasTest(){
