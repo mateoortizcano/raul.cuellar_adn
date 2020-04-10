@@ -14,7 +14,7 @@ public class ComandoSprintTestDataBuilder {
     private LocalDateTime fechaFinal;
     private Integer diasHabiles;
     private Integer numeroPersonas;
-    private Integer idProyecto;
+    private Long idProyecto;
 
     public ComandoSprintTestDataBuilder(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Integer diasHabiles, Integer numeroPersonas) {
         this.id = id;
@@ -23,7 +23,7 @@ public class ComandoSprintTestDataBuilder {
         this.fechaFinal = fechaFinal;
         this.diasHabiles = diasHabiles;
         this.numeroPersonas = numeroPersonas;
-        this.idProyecto = 1;
+        this.idProyecto = 1L;
     }
 
     public ComandoSprint build() {

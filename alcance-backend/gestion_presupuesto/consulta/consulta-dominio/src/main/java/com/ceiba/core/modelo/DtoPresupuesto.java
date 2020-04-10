@@ -10,5 +10,5 @@ public class DtoPresupuesto {
     private Double valor;
     private Double reservaEstabilizacion;
     private String observaciones;
-    private Integer idProyecto;
+    private Long idProyecto;
 }

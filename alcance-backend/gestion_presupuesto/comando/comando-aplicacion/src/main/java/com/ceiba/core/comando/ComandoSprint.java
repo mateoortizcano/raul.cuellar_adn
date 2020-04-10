@@ -19,5 +19,5 @@ public class ComandoSprint {
     private LocalDateTime fechaFinal;
     private Integer diasHabiles;
     private Integer numeroPersonas;
-    private Integer idProyecto;
+    private Long idProyecto;
 }

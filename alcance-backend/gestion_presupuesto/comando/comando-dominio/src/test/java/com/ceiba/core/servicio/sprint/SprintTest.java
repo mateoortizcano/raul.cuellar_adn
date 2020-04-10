@@ -25,7 +25,7 @@ public class SprintTest {
 				LocalDateTime.now(),
 				9,
 				3,
-				1
+				1L
 		).build();
         // act - assert
 		BasePrueba.assertThrows(() -> servicioActualizarSprint.ejecutar(sprint),
@@ -48,7 +48,7 @@ public class SprintTest {
 				LocalDateTime.now(),
 				9,
 				3,
-				1
+				1L
 		).build();
 		// act - assert
 		BasePrueba.assertThrows(() -> servicioActualizarSprint.ejecutar(sprint),

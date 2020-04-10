@@ -14,9 +14,9 @@ public class Presupuesto {
     private Double valor;
     private Double reservaEstabilizacion;
     private String observaciones;
-    private Integer idProyecto;
+    private Long idProyecto;
 
-    public Presupuesto(Long id, Double valor, Double reservaEstabilizacion, String observaciones, Integer idProyecto) {
+    public Presupuesto(Long id, Double valor, Double reservaEstabilizacion, String observaciones, Long idProyecto) {
 
         validarObligatorio(valor, MSG_VALOR_OBLIGATORIO);
         validarPositivo(valor, MSG_VALOR_POSITIVO_MAYOR_0);
@@ -47,7 +47,7 @@ public class Presupuesto {
         return observaciones;
     }
 
-    public Integer getIdProyecto() {
+    public Long getIdProyecto() {
         return idProyecto;
     }
 }

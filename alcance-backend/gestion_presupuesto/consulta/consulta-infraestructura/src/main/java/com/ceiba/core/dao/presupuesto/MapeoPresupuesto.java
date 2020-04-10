@@ -15,7 +15,7 @@ public class MapeoPresupuesto implements RowMapper<DtoPresupuesto>, MapperResult
         Double valor = resultSet.getDouble("valor");
         Double reservaEstabilizacion = resultSet.getDouble("reserva_estabilizacion");
         String observaciones = resultSet.getString("observaciones");
-        Integer idProyecto = resultSet.getInt("id_proyecto");
+        Long idProyecto = resultSet.getLong("id_proyecto");
 
         return new DtoPresupuesto(id, valor, reservaEstabilizacion, observaciones, idProyecto);
     }

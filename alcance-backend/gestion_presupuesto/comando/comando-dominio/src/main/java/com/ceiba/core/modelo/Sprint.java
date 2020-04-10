@@ -15,9 +15,9 @@ public class Sprint {
     private LocalDateTime fechaFinal;
     private Integer diasHabiles;
     private Integer numeroPersonas;
-    private Integer idProyecto;
+    private Long idProyecto;
 
-    public Sprint(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Integer diasHabiles, Integer numeroPersonas, Integer idProyecto) {
+    public Sprint(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Integer diasHabiles, Integer numeroPersonas, Long idProyecto) {
 
         validarObligatorio(fechaInicial, MSG_FECHA_INICIAL_OBLIGATORIO);
         validarObligatorio(fechaFinal, MSG_FECHA_FINAL_OBLIGATORIO);
@@ -55,7 +55,7 @@ public class Sprint {
         return numeroPersonas;
     }
 
-    public Integer getIdProyecto() {
+    public Long getIdProyecto() {
         return idProyecto;
     }
 }

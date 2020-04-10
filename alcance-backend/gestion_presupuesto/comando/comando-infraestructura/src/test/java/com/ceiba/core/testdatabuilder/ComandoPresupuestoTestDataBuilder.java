@@ -8,20 +8,20 @@ public class ComandoPresupuestoTestDataBuilder {
     private Double valor;
     private Double reservaEstabilizacion;
     private String observaciones;
-    private Integer idProyecto;
+    private Long idProyecto;
 
     public ComandoPresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion, String observaciones) {
         this.valor = valor;
         this.reservaEstabilizacion = reservaEstabilizacion;
         this.observaciones = observaciones;
-        this.idProyecto = 1;
+        this.idProyecto = 1L;
     }
 
     public ComandoPresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion) {
         this.valor = valor;
         this.reservaEstabilizacion = reservaEstabilizacion;
         this.observaciones = null;
-        this.idProyecto = 1;
+        this.idProyecto = 1L;
     }
 
     public ComandoPresupuesto build() {

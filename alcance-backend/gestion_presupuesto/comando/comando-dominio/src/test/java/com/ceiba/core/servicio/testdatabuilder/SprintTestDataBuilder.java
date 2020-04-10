@@ -12,9 +12,9 @@ public class SprintTestDataBuilder {
     private LocalDateTime fechaFinal;
     private Integer diasHabiles;
     private Integer numeroPersonas;
-    private Integer idProyecto;
+    private Long idProyecto;
 
-    public SprintTestDataBuilder(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Integer diasHabiles, Integer numeroPersonas, Integer idProyecto) {
+    public SprintTestDataBuilder(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Integer diasHabiles, Integer numeroPersonas, Long idProyecto) {
         this.id = id;
         this.nombre = nombre;
         this.fechaInicial = fechaInicial;

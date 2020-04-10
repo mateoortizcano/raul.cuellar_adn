@@ -7,9 +7,9 @@ public class PresupuestoTestDataBuilder {
     private Double valor;
     private Double reservaEstabilizacion;
     private String observaciones;
-    private Integer idProyecto;
+    private Long idProyecto;
 
-    public PresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion, String observaciones, Integer idProyecto) {
+    public PresupuestoTestDataBuilder(Double valor, Double reservaEstabilizacion, String observaciones, Long idProyecto) {
         this.valor = valor;
         this.reservaEstabilizacion = reservaEstabilizacion;
         this.observaciones = observaciones;
@@ -17,6 +17,6 @@ public class PresupuestoTestDataBuilder {
     }
 
     public Presupuesto build() {
-    	return new Presupuesto(Integer.toUnsignedLong(0), valor, reservaEstabilizacion, observaciones, idProyecto);
+    	return new Presupuesto(1L, valor, reservaEstabilizacion, observaciones, idProyecto);
     }
 }

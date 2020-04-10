@@ -14,56 +14,70 @@ public class PresupuestoTest {
     @Test
     public void validarValorNegativo() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(-1.0, 10.0, "", 1);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                -1.0, 10.0, "", 1L);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorInvalido.class, "Proporcione un valor válido para el presupuesto");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorInvalido.class, "Proporcione un valor válido para el presupuesto");
     }
 
     @Test
     public void validarValorCero() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(0.0, 10.0, "", 1);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                0.0, 10.0, "", 1L);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorInvalido.class, "Proporcione un valor válido para el presupuesto");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorInvalido.class, "Proporcione un valor válido para el presupuesto");
     }
 
     @Test
     public void validarReservaNegativa() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(10.0, -10.0, "", 1);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                10.0, -10.0, "", 1L);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorInvalido.class, "Proporcione un valor válido para la reserva de estabilización");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorInvalido.class, "Proporcione un valor válido para la reserva de estabilización");
     }
 
     @Test
     public void validarReservaCero() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(10.0, 0.0, "", 1);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                10.0, 0.0, "", 1L);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorInvalido.class, "Proporcione un valor válido para la reserva de estabilización");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorInvalido.class, "Proporcione un valor válido para la reserva de estabilización");
     }
 
     @Test
     public void validarSinProyecto() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(10.0, 1.0, "Observaciones", null);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                10.0, 1.0, "Observaciones", null);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Indique el proyecto al que pertenece el presupuesto");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorObligatorio.class, "Indique el proyecto al que pertenece el presupuesto");
     }
 
     @Test
     public void validarSinValor() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(null, 1.0, "Observaciones", 1);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                null, 1.0, "Observaciones", 1L);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Proporcione un valor para el presupuesto");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorObligatorio.class, "Proporcione un valor para el presupuesto");
     }
 
     @Test
     public void validarSinReserva() {
         // arrange
-        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(10.0, null, "Observaciones", 1);
+        PresupuestoTestDataBuilder presupuestoTestDataBuilder = new PresupuestoTestDataBuilder(
+                10.0, null, "Observaciones", 1L);
         // act - assert
-        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Proporcione un valor para la reserva de estabilización");
+        BasePrueba.assertThrows(() -> presupuestoTestDataBuilder.build(),
+                ExcepcionValorObligatorio.class, "Proporcione un valor para la reserva de estabilización");
     }
 }
