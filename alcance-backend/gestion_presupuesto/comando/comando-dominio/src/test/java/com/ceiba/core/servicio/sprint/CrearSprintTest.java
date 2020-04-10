@@ -10,14 +10,14 @@ import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
 
-public class SprintTest {
+public class CrearSprintTest {
 	
 	@Test
-    public void validarSprintConNombreExistenteTest() {
+    public void validarCrearSprintConNombreExistenteTest() {
         // arrange
 		RepositorioSprint repositorioSprint = Mockito.mock(RepositorioSprint.class);
-		Mockito.when(repositorioSprint.existeNombreExcluyendoId(Mockito.anyLong(),Mockito.anyString())).thenReturn(true);
-		ServicioActualizarSprint servicioActualizarSprint = new ServicioActualizarSprint(repositorioSprint);
+		Mockito.when(repositorioSprint.existeNombre(Mockito.anyString())).thenReturn(true);
+		ServicioCrearSprint servicioCrearSprint = new ServicioCrearSprint(repositorioSprint);
 		Sprint sprint = new SprintTestDataBuilder(
 				1L,
 				"Sprint 0",
@@ -28,19 +28,18 @@ public class SprintTest {
 				1L
 		).build();
         // act - assert
-		BasePrueba.assertThrows(() -> servicioActualizarSprint.ejecutar(sprint),
+		BasePrueba.assertThrows(() -> servicioCrearSprint.ejecutar(sprint),
 				ExcepcionDuplicidad.class,
 				"Ya existe un sprint con ese nombre");
     }
 	@Test
-	public void validarSprintConPeriodoExistenteTest() {
+	public void validarCrearSprintConPeriodoExistenteTest() {
 		// arrange
 		RepositorioSprint repositorioSprint = Mockito.mock(RepositorioSprint.class);
-		Mockito.when(repositorioSprint.existePeriodoExcluyendoId(
-				Mockito.anyLong(),
+		Mockito.when(repositorioSprint.existePeriodo(
 				Mockito.any(),
 				Mockito.any())).thenReturn(true);
-		ServicioActualizarSprint servicioActualizarSprint = new ServicioActualizarSprint(repositorioSprint);
+		ServicioCrearSprint servicioCrearSprint = new ServicioCrearSprint(repositorioSprint);
 		Sprint sprint = new SprintTestDataBuilder(
 				1L,
 				"Sprint 0",
@@ -51,7 +50,7 @@ public class SprintTest {
 				1L
 		).build();
 		// act - assert
-		BasePrueba.assertThrows(() -> servicioActualizarSprint.ejecutar(sprint),
+		BasePrueba.assertThrows(() -> servicioCrearSprint.ejecutar(sprint),
 				ExcepcionDuplicidad.class,
 				"Ya existe un sprint para el periodo descrito");
 	}
