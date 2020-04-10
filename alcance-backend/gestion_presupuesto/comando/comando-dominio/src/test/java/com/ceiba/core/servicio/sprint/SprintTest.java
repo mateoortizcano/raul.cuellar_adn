@@ -14,47 +14,47 @@ public class SprintTest {
     @Test
     public void validarFechaInicialTest(){
         //Arrange
-        Sprint sprint = new SprintTestDataBuilder(
+        SprintTestDataBuilder sprintTestDataBuilder = new SprintTestDataBuilder(
                 1L,
                 "Sprint 1",
                 null,
                 LocalDateTime.now(),
                 8,
                 2,
-                1L).build();
+                1L);
         //Act - Assert
-        BasePrueba.assertThrows(() -> sprint,
+        BasePrueba.assertThrows(() -> sprintTestDataBuilder.build(),
                 ExcepcionValorObligatorio.class, "Proporcione una fecha de inicio de sprint");
     }
 
     @Test
     public void validarFechaFinalTest(){
         //Arrange
-        Sprint sprint = new SprintTestDataBuilder(
+        SprintTestDataBuilder sprintTestDataBuilder = new SprintTestDataBuilder(
                 1L,
                 "Sprint 1",
                 LocalDateTime.now(),
                 null,
                 8,
                 2,
-                1L).build();
+                1L);
         //Act - Assert
-        BasePrueba.assertThrows(() -> sprint,
-                ExcepcionValorObligatorio.class, "Proporcione una fecha de finalización de sprint");
+        BasePrueba.assertThrows(() -> sprintTestDataBuilder.build(),
+                ExcepcionValorObligatorio.class, "Proporcione una fecha de finalizacion de sprint");
     }
     @Test
     public void validarFechasTest(){
         //Arrange
-        Sprint sprint = new SprintTestDataBuilder(
+        SprintTestDataBuilder sprintTestDataBuilder = new SprintTestDataBuilder(
                 1L,
                 "Sprint 1",
                 LocalDateTime.now(),
                 LocalDateTime.now().minusDays(1L),
                 8,
                 2,
-                1L).build();
+                1L);
         //Act - Assert
-        BasePrueba.assertThrows(() -> sprint,
+        BasePrueba.assertThrows(() -> sprintTestDataBuilder.build(),
                 ExcepcionValorInvalido.class, "La fecha final debe ser posterior a la fecha final");
     }
 

@@ -8,7 +8,7 @@ import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;
 public class Sprint {
 
     private static final String MSG_FECHA_INICIAL_OBLIGATORIO = "Proporcione una fecha de inicio de sprint";
-    private static final String MSG_FECHA_FINAL_OBLIGATORIO = "Proporcione una fecha de finalización de sprint";
+    private static final String MSG_FECHA_FINAL_OBLIGATORIO = "Proporcione una fecha de finalizacion de sprint";
     private static final String MSG_RANGO_FECHAS_NO_VALIDOS = "La fecha final debe ser posterior a la fecha final";
 
     private Long id;
@@ -24,6 +24,7 @@ public class Sprint {
         validarObligatorio(fechaInicial, MSG_FECHA_INICIAL_OBLIGATORIO);
         validarObligatorio(fechaFinal, MSG_FECHA_FINAL_OBLIGATORIO);
         validarMenor(fechaInicial, fechaFinal, MSG_RANGO_FECHAS_NO_VALIDOS);
+
         this.id = id;
         this.nombre = nombre;
         this.fechaInicial = fechaInicial;
