@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/epicas")
 @Api(tags={"Controlador consulta epicas"})
 public class ConsultaControladorEpica {
-    private ManejadorListarEpicas manejadorListarEpicas;
+    private final ManejadorListarEpicas manejadorListarEpicas;
 
     public ConsultaControladorEpica(ManejadorListarEpicas manejadorListarEpicas) {
         this.manejadorListarEpicas = manejadorListarEpicas;

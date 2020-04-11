@@ -19,7 +19,7 @@ import java.util.List;
 public class ConsultaControladorPresupuesto {
 
 	private final ManejadorListarPresupuestos manejadorListarPresupuestos;
-	private ManejadorListarPresupuestosGlobal manejadorListarPresupuestosGlobal;
+	private final ManejadorListarPresupuestosGlobal manejadorListarPresupuestosGlobal;
 
 	public ConsultaControladorPresupuesto(ManejadorListarPresupuestos manejadorListarPresupuestos,
 										  ManejadorListarPresupuestosGlobal manejadorListarPresupuestosGlobal) {
