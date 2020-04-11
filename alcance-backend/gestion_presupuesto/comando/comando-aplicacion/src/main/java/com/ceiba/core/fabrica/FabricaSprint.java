@@ -13,7 +13,6 @@ public class FabricaSprint {
 	        comandoSprint.getNombre(),
 			comandoSprint.getFechaInicial(),
 			comandoSprint.getFechaFinal(),
-			comandoSprint.getDiasHabiles(),
 			comandoSprint.getNumeroPersonas(),
 			comandoSprint.getIdProyecto()
 	    );

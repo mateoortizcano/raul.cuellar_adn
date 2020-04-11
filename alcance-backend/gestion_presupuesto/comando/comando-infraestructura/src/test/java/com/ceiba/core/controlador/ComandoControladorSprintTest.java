@@ -39,7 +39,6 @@ public class ComandoControladorSprintTest {
                 "Sprint 1",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
-                10,
                 3
         ).build();
 
@@ -60,8 +59,7 @@ public class ComandoControladorSprintTest {
                 "Otro nombre",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
-                10,
-                3).build();
+                10).build();
 
         // act - assert
         mocMvc.perform(put("/sprint/{id}",id)

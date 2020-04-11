@@ -1,0 +1,37 @@
+package com.ceiba.core.dominio.util.fechas;
+
+public enum FestivosColombiaEnum {
+
+	PRIMERO(1),
+	REYES_MAGOS(6),
+	SAN_JOSE(19),
+	ASCENSION_JESUS(42),
+	CORPUS_CHRISTI(63),
+	SAGRADO_CORAZON(70),
+	SAN_PEDRO_PABLO(29),
+	INDEPENDENCIA(20),
+	BATALLA_BOYACA(7),
+	ASCENCION_VIRGEN(15),
+	DIA_RAZA(12),
+	TODOS_LOS_SANTOS(1),
+	INDEPENDENCIA_CARTAGENA(11),
+	INMACULADA_CONCEPCION(8),
+	NAVIDAD(25),
+	CONSTANTE_ANIO_1900_2100(24),
+	CONSTANTE_ANIO_2100(5),
+	CONSTANTE_ANIO_2200(25),
+	CONSTANTE_ANIO_2099(5),
+	CONSTANTE_ANIO_2199(5),
+	CONSTANTE_ANIO_2299(0);
+
+	private Integer value;
+
+	FestivosColombiaEnum(Integer a) {
+		this.value = a;
+	}
+
+	public Integer getValue() {
+		return value;
+	}
+
+}

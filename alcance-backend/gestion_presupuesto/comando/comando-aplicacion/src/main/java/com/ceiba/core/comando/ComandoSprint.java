@@ -9,15 +9,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ComandoSprint {
-
     private Long id;
     private String nombre;
     private LocalDateTime fechaInicial;
     private LocalDateTime fechaFinal;
-    private Integer diasHabiles;
     private Integer numeroPersonas;
     private Long idProyecto;
 }

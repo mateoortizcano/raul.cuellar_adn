@@ -19,7 +19,6 @@ public class SprintTest {
                 "Sprint 1",
                 null,
                 LocalDateTime.now(),
-                8,
                 2,
                 1L);
         //Act - Assert
@@ -35,7 +34,6 @@ public class SprintTest {
                 "Sprint 1",
                 LocalDateTime.now(),
                 null,
-                8,
                 2,
                 1L);
         //Act - Assert
@@ -50,7 +48,6 @@ public class SprintTest {
                 "Sprint 1",
                 LocalDateTime.now(),
                 LocalDateTime.now().minusDays(1L),
-                8,
                 2,
                 1L);
         //Act - Assert

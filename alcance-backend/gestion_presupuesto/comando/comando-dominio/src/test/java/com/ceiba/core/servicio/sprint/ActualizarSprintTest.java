@@ -23,7 +23,6 @@ public class ActualizarSprintTest {
 				"Sprint 0",
 				LocalDateTime.now(),
 				LocalDateTime.now(),
-				9,
 				3,
 				1L
 		).build();
@@ -46,7 +45,6 @@ public class ActualizarSprintTest {
 				"Sprint 0",
 				LocalDateTime.now(),
 				LocalDateTime.now(),
-				9,
 				3,
 				1L
 		).build();
