@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sprint")
+@RequestMapping("/proyectos/{idProyecto}/sprints")
 @Api(tags={"Controlador consulta sprint"})
 public class ConsultaControladorSprint {
 
@@ -24,7 +24,6 @@ public class ConsultaControladorSprint {
 
 	@GetMapping
 	@ApiOperation("Listar Presupuestos")
-	@RequestMapping("/{idProyecto}")
 	public List<DtoSprint> listar(@PathVariable Long idProyecto) {
 		return this.manejadorListarSprint.ejecutar(idProyecto);
 	}

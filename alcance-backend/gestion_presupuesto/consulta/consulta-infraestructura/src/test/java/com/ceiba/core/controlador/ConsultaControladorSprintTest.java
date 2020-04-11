@@ -29,7 +29,7 @@ public class ConsultaControladorSprintTest {
         // arrange
 
         // act - assert
-    	mocMvc.perform(get("/sprint/1")
+    	mocMvc.perform(get("/proyectos/1/sprints")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$", hasSize(1)))

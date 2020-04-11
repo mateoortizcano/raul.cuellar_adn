@@ -43,7 +43,7 @@ public class ComandoControladorSprintTest {
         ).build();
 
         // act - assert
-        mocMvc.perform(post("/sprint")
+        mocMvc.perform(post("/sprints")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(sprint)))
                 .andExpect(status().isOk())
@@ -62,7 +62,7 @@ public class ComandoControladorSprintTest {
                 10).build();
 
         // act - assert
-        mocMvc.perform(put("/sprint/{id}",id)
+        mocMvc.perform(put("/sprints/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(sprint)))
         		.andExpect(status().isOk());
