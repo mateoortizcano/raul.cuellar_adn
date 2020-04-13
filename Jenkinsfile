@@ -8,6 +8,11 @@ pipeline {
   options {
 	buildDiscarder(logRotator(numToKeepStr: '3'))
 	disableConcurrentBuilds()
+	
+	environment {
+		PROJECT_PATH_BACK = 'alcance-backend'
+		PROJECT_PATH_FRONT = 'alcance-frontend'
+	}
   }
 
   //Una sección que define las herramientas “preinstaladas” en Jenkins
@@ -40,11 +45,24 @@ pipeline {
 			stage('Compile backend'){
 				steps{
 					echo "------------>Compilación backend<------------"
-					dir("alcance-backend/gestion_presupuesto"){
+					dir("${PROJECT_PATH_BACK}/gestion_presupuesto"){
 						sh 'gradle clean build -x test'
 					}
 				}
 			
+			}
+			stage('Compile frontend'){
+				steps {
+					echo '------------>Compilación frontend<------------'
+
+					dir("${PROJECT_PATH_FRONT}"){
+						sh 'npm install'
+					}
+												
+					dir("${PROJECT_PATH_FRONT}"){
+						sh 'npm run ng build --configuration=production --outputHashing'
+					}
+				}
 			}
 		}
 	}
@@ -53,8 +71,16 @@ pipeline {
 			stage('Test - Cobertura backend'){
 				steps {
 					echo '------------>test backend<------------'
-					dir("alcance-backend/gestion_presupuesto"){
+					dir("${PROJECT_PATH_BACK}/gestion_presupuesto"){
 						sh 'gradle --stacktrace test'
+					}
+				}
+			}
+			stage('Test - Cobertura frontend'){
+				steps{
+					echo '------------>test frontend<------------'	
+					dir("${PROJECT_PATH_FRONT}"){
+						sh 'ng test --watch=false --browsers ChromeHeadless --code-coverage'	
 					}
 				}
 			}
