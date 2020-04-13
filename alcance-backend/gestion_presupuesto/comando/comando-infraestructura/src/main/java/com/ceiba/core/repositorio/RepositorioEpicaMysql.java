@@ -5,7 +5,6 @@ import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.core.modelo.Epica;
 import org.springframework.stereotype.Repository;
 
-@Repository
 public class RepositorioEpicaMysql implements RepositorioEpica{
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
