@@ -24,7 +24,7 @@ module.exports = function (config) {
       }
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, 'reports/coverage/app-base'),
+      dir: require('path').join(__dirname, 'reports/coverage/alcance-frontend'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
@@ -32,7 +32,7 @@ module.exports = function (config) {
     htmlReporter: {
       outputFile: 'reports/unit/units.html',
 
-      // Optional 
+      // Optional
       pageTitle: 'Vida - Tests Unitarios',
       subPageTitle: 'Presentacion HTML de los test unitarios',
       dir: 'reports/html/'

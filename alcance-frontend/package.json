@@ -1,5 +1,5 @@
 {
-  "name": "app-base",
+  "name": "angular-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
