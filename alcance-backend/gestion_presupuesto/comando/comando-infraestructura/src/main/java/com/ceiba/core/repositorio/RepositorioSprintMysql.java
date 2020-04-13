@@ -4,11 +4,9 @@ import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.core.modelo.Sprint;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
-@Repository
 public class RepositorioSprintMysql implements RepositorioSprint {
 
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
