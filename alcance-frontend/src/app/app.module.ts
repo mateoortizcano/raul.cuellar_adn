@@ -8,9 +8,7 @@ import { ProductoModule } from '@producto/producto.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-
-
-
+import { PresupuestoModule } from '@presupuesto/presupuesto.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
+    PresupuestoModule,
     CoreModule
   ],
   providers: [CookieService],

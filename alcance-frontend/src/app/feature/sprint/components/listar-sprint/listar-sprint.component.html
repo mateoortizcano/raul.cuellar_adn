@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Periodo</th>
+      <th>Días hábiles</th>
+      <th>Equipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a routerLink="./crear" routerLinkActive="active">Añadir sprint</a></td>
+    </tr>
+    <tr *ngFor="let sprint of listaSprints | async">
+      <td>
+        {{ sprint.nombre }}
+      </td>
+      <td>
+        <span>{{ sprint.fechaInicial }}</span><span>{{ sprint.fechaFinal }}</span>
+      </td>
+      <td>
+        {{ sprint.diasHabiles }}
+      </td>
+      <td>
+        {{ sprint.numeroPersonas }}
+      </td>
+    </tr>
+  </tbody>
+</table>

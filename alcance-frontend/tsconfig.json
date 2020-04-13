@@ -31,6 +31,12 @@
       "@producto/*": [
         "src/app/feature/producto/*"
       ],
+      "@presupuesto/*": [
+        "src/app/feature/presupuesto/*"
+      ],
+      "@sprint/*": [
+        "src/app/feature/sprint/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]
