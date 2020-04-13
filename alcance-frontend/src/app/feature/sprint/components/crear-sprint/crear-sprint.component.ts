@@ -9,7 +9,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CrearSprintComponent implements OnInit {
   sprintForm: FormGroup;
-  mensajeExito: String;
   mostrarExito: boolean;
   constructor(protected sprintServices: SprintService) { }
 

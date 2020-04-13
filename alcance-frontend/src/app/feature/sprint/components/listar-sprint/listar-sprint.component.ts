@@ -12,10 +12,10 @@ import { Sprint } from '@sprint/shared/model/sprint';
 export class ListarSprintComponent implements OnInit {
   public listaSprints: Observable<Sprint[]>;
 
-  constructor(protected SprintService: SprintService) { }
+  constructor(protected sprintService: SprintService) { }
 
   ngOnInit() {
-    this.listaSprints = this.SprintService.consultar();
+    this.listaSprints = this.sprintService.consultar();
   }
 
 }
