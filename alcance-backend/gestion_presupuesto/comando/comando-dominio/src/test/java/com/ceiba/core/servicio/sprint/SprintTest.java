@@ -13,6 +13,21 @@ import java.time.LocalDateTime;
 public class SprintTest {
 
     @Test
+    public void validarNombreTest(){
+        //Arrange
+        SprintTestDataBuilder sprintTestDataBuilder = new SprintTestDataBuilder(
+                1L,
+                "",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                2,
+                1L);
+        //Act - Assert
+        BasePrueba.assertThrows(() -> sprintTestDataBuilder.build(),
+                ExcepcionValorObligatorio.class, "Indique el nombre del sprint");
+    }
+
+    @Test
     public void validarIdProyectoTest(){
         //Arrange
         SprintTestDataBuilder sprintTestDataBuilder = new SprintTestDataBuilder(

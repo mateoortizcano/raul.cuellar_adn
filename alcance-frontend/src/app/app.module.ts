@@ -9,6 +9,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PresupuestoModule } from '@presupuesto/presupuesto.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AlertaLibComponent } from '@core/components/alertas/alerta.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PresupuestoModule } from '@presupuesto/presupuesto.module';
     AppRoutingModule,
     ProductoModule,
     PresupuestoModule,
-    CoreModule
+    CoreModule,
+    NgbModule,
+    AlertaLibComponent
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

@@ -6,57 +6,26 @@
   <div class="row">
     <div class="col">
       <label for="nombre">Nombre</label>
-    </div>
-    <div class="col">
       <input validar type="text" id="nombre" name="nombre" placeholder="Nombre de sprint"
         class="form-control" formControlName="nombre">
     </div>
-  </div>
-  <div class="row">
     <div class="col">
       <label for="fechaInicial">Fecha inicial</label>
-    </div>
-    <div class="col">
-      <input validar type="text" id="fechaInicial" name="fechaInicial" placeholder="Inicio del sprint"
+      <input validar type="date" id="fechaInicial" name="fechaInicial" placeholder="Inicio del sprint"
         class="form-control" formControlName="fechaInicial">
     </div>
-  </div>
-  <div class="row">
     <div class="col">
       <label for="fechaFinal">Fecha de finalización</label>
-    </div>
-    <div class="col">
-      <input validar type="text" id="fechaFinal" name="fechaFinal" placeholder="Final del sprint"
+      <input validar type="date" id="fechaFinal" name="fechaFinal" placeholder="Final del sprint"
         class="form-control" formControlName="fechaFinal">
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
+    <div class="col-2">
       <label for="numeroPersonas">Personas en el equipo</label>
-    </div>
-    <div class="col">
-      <input validar type="text" id="numeroPersonas" name="numeroPersonas" placeholder="Número de personas en el equipo"
+      <input validar type="number" id="numeroPersonas" name="numeroPersonas" placeholder="Número de personas en el equipo"
         class="form-control" formControlName="numeroPersonas">
     </div>
-  </div>
-  <div class="row">
     <div class="col">
-      <label for="idProyecto">Id de proyecto</label>
-    </div>
-    <div class="col">
-      <input validar type="text" id="idProyecto" name="idProyecto" placeholder="Id del proyecto"
-        class="form-control" formControlName="idProyecto">
+      <button class="btn btn-primary btn-lg btn-block" type="button" (click)="crear()">Añadir sprint</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <label for="diasHabiles">Días hábiles</label>
-    </div>
-    <div class="col">
-      <input validar type="text" id="diasHabiles" name="diasHabiles" placeholder="Días hábiles"
-        class="form-control" formControlName="diasHabiles">
-    </div>
-  </div>
-  <hr class="mb-4">
-  <button class="btn btn-primary btn-lg btn-block" type="button" (click)="crear()">Añadir sprint</button>
 </form>
