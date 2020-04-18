@@ -1,6 +1,7 @@
 package com.ceiba.core.controlador;
 
 import com.ceiba.core.manejador.ManejadorListarSprint;
+import com.ceiba.core.manejador.ManejadorListarSprints;
 import com.ceiba.core.modelo.DtoSprint;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,16 +17,23 @@ import java.util.List;
 @Api(tags={"Controlador consulta sprint"})
 public class ConsultaControladorSprint {
 
+	private final ManejadorListarSprints manejadorListarSprints;
 	private final ManejadorListarSprint manejadorListarSprint;
 
-	public ConsultaControladorSprint(ManejadorListarSprint manejadorListarSprint) {
+	public ConsultaControladorSprint(ManejadorListarSprints manejadorListarSprints, ManejadorListarSprint manejadorListarSprint) {
+		this.manejadorListarSprints = manejadorListarSprints;
 		this.manejadorListarSprint = manejadorListarSprint;
 	}
 
 	@GetMapping
 	@ApiOperation("Listar Presupuestos")
 	public List<DtoSprint> listar(@PathVariable Long idProyecto) {
-		return this.manejadorListarSprint.ejecutar(idProyecto);
+		return this.manejadorListarSprints.ejecutar(idProyecto);
 	}
 
+	@GetMapping(value = "/{id}")
+	@ApiOperation("Consultar Presupuesto")
+	public DtoSprint listar(@PathVariable Long idProyecto, @PathVariable Long id) {
+		return this.manejadorListarSprint.ejecutar(idProyecto, id);
+	}
 }

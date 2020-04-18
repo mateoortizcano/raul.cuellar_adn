@@ -15,7 +15,7 @@ public class ManejadorListarSprint {
         this.daoSprint = daoSprint;
     }
 
-    public List<DtoSprint> ejecutar(Long idProyecto){
-        return this.daoSprint.listar(idProyecto);
+    public DtoSprint ejecutar(Long idProyecto, Long id){
+        return this.daoSprint.consultar(idProyecto, id);
     }
 }

@@ -17,6 +17,9 @@ public class DaoSprintMysql implements DaoSprint {
     @SqlStatement(namespace="sprint", value="listar")
     private String sqlListar;
 
+    @SqlStatement(namespace = "sprint", value = "consultar")
+    private String sqlConsultar;
+
     public DaoSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -28,5 +31,17 @@ public class DaoSprintMysql implements DaoSprint {
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
                 .query(sqlListar, paramSource, new MapeoSprint());
+    }
+
+    @Override
+    public DtoSprint consultar(Long idProyecto, Long id) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idProyecto", idProyecto);
+        paramSource.addValue("id", id);
+
+        List<DtoSprint> resultados = this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
+                .query(sqlConsultar, paramSource, new MapeoSprint());
+
+        return resultados.get(0);
     }
 }

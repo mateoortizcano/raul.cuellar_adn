@@ -11,4 +11,10 @@ public interface DaoSprint {
      * @return listado de sprints
      */
     List<DtoSprint> listar(Long idProyecto);
+
+    /**
+     * Permite consultar un sprint
+     * @return sprint
+     */
+    DtoSprint consultar(Long idProyecto, Long id);
 }

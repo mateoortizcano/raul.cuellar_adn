@@ -17,7 +17,7 @@ public class SprintTest {
         //Arrange
         SprintTestDataBuilder sprintTestDataBuilder = new SprintTestDataBuilder(
                 1L,
-                "",
+                null,
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 2,
