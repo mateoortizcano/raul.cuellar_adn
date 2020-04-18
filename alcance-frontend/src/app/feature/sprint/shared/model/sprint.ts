@@ -1,4 +1,5 @@
 export class Sprint {
+  id: number;
   nombre: string;
   fechaInicial: string;
   fechaFinal: string;
@@ -7,13 +8,14 @@ export class Sprint {
   idProyecto: number;
 
 
-  constructor(nombre: string, fechaInicial: string, fechaFinal: string,
+  constructor(id: number, nombre: string, fechaInicial: string, fechaFinal: string,
     diasHabiles: number, numeroPersonas: number, idProyecto: number) {
-    this.nombre = nombre;
-    this.fechaInicial = fechaInicial;
-    this.fechaFinal = fechaFinal;
-    this.diasHabiles = diasHabiles;
-    this.numeroPersonas = numeroPersonas;
-    this.idProyecto = idProyecto;
+      this.id = id;
+      this.nombre = nombre;
+      this.fechaInicial = fechaInicial;
+      this.fechaFinal = fechaFinal;
+      this.diasHabiles = diasHabiles;
+      this.numeroPersonas = numeroPersonas;
+      this.idProyecto = idProyecto;
   }
 }

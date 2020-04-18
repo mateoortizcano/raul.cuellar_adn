@@ -15,7 +15,7 @@ export class ListarSprintComponent implements OnInit {
   constructor(protected sprintService: SprintService) { }
 
   ngOnInit() {
-    this.listaSprints = this.sprintService.consultar();
+    this.listaSprints = this.sprintService.listar();
   }
 
 }

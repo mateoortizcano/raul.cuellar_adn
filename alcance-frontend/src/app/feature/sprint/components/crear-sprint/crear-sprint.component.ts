@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SprintService } from '../../shared/service/sprint.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Sprint } from '@sprint/shared/model/sprint';
-import { NgbDate, NgbCalendar, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { AlertaService } from '@core/services/alerta.service';
 
 @Component({
   selector: 'app-crear-sprint',
@@ -13,14 +13,7 @@ export class CrearSprintComponent implements OnInit {
   sprintForm: FormGroup;
   mostrarExito: boolean;
 
-  hoveredDate: NgbDate | null = null;
-
-  fromDate: NgbDate | null;
-  toDate: NgbDate | null;
-
-  constructor(protected sprintServices: SprintService, private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+  constructor(protected sprintServices: SprintService) {
   }
 
   ngOnInit() {
@@ -28,8 +21,9 @@ export class CrearSprintComponent implements OnInit {
   }
 
   crear() {
-    if(true || this.sprintForm.valid){
+    if(this.sprintForm.valid){
       let sprint = new Sprint(
+        0,
         this.sprintForm.value.nombre,
         this.sprintForm.value.fechaInicial + ' 00:00:00',
         this.sprintForm.value.fechaFinal + ' 23:59:59',
@@ -53,33 +47,4 @@ export class CrearSprintComponent implements OnInit {
       numeroPersonas: new FormControl('', [Validators.required]),
     });
   }
-
-  onDateSelection(date: NgbDate) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date && date.after(this.fromDate)) {
-      this.toDate = date;
-    } else {
-      this.toDate = null;
-      this.fromDate = date;
-    }
-  }
-
-  isHovered(date: NgbDate) {
-    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
-  }
-
-  isInside(date: NgbDate) {
-    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
-  }
-
-  isRange(date: NgbDate) {
-    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
-  }
-
-  validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
-    const parsed = this.formatter.parse(input);
-    return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
-  }
-
 }

@@ -11,11 +11,19 @@ export class SprintService {
 
   constructor(protected http: HttpService) {}
 
-  public consultar() {
+  public listar() {
     return this.http.doGet<Sprint[]>(`${environment.endpoint}/proyectos/1/sprints`);
   }
 
   public guardar(sprint: Sprint) {
     return this.http.doPost<Sprint, ComandoRespuesta<number>>(`${environment.endpoint}/sprints`, sprint);
+  }
+
+  public consultar(id: Number){
+    return this.http.doGet<Sprint>(`${environment.endpoint}/proyectos/1/sprints/1`);
+  }
+
+  public actualizar(sprint: Sprint){
+    return this.http.doPut<Sprint>(`${environment.endpoint}/sprints/1`, sprint);
   }
 }

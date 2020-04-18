@@ -61,7 +61,13 @@ export class HttpService {
     );
   }
 
-  public doDelte<T, R>(serviceUrl: string, opts?: Options): Observable<R> {
+  public doPut<T>(serviceUrl: string, body: T, opts?: Options) {
+    const ropts = this.createOptions(opts);
+
+    this.http.put(serviceUrl, body, ropts).pipe();
+  }
+
+  public doDelete<T, R>(serviceUrl: string, opts?: Options): Observable<R> {
     const ropts = this.createOptions(opts);
 
     return this.http.delete(serviceUrl, ropts).pipe(

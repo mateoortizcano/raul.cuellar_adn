@@ -6,7 +6,7 @@ import { AlertaService } from '@core/services/alerta.service';
 @Component({
   selector: 'lib-alerta',
   templateUrl: './alerta.component.html',
-  styleUrls: ['./alerta.component.css']
+  styleUrls: ['./alerta.component.sass']
 })
 
 export class AlertaLibComponent implements OnInit {

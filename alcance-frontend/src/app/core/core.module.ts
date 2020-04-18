@@ -9,14 +9,23 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
+import { AlertaLibComponent } from './components/alertas/alerta.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, NavbarComponent],
+  declarations: [
+    ToolbarComponent,
+    NavbarComponent,
+    AlertaLibComponent
+  ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [ToolbarComponent, NavbarComponent],
+  exports: [
+    ToolbarComponent,
+    NavbarComponent,
+    AlertaLibComponent
+  ],
   providers: [
     HttpService,
     SecurityGuard,
