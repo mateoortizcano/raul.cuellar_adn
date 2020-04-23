@@ -16,7 +16,6 @@ pipeline {
 	//Una sección que define las herramientas “preinstaladas” en Jenkins
 	tools {
 		jdk 'JDK8_Centos' //Preinstalada en la Configuración del Master
-		gradle 'Gradle5.0_Centos' //Preinstalada en la Configuración del Master
 	}
 
 	//Aquí comienzan los “items” del Pipeline
@@ -44,7 +43,8 @@ pipeline {
 					steps{
 						echo "------------>Compilación backend<------------"
 						dir("${PROJECT_PATH_BACK}/gestion_presupuesto"){
-							sh 'gradle clean build -x test'
+							sh 'chmod -x ./gradlew '
+							sh './gradlew clean build -x test'
 						}
 					}
 				
@@ -70,7 +70,7 @@ pipeline {
 					steps {
 						echo '------------>test backend<------------'
 						dir("${PROJECT_PATH_BACK}/gestion_presupuesto"){
-							sh 'gradle --stacktrace test'
+							sh './gradlew --stacktrace test'
 						}
 					}
 				}
