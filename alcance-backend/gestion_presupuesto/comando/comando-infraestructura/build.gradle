@@ -33,6 +33,6 @@ jacocoTestReport {
 		xml.enabled true
 	}
 
-	additionalSourceDirs = files("../comando-aplicacion/src/main/java")
-	additionalClassDirs = files("../comando-aplicacion/build/classes/java/main")
+	additionalSourceDirs files("../comando-aplicacion/src/main/java")
+	additionalClassDirs files("../comando-aplicacion/build/classes/java/main")
 }
