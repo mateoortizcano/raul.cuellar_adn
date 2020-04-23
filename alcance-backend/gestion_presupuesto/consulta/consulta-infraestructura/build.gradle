@@ -27,6 +27,11 @@ test {
 	finalizedBy jacocoTestReport
 }
 
-jacocoTestReport {reports {xml.enabled true}}
+jacocoTestReport {
+	reports {
+		xml.enabled true
+	}
 
-jacocoTestReport.dependsOn(test)
+	additionalSourceDirs = files("../consulta-aplicacion/src/main/java")
+	additionalClassDirs = files("../consulta-aplicacion/build/classes/java/main")
+}

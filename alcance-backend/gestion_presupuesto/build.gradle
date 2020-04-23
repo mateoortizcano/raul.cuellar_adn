@@ -32,11 +32,9 @@ buildscript {
 	}
 }
 
-
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'jacoco'
 
 group = 'com.ceiba'
 version = '0.0.1-SNAPSHOT'
@@ -69,17 +67,3 @@ bootJar {
     baseName = 'alcance'
     version =  version
 }
-
-test {
-	finalizedBy jacocoTestReport
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        csv.enabled true
-        html.destination file("${buildDir}/test-results/jacocoHtml")
-    }
-}
-
-jacocoTestReport.dependsOn(test)
