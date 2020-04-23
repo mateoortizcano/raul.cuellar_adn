@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SprintService } from '../../shared/service/sprint.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Sprint } from '@sprint/shared/model/sprint';
-import { AlertaService } from '@core/services/alerta.service';
 
 @Component({
   selector: 'app-crear-sprint',

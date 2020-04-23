@@ -14,8 +14,8 @@ describe('ListarSprintComponent', () => {
   let fixture: ComponentFixture<ListarSprintComponent>;
   let sprintService: SprintService;
   const listaSprints: Sprint[] = [
-    new Sprint('Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1),
-    new Sprint('Sprint 2', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1)];
+    new Sprint(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1),
+    new Sprint(2, 'Sprint 2', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1)];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,7 +34,7 @@ describe('ListarSprintComponent', () => {
     fixture = TestBed.createComponent(ListarSprintComponent);
     component = fixture.componentInstance;
     sprintService = TestBed.inject(SprintService);
-    spyOn(sprintService, 'consultar').and.returnValue(
+    spyOn(sprintService, 'listar').and.returnValue(
       of(listaSprints)
     );
     fixture.detectChanges();

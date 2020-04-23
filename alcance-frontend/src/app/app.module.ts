@@ -18,9 +18,9 @@ import { SprintModule } from '@sprint/sprint.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     PresupuestoModule,
-    SprintModule,
-    CoreModule
+    SprintModule
 ],
   providers: [CookieService],
     bootstrap: [AppComponent],

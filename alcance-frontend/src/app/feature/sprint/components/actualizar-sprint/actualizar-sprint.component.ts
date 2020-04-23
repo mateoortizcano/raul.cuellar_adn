@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SprintService } from '@sprint/shared/service/sprint.service';
 import { Sprint } from '@sprint/shared/model/sprint';
+import { AlertaService } from '@core/services/alerta.service';
 
 @Component({
   selector: 'app-actualizar-sprint',

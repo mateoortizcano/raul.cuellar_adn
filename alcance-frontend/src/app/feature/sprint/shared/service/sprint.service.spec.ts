@@ -30,10 +30,10 @@ describe('SprintService', () => {
 
   it('deberia listar sprints', () => {
     const dummySprints = [
-      new Sprint('Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1),
-      new Sprint('Sprint 2', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1)
+      new Sprint(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1),
+      new Sprint(2, 'Sprint 2', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1)
     ];
-    service.consultar().subscribe(sprints => {
+    service.listar().subscribe(sprints => {
       expect(sprints.length).toBe(2);
       expect(sprints).toEqual(dummySprints);
     });
@@ -43,7 +43,7 @@ describe('SprintService', () => {
   });
 
   it('deberia crear un sprint', () => {
-    const dummySprint = new Sprint('Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1);
+    const dummySprint = new Sprint(3, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1);
     service.guardar(dummySprint).subscribe((respuesta) => {
       expect(respuesta.valor).toBeTruthy();
     });
