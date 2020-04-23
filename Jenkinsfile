@@ -43,7 +43,7 @@ pipeline {
 					steps{
 						echo "------------>Compilación backend<------------"
 						dir("${PROJECT_PATH_BACK}/gestion_presupuesto"){
-							sh 'chmod -x ./gradlew '
+							sh 'chmod +x ./gradlew '
 							sh './gradlew clean build -x test'
 						}
 					}
