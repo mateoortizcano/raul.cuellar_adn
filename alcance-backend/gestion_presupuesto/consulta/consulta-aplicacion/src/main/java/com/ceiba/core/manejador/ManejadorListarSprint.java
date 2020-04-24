@@ -4,8 +4,6 @@ import com.ceiba.core.dao.DaoSprint;
 import com.ceiba.core.modelo.DtoSprint;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class ManejadorListarSprint {
 
