@@ -6,10 +6,7 @@ import com.ceiba.core.modelo.DtoPresupuesto;
 import com.ceiba.core.modelo.DtoPresupuestoGlobal;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class ConsultaControladorPresupuesto {
 
 	@GetMapping
 	@ApiOperation("Listar Presupuestos")
-	@RequestMapping("/global/{idProyecto}")
+	@RequestMapping(path = "/global/{idProyecto}", method = RequestMethod.GET)
 	public List<DtoPresupuestoGlobal> listarGlobal(@PathVariable Long idProyecto) {
 		return this.manejadorListarPresupuestosGlobal.ejecutar(idProyecto);
 	}
