@@ -128,6 +128,6 @@
   },
   "defaultProject": "alcance-frontend",
   "cli": {
-    "analytics": "d10caaf9-1cb8-4093-a215-b901032f2fde"
+    "analytics": false
   }
 }

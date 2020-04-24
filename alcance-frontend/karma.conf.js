@@ -33,7 +33,7 @@ module.exports = function (config) {
       outputFile: 'reports/unit/units.html',
 
       // Optional
-      pageTitle: 'Vida - Tests Unitarios',
+      pageTitle: 'Tests Unitarios',
       subPageTitle: 'Presentacion HTML de los test unitarios',
       dir: 'reports/html/'
     },
