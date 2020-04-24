@@ -1,3 +1,3 @@
 export class Alerta {
-  mensaje: String;
+  mensaje: string;
 }

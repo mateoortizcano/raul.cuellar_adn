@@ -10,11 +10,11 @@ export class AlertaService {
 
   constructor() { }
 
-  success(mensaje: String){
+  success(mensaje: string){
     this.alert(mensaje);
   }
 
-  private alert(mensaje: String){
+  private alert(mensaje: string){
     this.alerta = new Alerta();
     this.alerta.mensaje = mensaje;
     this.dispararAlerta();
