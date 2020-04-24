@@ -11,7 +11,7 @@ pipeline {
 	}
 	environment {
 		PROJECT_PATH_BACK = 'alcance-backend'
-		PROJECT_PATH_FRONT = 'alcance-frontend'
+		PROJECT_PATH_FRONT = 'alcance-web'
 	}
 	//Una sección que define las herramientas “preinstaladas” en Jenkins
 	tools {
