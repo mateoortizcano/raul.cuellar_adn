@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col">
+    <h2>Listado de sprints</h2>
+  </div>
+  <div class="col-auto">
+    <a href="./sprint/crear" class="btn btn-primary">Añadir sprint</a>
+  </div>
+</div>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Periodo</th>
+      <th>Días hábiles</th>
+      <th>Equipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sprint of listaSprints | async">
+      <td><a href="./sprint/actualizar" class="btn btn-outline-info btn-sm">Actualizar</a></td>
+      <td><a href="./sprint/eliminar" class="btn btn-outline-danger btn-sm">Eliminar</a></td>
+      <th>
+        {{ sprint.nombre }}
+      </th>
+      <td>
+        <span>{{ sprint.fechaInicial }}</span><span>{{ sprint.fechaFinal }}</span>
+      </td>
+      <td>
+        {{ sprint.diasHabiles }}
+      </td>
+      <td>
+        {{ sprint.numeroPersonas }}
+      </td>
+    </tr>
+  </tbody>
+</table>

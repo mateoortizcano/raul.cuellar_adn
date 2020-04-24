@@ -1,0 +1,6 @@
+{
+  "/gestion_presupuesto": {
+    "target": "http://alcance.local:8083",
+    "logLevel": "debug"
+  }
+}
