@@ -11,7 +11,7 @@ pipeline {
 	}
 	environment {
 		PROJECT_PATH_BACK = 'alcance-backend'
-		PROJECT_PATH_FRONT = 'alcance-web'
+		PROJECT_PATH_FRONT = 'alcance-frontend'
 	}
 	//Una sección que define las herramientas “preinstaladas” en Jenkins
 	tools {
@@ -49,7 +49,7 @@ pipeline {
 					}
 				
 				}
-				/* stage('Compile frontend'){
+				stage('Compile frontend'){
 					steps {
 						echo '------------>Compilación frontend<------------'
 
@@ -61,7 +61,7 @@ pipeline {
 							sh 'npm run ng build --configuration=production --outputHashing'
 						}
 					}
-				} */
+				}
 			}
 		}
 		stage('Test Unitarios -Cobertura'){
@@ -74,14 +74,14 @@ pipeline {
 						}
 					}
 				}
-				/* stage('Test - Cobertura frontend'){
+				stage('Test - Cobertura frontend'){
 					steps{
 						echo '------------>test frontend<------------'	
 						dir("${PROJECT_PATH_FRONT}"){
 							sh 'ng test --watch=false --browsers ChromeHeadless --code-coverage'	
 						}
 					}
-				} */
+				}
 			}
 		}
 		stage('Sonar Analysis'){
