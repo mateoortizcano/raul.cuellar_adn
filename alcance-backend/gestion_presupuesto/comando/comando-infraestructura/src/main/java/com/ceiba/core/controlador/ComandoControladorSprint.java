@@ -4,6 +4,7 @@ import com.ceiba.core.aplicacion.ComandoRespuesta;
 import com.ceiba.core.comando.ComandoSprint;
 import com.ceiba.core.manejador.sprint.ManejadorActualizarSprint;
 import com.ceiba.core.manejador.sprint.ManejadorCrearSprint;
+import com.ceiba.core.manejador.sprint.ManejadorEliminarSprint;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,12 @@ public class ComandoControladorSprint {
 
 	private final ManejadorActualizarSprint manejadorActualizarSprint;
 	private final ManejadorCrearSprint manejadorCrearSprint;
+	private final ManejadorEliminarSprint manejadorEliminarSprint;
 
-	@Autowired
-	public ComandoControladorSprint(ManejadorActualizarSprint manejadorActualizarSprint, ManejadorCrearSprint manejadorCrearSprint) {
+	public ComandoControladorSprint(ManejadorActualizarSprint manejadorActualizarSprint, ManejadorCrearSprint manejadorCrearSprint, ManejadorEliminarSprint manejadorEliminarSprint) {
 		this.manejadorActualizarSprint = manejadorActualizarSprint;
 		this.manejadorCrearSprint = manejadorCrearSprint;
+		this.manejadorEliminarSprint = manejadorEliminarSprint;
 	}
 
 	@PostMapping
@@ -34,5 +36,11 @@ public class ComandoControladorSprint {
 	public void actualizar(@RequestBody ComandoSprint comandoSprint, @PathVariable Long id) {
 		comandoSprint.setId(id);
 		manejadorActualizarSprint.ejecutar(comandoSprint);
+	}
+
+	@DeleteMapping(value="/{id}")
+	@ApiOperation("Eliminar Presupuesto")
+	public void eliminar(@PathVariable Long id) {
+		manejadorEliminarSprint.ejecutar(id);
 	}
 }

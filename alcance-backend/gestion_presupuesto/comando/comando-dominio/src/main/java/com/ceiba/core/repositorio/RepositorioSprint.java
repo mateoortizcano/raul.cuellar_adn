@@ -47,4 +47,10 @@ public interface RepositorioSprint {
 	 * @return si existe o no
 	 */
 	boolean existePeriodoExcluyendoId(Long id, LocalDateTime fechaInicial, LocalDateTime fechaFinal);
+
+	/**
+	 * Permite eliminar un sprint
+	 * @param id
+	 */
+	void eliminar(Long id);
 }

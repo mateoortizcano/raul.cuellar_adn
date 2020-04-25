@@ -29,6 +29,9 @@ public class RepositorioSprintMysql implements RepositorioSprint {
 	@SqlStatement(namespace = "sprint", value = "existeEnPeriodoExcluyendoId")
 	private String sqlExisteEnPeriodoExcluyendoId;
 
+	@SqlStatement(namespace = "sprint", value = "eliminar")
+	private String sqlEliminar;
+
 	public RepositorioSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
 	}
@@ -81,5 +84,13 @@ public class RepositorioSprintMysql implements RepositorioSprint {
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlExisteEnPeriodoExcluyendoId,paramSource, Boolean.class);
+	}
+
+	@Override
+	public void eliminar(Long id) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("id", id);
+
+		this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
 	}
 }

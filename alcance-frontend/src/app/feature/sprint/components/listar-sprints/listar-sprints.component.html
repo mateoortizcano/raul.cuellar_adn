@@ -20,8 +20,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let sprint of listaSprints | async">
-      <td><a href="./sprint/actualizar/{{ sprint.id }}" class="btn btn-outline-info btn-sm">Actualizar</a></td>
-      <td><a href="./sprint/eliminar" class="btn btn-outline-danger btn-sm">Eliminar</a></td>
+      <td><a routerLink="/sprint/actualizar/{{ sprint.id }}" class="btn btn-outline-info btn-sm">Actualizar</a></td>
+      <td><a (click)="eliminar(sprint)" href="#"class="btn btn-outline-danger btn-sm">Eliminar</a></td>
       <th>
         {{ sprint.nombre }}
       </th>
