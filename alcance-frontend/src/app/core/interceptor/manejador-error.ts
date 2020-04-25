@@ -2,14 +2,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
+import { AlertaService } from '@core/services/alerta.service';
 
 @Injectable()
 export class ManejadorError implements ErrorHandler {
-  constructor() {}
+  constructor(protected alertaService: AlertaService) {}
 
   handleError(error: string | Error): void {
     const mensajeError = this.mensajePorDefecto(error);
-    this.imprimirErrorConsola(mensajeError);
+    this.alertaService.error(mensajeError.error.mensaje);
   }
 
   private mensajePorDefecto(error) {

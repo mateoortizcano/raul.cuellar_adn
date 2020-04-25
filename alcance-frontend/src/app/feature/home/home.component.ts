@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.alertaService.success("Se realizó correctamente otra vez");
+    this.alertaService.success('Se realizó correctamente otra vez');
+    setTimeout(() => { this.alertaService.error('Fallamos. Intentalo de nuevo'); }, 1000);
+    // this.alertaService.error('Fallamos. Intentalo de nuevo');
   }
 
 }

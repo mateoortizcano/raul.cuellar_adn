@@ -12,7 +12,7 @@ export class SprintService {
   constructor(protected http: HttpService) {}
 
   public consultar(id: number){
-    return this.http.doGet<Sprint>(`${environment.endpoint}/proyectos/1/sprints/1`);
+    return this.http.doGet<Sprint>(`${environment.endpoint}/proyectos/1/sprints/${id}`);
   }
 
   public listar(){
@@ -24,6 +24,6 @@ export class SprintService {
   }
 
   public actualizar(sprint: Sprint){
-    return this.http.doPut<Sprint>(`${environment.endpoint}/sprints/1`, sprint);
+    return this.http.doPut<Sprint>(`${environment.endpoint}/sprints/${sprint.id}`, sprint);
   }
 }

@@ -61,10 +61,12 @@ export class HttpService {
     );
   }
 
-  public doPut<T>(serviceUrl: string, body: T, opts?: Options) {
+  public doPut<T>(serviceUrl: string, body: T, opts?: Options): Observable<string> {
     const ropts = this.createOptions(opts);
 
-    return this.http.put(serviceUrl, body, ropts).pipe();
+    return this.http.put(serviceUrl, body, ropts).pipe(
+      map(response => response as string)
+    );
   }
 
   public doDelete<T, R>(serviceUrl: string, opts?: Options): Observable<R> {

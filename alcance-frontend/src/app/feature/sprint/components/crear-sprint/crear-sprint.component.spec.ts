@@ -67,6 +67,6 @@ describe('CrearSprintComponent', () => {
     expect(component.sprintForm.valid).toBeTruthy();
     component.crear();
     expect(sprintSpyService.crear).toHaveBeenCalled()
-  })
+  });
 
 });

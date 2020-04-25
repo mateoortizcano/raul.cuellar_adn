@@ -20,7 +20,7 @@ const routes: Routes = [
         component: CrearSprintComponent
       },
       {
-        path: 'actualizar',
+        path: 'actualizar/:id',
         component: ActualizarSprintComponent
       }
     ]

@@ -16,10 +16,12 @@ export class AlertaComponent implements OnInit {
   constructor(public alertaService: AlertaService) {
     window.addEventListener('ALERTA', (event: CustomEvent) => {
       this.alertas.push(event.detail);
+      setTimeout(() => { this.alertas.shift(); }, 10000);
     });
   }
 
   ngOnInit(): void {
   }
+
 
 }

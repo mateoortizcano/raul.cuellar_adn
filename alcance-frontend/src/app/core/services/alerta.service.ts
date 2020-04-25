@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Alerta } from '@core/modelo/alerta';
+import { Alerta, AlertaTipo } from '@core/modelo/alerta';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +10,18 @@ export class AlertaService {
 
   constructor() { }
 
-  success(mensaje: string){
-    this.alert(mensaje);
+  success(mensaje: string) {
+    this.alert(mensaje, AlertaTipo.Success);
   }
 
-  private alert(mensaje: string){
+  error(mensaje: string) {
+    this.alert(mensaje, AlertaTipo.Danger);
+  }
+
+  private alert(mensaje: string, tipo: string) {
     this.alerta = new Alerta();
     this.alerta.mensaje = mensaje;
+    this.alerta.tipo = tipo;
     this.dispararAlerta();
   }
 
