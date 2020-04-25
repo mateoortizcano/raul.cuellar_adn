@@ -10,14 +10,15 @@ import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { AlertaComponent } from './components/alerta/alerta.component';
+import { CargadorComponent } from './components/cargador/cargador.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, NavbarComponent, AlertaComponent],
+  declarations: [ToolbarComponent, NavbarComponent, AlertaComponent, CargadorComponent],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [ToolbarComponent, NavbarComponent, AlertaComponent],
+  exports: [ToolbarComponent, NavbarComponent, AlertaComponent, CargadorComponent],
   providers: [
     HttpService,
     SecurityGuard,

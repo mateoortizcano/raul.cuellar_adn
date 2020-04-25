@@ -4,6 +4,7 @@ import { Sprint } from '@sprint/shared/model/sprint';
 import { SprintService } from '@sprint/shared/service/sprint.service';
 import { AlertaService } from '@core/services/alerta.service';
 import { ActivatedRoute } from '@angular/router';
+import { CargadorService } from '@core/services/cargador.service';
 
 @Component({
   selector: 'app-actualizar-sprint',
@@ -14,14 +15,19 @@ export class ActualizarSprintComponent implements OnInit {
   sprintForm: FormGroup;
   sprint: Sprint;
 
-  constructor(private route: ActivatedRoute, protected sprintService: SprintService, protected alertaService: AlertaService) { }
+  constructor(private route: ActivatedRoute,
+              protected sprintService: SprintService,
+              protected cargadorService: CargadorService,
+              protected alertaService: AlertaService) { }
 
   ngOnInit(): void {
+    this.cargadorService.mostrar();
     this.construirFormularioSprint();
     const id = +this.route.snapshot.paramMap.get('id');
     this.sprintService.consultar(id).subscribe(resp => {
       this.sprint = resp;
       this.iniciarFormulario();
+      this.cargadorService.ocultar();
     });
   }
 

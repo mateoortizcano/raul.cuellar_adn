@@ -27,7 +27,7 @@ export class SprintService {
     return this.http.doPut<Sprint>(`${environment.endpoint}/sprints/${sprint.id}`, sprint);
   }
 
-  public eliminar(id: number){
+  public eliminar(id: number) {
     return this.http.doDelete<string>(`${environment.endpoint}/sprints/${id}`);
   }
 }

@@ -11,9 +11,6 @@ import { AlertaService } from '@core/services/alerta.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

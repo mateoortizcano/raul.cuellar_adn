@@ -3,6 +3,7 @@ import { SprintService } from '../../shared/service/sprint.service';
 import { Observable } from 'rxjs';
 import { Sprint } from '@sprint/shared/model/sprint';
 import { AlertaService } from '@core/services/alerta.service';
+import { CargadorService } from '@core/services/cargador.service';
 
 @Component({
   selector: 'app-listar-sprints',
@@ -12,7 +13,10 @@ import { AlertaService } from '@core/services/alerta.service';
 export class ListarSprintsComponent implements OnInit {
   listaSprints: Observable<Sprint[]>;
 
-  constructor(protected alertaService: AlertaService, protected sprintService: SprintService) { }
+  constructor(
+    protected alertaService: AlertaService,
+    protected sprintService: SprintService,
+    protected cargadorService: CargadorService) { }
 
   ngOnInit(): void {
     this.cargarListaSprints();
@@ -27,6 +31,8 @@ export class ListarSprintsComponent implements OnInit {
   }
 
   cargarListaSprints() {
+    this.cargadorService.mostrar();
     this.listaSprints = this.sprintService.listar();
+    this.cargadorService.ocultar();
   }
 }
