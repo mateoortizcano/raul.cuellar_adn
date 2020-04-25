@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CargadorComponent implements OnInit {
 
-  protected abierto = false;
+  abierto = false;
 
   constructor() { }
 
