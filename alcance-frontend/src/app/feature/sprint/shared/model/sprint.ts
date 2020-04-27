@@ -7,9 +7,8 @@ export class Sprint {
   numeroPersonas: number;
   idProyecto: number;
 
-
   constructor(id: number, nombre: string, fechaInicial: string, fechaFinal: string,
-    diasHabiles: number, numeroPersonas: number, idProyecto: number) {
+              diasHabiles: number, numeroPersonas: number, idProyecto: number) {
       this.id = id;
       this.nombre = nombre;
       this.fechaInicial = fechaInicial;

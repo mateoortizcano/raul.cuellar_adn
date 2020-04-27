@@ -31,6 +31,9 @@
       "@sprint/*": [
         "src/app/feature/sprint/*"
       ],
+      "@proyecto/*": [
+        "src/app/feature/proyecto/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

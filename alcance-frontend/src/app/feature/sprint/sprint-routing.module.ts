@@ -8,7 +8,7 @@ import { ActualizarSprintComponent } from './components/actualizar-sprint/actual
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'sprint',
     component: SprintComponent,
     children: [
       {

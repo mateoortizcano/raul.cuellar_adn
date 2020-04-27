@@ -15,8 +15,8 @@ export class SprintService {
     return this.http.doGet<Sprint>(`${environment.endpoint}/proyectos/1/sprints/${id}`);
   }
 
-  public listar() {
-    return this.http.doGet<Sprint[]>(`${environment.endpoint}/proyectos/1/sprints`);
+  public listar(idProyecto: number) {
+    return this.http.doGet<Sprint[]>(`${environment.endpoint}/proyectos/${idProyecto}/sprints`);
   }
 
   public crear(sprint: Sprint) {

@@ -1,0 +1,14 @@
+<div class="card-deck mb-3 text-center">
+  <div class="card mb-4 shadow-sm" *ngFor="let proyecto of listaProyectos">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">{{ proyecto.nombre }}</h4>
+      <span class="mt-3 mb-4">{{ proyecto. cliente }}</span>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">${{ proyecto.presupuestoConsumido | number: '1.0-0' }}
+        <small class="text-muted">/ ${{ proyecto.presupuestoGlobal | number: '1.0-0' }}</small></h1>
+      <a class="btn btn-lg btn-block btn-primary"
+      routerLink="{{ proyecto.id }}/sprint">Ir al proyecto</a>
+    </div>
+  </div>
+</div>

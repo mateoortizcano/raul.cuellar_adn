@@ -17,16 +17,17 @@ create table presupuesto (
 create table proyecto (
     id int(11) not null auto_increment,
     nombre varchar(100) not null,
+    cliente varchar(100) not null,
     primary key(id)
 );
 
 create table sprint (
-    id int(11) not null auto_increment,
-    nombre varchar(50) not null,
-    fecha_inicial datetime not null,
-    fecha_final datetime not null,
-    dias_habiles int(11) not null,
-    numero_personas int(11) null default 0,
-    id_proyecto int(11) not null,
-    primary key(id)
-)
+     id int(11) not null auto_increment,
+     nombre varchar(50) not null,
+     fecha_inicial datetime not null,
+     fecha_final datetime not null,
+     dias_habiles int(11) not null,
+     numero_personas int(11) null default 0,
+     id_proyecto int(11) not null,
+     primary key(id)
+ )
