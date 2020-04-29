@@ -7,9 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: ListarProyectosComponent
-  },
-  {
-    path: ':idProyecto', loadChildren: () => import('@sprint/sprint.module').then(mod => mod.SprintModule) }
+  }
 ];
 
 @NgModule({

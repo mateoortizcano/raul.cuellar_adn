@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Sprint } from '@sprint/shared/model/sprint';
 import { SprintService } from '@sprint/shared/service/sprint.service';
 import { AlertaService } from '@core/services/alerta.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CargadorService } from '@core/services/cargador.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class ActualizarSprintComponent implements OnInit {
   sprint: Sprint;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               protected sprintService: SprintService,
               protected cargadorService: CargadorService,
               protected alertaService: AlertaService) { }
@@ -56,6 +57,7 @@ export class ActualizarSprintComponent implements OnInit {
       this.sprint.numeroPersonas = this.sprintForm.value.numeroPersonas;
       this.sprintService.actualizar(this.sprint).subscribe(resp => {
         this.alertaService.success('Se ha actualizado el sprint correctamente');
+        this.router.navigate(['/sprints']);
       });
     }
   }

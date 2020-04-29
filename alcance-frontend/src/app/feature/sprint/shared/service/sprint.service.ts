@@ -3,6 +3,7 @@ import { HttpService } from '@core/services/http.service';
 import { Sprint } from '../model/sprint';
 import { environment } from 'src/environments/environment';
 import { ComandoRespuesta } from '@core/modelo/comando-respuesta.model';
+import { SprintResumen } from '../model/sprint-resumen';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class SprintService {
 
   public listar(idProyecto: number) {
     return this.http.doGet<Sprint[]>(`${environment.endpoint}/proyectos/${idProyecto}/sprints`);
+  }
+
+  public listarResumen(idProyecto: number) {
+    return this.http.doGet<SprintResumen[]>(`${environment.endpoint}/proyectos/${idProyecto}/sprints/resumen`);
   }
 
   public crear(sprint: Sprint) {

@@ -5,10 +5,10 @@ import { HomeComponent } from '@home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/proyecto', pathMatch: 'full' },
+  { path: '', redirectTo: '/proyectos', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  // { path: 'sprint', loadChildren: () => import('@sprint/sprint.module').then(mod => mod.SprintModule) },
-  { path: 'proyecto', loadChildren: () => import('@proyecto/proyecto.module').then(mod => mod.ProyectoModule) }
+  { path: 'sprints', loadChildren: () => import('@sprint/sprint.module').then(mod => mod.SprintModule) },
+  { path: 'proyectos', loadChildren: () => import('@proyecto/proyecto.module').then(mod => mod.ProyectoModule) }
 ];
 
 @NgModule({

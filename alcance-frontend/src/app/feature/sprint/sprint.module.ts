@@ -6,10 +6,11 @@ import { ListarSprintsComponent } from './components/listar-sprints/listar-sprin
 import { CrearSprintComponent } from './components/crear-sprint/crear-sprint.component';
 import { ActualizarSprintComponent } from './components/actualizar-sprint/actualizar-sprint.component';
 import { SharedModule } from '@shared/shared.module';
+import { DetalleSprintComponent } from './components/detalle-sprint/detalle-sprint.component';
 
 
 @NgModule({
-  declarations: [SprintComponent, ListarSprintsComponent, CrearSprintComponent, ActualizarSprintComponent],
+  declarations: [SprintComponent, ListarSprintsComponent, CrearSprintComponent, ActualizarSprintComponent, DetalleSprintComponent],
   imports: [
     SharedModule,
     SprintRoutingModule

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProyectoService } from '../../shared/service/proyecto.service';
 import { CargadorService } from '@core/services/cargador.service';
 import { ProyectoResumen } from '@proyecto/shared/model/proyecto-resumen';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listar-proyectos',
@@ -25,5 +26,11 @@ export class ListarProyectosComponent implements OnInit {
       this.listaProyectos = resp;
       this.cargadorService.ocultar();
     });
+  }
+
+  irAProyecto(idProyecto: number) {
+    if (typeof(Storage) !== 'undefined') {
+      sessionStorage.setItem('idProyecto', idProyecto.toString());
+    }
   }
 }

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SprintService } from '@sprint/shared/service/sprint.service';
 import { Sprint } from '@sprint/shared/model/sprint';
 import { AlertaService } from '@core/services/alerta.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-sprint',
@@ -14,6 +14,7 @@ export class CrearSprintComponent implements OnInit {
   sprintForm: FormGroup;
 
   constructor(
+    private router: Router,
     protected route: ActivatedRoute,
     protected sprintService: SprintService,
     protected alertaService: AlertaService) { }
@@ -32,7 +33,7 @@ export class CrearSprintComponent implements OnInit {
   }
 
   crear() {
-    const idProyecto = +this.route.snapshot.paramMap.get('idProyecto');
+    const idProyecto = +sessionStorage.getItem('idProyecto');
     if (this.sprintForm.valid) {
       const sprint = new Sprint(
         0,
@@ -46,6 +47,7 @@ export class CrearSprintComponent implements OnInit {
       this.sprintService.crear(sprint).subscribe(resp => {
         if (resp.valor > 0) {
           this.alertaService.success('El sprint se ha creado');
+          this.router.navigate(['/sprints']);
         }
       });
     }
