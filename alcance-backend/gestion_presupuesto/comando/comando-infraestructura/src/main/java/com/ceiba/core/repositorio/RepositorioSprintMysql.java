@@ -47,40 +47,44 @@ public class RepositorioSprintMysql implements RepositorioSprint {
 	}
 
 	@Override
-	public boolean existeNombre(String nombre) {
+	public boolean existeNombre(Long idProyecto, String nombre) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("nombre", nombre);
+		paramSource.addValue("idProyecto", idProyecto);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlExisteNombre,paramSource, Boolean.class);
 	}
 
 	@Override
-	public boolean existePeriodo(LocalDateTime fechaInicial, LocalDateTime fechaFinal) {
+	public boolean existePeriodo(Long idProyecto, LocalDateTime fechaInicial, LocalDateTime fechaFinal) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("fechaInicial", fechaInicial);
 		paramSource.addValue("fechaFinal", fechaFinal);
+		paramSource.addValue("idProyecto", idProyecto);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlExisteEnPeriodo,paramSource, Boolean.class);
 	}
 
 	@Override
-	public boolean existeNombreExcluyendoId(Long id, String nombre) {
+	public boolean existeNombreExcluyendoId(Long id, String nombre, Long idProyecto) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("id", id);
 		paramSource.addValue("nombre", nombre);
+		paramSource.addValue("idProyecto", idProyecto);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlExisteNombreExcluyendoId,paramSource, Boolean.class);
 	}
 
 	@Override
-	public boolean existePeriodoExcluyendoId(Long id, LocalDateTime fechaInicial, LocalDateTime fechaFinal) {
+	public boolean existePeriodoExcluyendoId(Long id, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Long idProyecto) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("id", id);
 		paramSource.addValue("fechaInicial", fechaInicial);
 		paramSource.addValue("fechaFinal", fechaFinal);
+		paramSource.addValue("idProyecto", idProyecto);
 
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
 				.queryForObject(sqlExisteEnPeriodoExcluyendoId,paramSource, Boolean.class);

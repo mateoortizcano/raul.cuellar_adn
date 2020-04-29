@@ -16,7 +16,8 @@ public class CrearSprintTest {
     public void validarCrearSprintConNombreExistenteTest() {
         // arrange
 		RepositorioSprint repositorioSprint = Mockito.mock(RepositorioSprint.class);
-		Mockito.when(repositorioSprint.existeNombre(Mockito.anyString())).thenReturn(true);
+		Mockito.when(repositorioSprint.existeNombre(Mockito.anyLong(), Mockito.anyString()))
+				.thenReturn(true);
 		ServicioCrearSprint servicioCrearSprint = new ServicioCrearSprint(repositorioSprint);
 		Sprint sprint = new SprintTestDataBuilder(
 				1L,
@@ -36,6 +37,7 @@ public class CrearSprintTest {
 		// arrange
 		RepositorioSprint repositorioSprint = Mockito.mock(RepositorioSprint.class);
 		Mockito.when(repositorioSprint.existePeriodo(
+				Mockito.anyLong(),
 				Mockito.any(),
 				Mockito.any())).thenReturn(true);
 		ServicioCrearSprint servicioCrearSprint = new ServicioCrearSprint(repositorioSprint);

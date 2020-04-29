@@ -23,7 +23,8 @@ public class ServicioActualizarSprint {
     private void validarNombreExistente(Sprint sprint) {
         boolean existe = this.repositorioSprint.existeNombreExcluyendoId(
                 sprint.getId(),
-                sprint.getNombre());
+                sprint.getNombre(),
+                sprint.getIdProyecto());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_NOMBRE_SPRINT_YA_EXISTE);
         }
@@ -32,7 +33,8 @@ public class ServicioActualizarSprint {
         boolean existe = this.repositorioSprint.existePeriodoExcluyendoId(
                 sprint.getId(),
                 sprint.getFechaInicial(),
-                sprint.getFechaFinal());
+                sprint.getFechaFinal(),
+                sprint.getIdProyecto());
         if(existe) {
             throw new ExcepcionDuplicidad(EL_PERIODO_SPRINT_YA_EXISTE);
         }

@@ -3,4 +3,5 @@ FROM sprint
 WHERE
 id <> :id AND
 ((:fechaInicial BETWEEN fecha_inicial AND fecha_final) OR
-(:fechaFinal BETWEEN fecha_inicial AND fecha_final))
+(:fechaFinal BETWEEN fecha_inicial AND fecha_final)) AND
+id_proyecto = :idProyecto

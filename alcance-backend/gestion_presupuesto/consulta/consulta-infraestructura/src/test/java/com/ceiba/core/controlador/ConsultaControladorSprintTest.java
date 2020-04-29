@@ -43,6 +43,25 @@ public class ConsultaControladorSprintTest {
 	}
 
 	@Test
+	public void listarResumen() throws Exception {
+		// arrange
+
+		// act - assert
+		mocMvc.perform(get("/proyectos/1/sprints/resumen")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$[0].id", is(1)))
+				.andExpect(jsonPath("$[0].nombre", is("Sprint 1")))
+				.andExpect(jsonPath("$[0].fechaInicial", is("2020-03-17 00:00:00")))
+				.andExpect(jsonPath("$[0].fechaFinal", is("2020-03-24 23:59:59")))
+				.andExpect(jsonPath("$[0].diasHabiles", is(5)))
+				.andExpect(jsonPath("$[0].numeroPersonas", is(3)))
+				.andExpect(jsonPath("$[0].idProyecto", is(1)))
+				.andExpect(jsonPath("$[0].presupuestosSprint", hasSize(5)));
+	}
+
+	@Test
 	public void consultar() throws Exception {
 		// arrange
 

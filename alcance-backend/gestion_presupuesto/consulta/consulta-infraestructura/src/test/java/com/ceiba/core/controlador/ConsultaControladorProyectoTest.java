@@ -32,7 +32,7 @@ public class ConsultaControladorProyectoTest {
     	mocMvc.perform(get("/proyectos")
     		      .contentType(MediaType.APPLICATION_JSON))
     		      .andExpect(status().isOk())
-    		      .andExpect(jsonPath("$", hasSize(2)))
+    		      .andExpect(jsonPath("$", hasSize(1)))
 				.andExpect(jsonPath("$[0].id", is(1)))
 				.andExpect(jsonPath("$[0].nombre", is("Proyecto1")))
 				.andExpect(jsonPath("$[0].cliente", is("Cliente1")));
@@ -46,7 +46,7 @@ public class ConsultaControladorProyectoTest {
 		mocMvc.perform(get("/proyectos/resumen")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect(jsonPath("$", hasSize(1)))
 				.andExpect(jsonPath("$[0].id", is(1)))
 				.andExpect(jsonPath("$[0].nombre", is("Proyecto1")))
 				.andExpect(jsonPath("$[0].cliente", is("Cliente1")))

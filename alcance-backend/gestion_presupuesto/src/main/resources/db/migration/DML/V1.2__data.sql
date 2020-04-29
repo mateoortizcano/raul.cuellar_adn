@@ -1,1 +1,0 @@
-INSERT INTO proyecto (nombre, cliente) VALUES ('Recaudos y conciliaciones', 'Fondo presente');

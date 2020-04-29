@@ -1,1 +1,1 @@
-select count(1) from sprint where nombre = :nombre
+select count(1) from sprint where nombre = :nombre and id_proyecto = :idProyecto

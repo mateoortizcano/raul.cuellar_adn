@@ -4,6 +4,7 @@ import com.ceiba.core.dao.DaoSprint;
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.core.modelo.DtoSprint;
+import com.ceiba.core.modelo.DtoSprintResumen;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
@@ -43,5 +44,14 @@ public class DaoSprintMysql implements DaoSprint {
                 .query(sqlConsultar, paramSource, new MapeoSprint());
 
         return resultados.get(0);
+    }
+
+    @Override
+    public List<DtoSprintResumen> listarResumen(Long idProyecto) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idProyecto", idProyecto);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
+                .query(sqlListar, paramSource, new MapeoSprintResumen());
     }
 }
