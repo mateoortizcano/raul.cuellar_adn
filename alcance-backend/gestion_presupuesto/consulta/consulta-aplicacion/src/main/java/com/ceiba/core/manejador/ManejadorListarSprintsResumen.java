@@ -2,7 +2,7 @@ package com.ceiba.core.manejador;
 
 import com.ceiba.core.dao.DaoPresupuestoSprint;
 import com.ceiba.core.dao.DaoSprint;
-import com.ceiba.core.modelo.DtoSprintResumen;
+import com.ceiba.core.modelo.sprint.DtoSprintResumen;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

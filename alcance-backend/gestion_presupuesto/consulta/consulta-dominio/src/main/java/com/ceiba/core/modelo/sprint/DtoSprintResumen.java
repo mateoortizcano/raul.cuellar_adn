@@ -1,5 +1,6 @@
-package com.ceiba.core.modelo;
+package com.ceiba.core.modelo.sprint;
 
+import com.ceiba.core.modelo.presupuestosprint.DtoPresupuestoSprint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

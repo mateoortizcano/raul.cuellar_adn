@@ -1,6 +1,6 @@
 package com.ceiba.core.dao;
 
-import com.ceiba.core.modelo.DtoEpica;
+import com.ceiba.core.modelo.epica.DtoEpica;
 
 import java.util.List;
 

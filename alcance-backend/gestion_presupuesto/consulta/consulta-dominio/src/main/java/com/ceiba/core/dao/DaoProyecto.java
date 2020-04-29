@@ -1,7 +1,7 @@
 package com.ceiba.core.dao;
 
-import com.ceiba.core.modelo.DtoProyecto;
-import com.ceiba.core.modelo.DtoProyectoResumen;
+import com.ceiba.core.modelo.proyecto.DtoProyecto;
+import com.ceiba.core.modelo.proyecto.DtoProyectoResumen;
 
 import java.util.List;
 

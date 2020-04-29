@@ -1,7 +1,7 @@
 package com.ceiba.core.dao.sprint;
 
 import com.ceiba.core.infraestructura.jdbc.MapperResult;
-import com.ceiba.core.modelo.DtoSprint;
+import com.ceiba.core.modelo.sprint.DtoSprint;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

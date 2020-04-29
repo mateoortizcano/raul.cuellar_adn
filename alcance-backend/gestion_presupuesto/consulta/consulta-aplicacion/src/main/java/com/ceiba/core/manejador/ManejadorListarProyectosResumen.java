@@ -1,7 +1,7 @@
 package com.ceiba.core.manejador;
 
 import com.ceiba.core.dao.DaoProyecto;
-import com.ceiba.core.modelo.DtoProyectoResumen;
+import com.ceiba.core.modelo.proyecto.DtoProyectoResumen;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

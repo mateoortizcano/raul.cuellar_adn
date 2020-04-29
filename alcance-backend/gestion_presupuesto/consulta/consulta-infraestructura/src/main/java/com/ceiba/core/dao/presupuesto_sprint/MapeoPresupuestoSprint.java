@@ -1,7 +1,7 @@
 package com.ceiba.core.dao.presupuesto_sprint;
 
 import com.ceiba.core.infraestructura.jdbc.MapperResult;
-import com.ceiba.core.modelo.DtoPresupuestoSprint;
+import com.ceiba.core.modelo.presupuestosprint.DtoPresupuestoSprint;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

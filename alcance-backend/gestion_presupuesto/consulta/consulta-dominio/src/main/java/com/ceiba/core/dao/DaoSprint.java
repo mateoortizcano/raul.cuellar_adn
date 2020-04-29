@@ -1,7 +1,7 @@
 package com.ceiba.core.dao;
 
-import com.ceiba.core.modelo.DtoSprint;
-import com.ceiba.core.modelo.DtoSprintResumen;
+import com.ceiba.core.modelo.sprint.DtoSprint;
+import com.ceiba.core.modelo.sprint.DtoSprintResumen;
 
 import java.util.List;
 

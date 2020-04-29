@@ -1,7 +1,7 @@
 package com.ceiba.core.dao;
 
 
-import com.ceiba.core.modelo.DtoPresupuestoSprint;
+import com.ceiba.core.modelo.presupuestosprint.DtoPresupuestoSprint;
 
 import java.util.List;
 

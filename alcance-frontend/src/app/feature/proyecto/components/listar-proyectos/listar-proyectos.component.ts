@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProyectoService } from '../../shared/service/proyecto.service';
 import { CargadorService } from '@core/services/cargador.service';
 import { ProyectoResumen } from '@proyecto/shared/model/proyecto-resumen';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listar-proyectos',
@@ -17,6 +16,7 @@ export class ListarProyectosComponent implements OnInit {
               protected cargadorService: CargadorService) { }
 
   ngOnInit(): void {
+    sessionStorage.removeItem('idProyecto');
     this.cargarListarProyectos();
   }
 

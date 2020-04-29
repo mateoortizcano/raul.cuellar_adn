@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.ceiba.core.dao.DaoEpica;
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.core.modelo.DtoEpica;
+import com.ceiba.core.modelo.epica.DtoEpica;
 
 @Component
 public class DaoEpicaMysql implements DaoEpica {

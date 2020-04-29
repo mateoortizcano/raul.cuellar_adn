@@ -18,11 +18,6 @@
       <th></th>
       <th></th>
       <th>Periodo</th>
-      <th colspan="2" class="text-center">Desarrollo</th>
-      <th colspan="2" class="text-center">Gestión</th>
-      <th colspan="2" class="text-center">Diseño</th>
-      <th colspan="2" class="text-center">Técnica</th>
-      <th colspan="2" class="text-center">Infraestructura</th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +38,9 @@
       <td>
         <span class="d-block"><span class="text-muted">Del</span> {{ sprint.fechaInicial | date }}</span>
         <span class="d-block"><span class="text-muted">al</span> {{ sprint.fechaFinal | date }}</span>
+      </td>
+      <td>
+        <a routerLink="detalles/{{ sprint.id }}" class="btn">Detalles</a>
       </td>
     </tr>
   </tbody>

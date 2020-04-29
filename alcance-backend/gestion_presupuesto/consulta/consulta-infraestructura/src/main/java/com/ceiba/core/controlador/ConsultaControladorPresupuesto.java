@@ -2,8 +2,8 @@ package com.ceiba.core.controlador;
 
 import com.ceiba.core.manejador.ManejadorListarPresupuestos;
 import com.ceiba.core.manejador.ManejadorListarPresupuestosGlobal;
-import com.ceiba.core.modelo.DtoPresupuesto;
-import com.ceiba.core.modelo.DtoPresupuestoGlobal;
+import com.ceiba.core.modelo.presupuesto.DtoPresupuesto;
+import com.ceiba.core.modelo.presupuesto.DtoPresupuestoGlobal;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;

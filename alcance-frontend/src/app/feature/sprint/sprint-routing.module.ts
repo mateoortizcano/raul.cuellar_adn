@@ -4,6 +4,7 @@ import { SprintComponent } from './components/sprint/sprint.component';
 import { ListarSprintsComponent } from './components/listar-sprints/listar-sprints.component';
 import { CrearSprintComponent } from './components/crear-sprint/crear-sprint.component';
 import { ActualizarSprintComponent } from './components/actualizar-sprint/actualizar-sprint.component';
+import { DetalleSprintComponent } from './components/detalle-sprint/detalle-sprint.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'actualizar/:id',
         component: ActualizarSprintComponent
+      },
+      {
+        path: 'detalles/:id',
+        component: DetalleSprintComponent
       }
     ]
   }

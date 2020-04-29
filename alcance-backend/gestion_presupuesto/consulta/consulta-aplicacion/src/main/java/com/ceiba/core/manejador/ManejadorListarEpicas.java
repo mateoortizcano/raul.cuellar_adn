@@ -1,7 +1,7 @@
 package com.ceiba.core.manejador;
 
 import com.ceiba.core.dao.DaoEpica;
-import com.ceiba.core.modelo.DtoEpica;
+import com.ceiba.core.modelo.epica.DtoEpica;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

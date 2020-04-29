@@ -2,8 +2,8 @@ package com.ceiba.core.controlador;
 
 import com.ceiba.core.manejador.ManejadorListarProyectos;
 import com.ceiba.core.manejador.ManejadorListarProyectosResumen;
-import com.ceiba.core.modelo.DtoProyecto;
-import com.ceiba.core.modelo.DtoProyectoResumen;
+import com.ceiba.core.modelo.proyecto.DtoProyecto;
+import com.ceiba.core.modelo.proyecto.DtoProyectoResumen;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

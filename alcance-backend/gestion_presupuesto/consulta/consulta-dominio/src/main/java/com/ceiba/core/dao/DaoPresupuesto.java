@@ -1,7 +1,7 @@
 package com.ceiba.core.dao;
 
-import com.ceiba.core.modelo.DtoPresupuesto;
-import com.ceiba.core.modelo.DtoPresupuestoGlobal;
+import com.ceiba.core.modelo.presupuesto.DtoPresupuesto;
+import com.ceiba.core.modelo.presupuesto.DtoPresupuestoGlobal;
 
 import java.util.List;
 

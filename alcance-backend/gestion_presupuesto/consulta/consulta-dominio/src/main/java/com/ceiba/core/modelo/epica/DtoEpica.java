@@ -1,4 +1,4 @@
-package com.ceiba.core.modelo;
+package com.ceiba.core.modelo.epica;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

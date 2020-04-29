@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.ceiba.core.infraestructura.jdbc.MapperResult;
-import com.ceiba.core.modelo.DtoEpica;
+import com.ceiba.core.modelo.epica.DtoEpica;
 
 public class MapeoEpica implements RowMapper<DtoEpica>,MapperResult {
     @Override

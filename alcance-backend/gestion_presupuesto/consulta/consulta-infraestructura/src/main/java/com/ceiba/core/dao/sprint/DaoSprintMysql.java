@@ -3,8 +3,8 @@ package com.ceiba.core.dao.sprint;
 import com.ceiba.core.dao.DaoSprint;
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.core.modelo.DtoSprint;
-import com.ceiba.core.modelo.DtoSprintResumen;
+import com.ceiba.core.modelo.sprint.DtoSprint;
+import com.ceiba.core.modelo.sprint.DtoSprintResumen;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
 package com.ceiba.core.controlador;
 
 import com.ceiba.core.manejador.ManejadorListarEpicas;
-import com.ceiba.core.modelo.DtoEpica;
+import com.ceiba.core.modelo.epica.DtoEpica;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
 package com.ceiba.core.dao.proyecto;
 
 import com.ceiba.core.infraestructura.jdbc.MapperResult;
-import com.ceiba.core.modelo.DtoProyectoResumen;
+import com.ceiba.core.modelo.proyecto.DtoProyectoResumen;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

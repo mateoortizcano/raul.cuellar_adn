@@ -3,8 +3,8 @@ package com.ceiba.core.dao.presupuesto;
 import com.ceiba.core.dao.DaoPresupuesto;
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.core.modelo.DtoPresupuesto;
-import com.ceiba.core.modelo.DtoPresupuestoGlobal;
+import com.ceiba.core.modelo.presupuesto.DtoPresupuesto;
+import com.ceiba.core.modelo.presupuesto.DtoPresupuestoGlobal;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
