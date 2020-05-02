@@ -19,6 +19,6 @@ public class MapeoPresupuestoSprint implements RowMapper<DtoPresupuestoSprint>, 
         Double valorPlaneado = resultSet.getDouble("valor_planeado");
         Double valorEjecutado = resultSet.getDouble("valor_ejecutado");
 
-        return new DtoPresupuestoSprint(id, idConcepto, idSprint, horasPlaneadas, horasEjecutadas, valorPlaneado, valorEjecutado);
+        return new DtoPresupuestoSprint(id, idSprint, idConcepto, horasPlaneadas, horasEjecutadas, valorPlaneado, valorEjecutado);
     }
 }

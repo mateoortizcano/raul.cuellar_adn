@@ -1,6 +1,7 @@
 package com.ceiba.core.dao;
 
 import com.ceiba.core.modelo.sprint.DtoSprint;
+import com.ceiba.core.modelo.sprint.DtoSprintDetalles;
 import com.ceiba.core.modelo.sprint.DtoSprintResumen;
 
 import java.util.List;
@@ -24,4 +25,10 @@ public interface DaoSprint {
      * @return sprint
      */
     List<DtoSprintResumen> listarResumen(Long idProyecto);
+
+    /**
+     * Permite consultar un sprint
+     * @return sprint
+     */
+    DtoSprintDetalles listarDetalles(Long idProyecto);
 }

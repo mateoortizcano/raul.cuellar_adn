@@ -8,7 +8,7 @@ import lombok.Getter;
 public class DtoPresupuestoSprint {
     private Long id;
     private Long idSprint;
-    private Long idProyecto;
+    private Long idConcepto;
     private Double horasPlaneadas;
     private Double horasEjecutadas;
     private Double valorPlaneado;

@@ -69,7 +69,6 @@ public class ConsultaControladorSprintTest {
 		mocMvc.perform(get("/proyectos/1/sprints/1")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-
 				.andExpect(jsonPath("$.id", is(1)))
 				.andExpect(jsonPath("$.nombre", is("Sprint 1")))
 				.andExpect(jsonPath("$.fechaInicial", is("2020-03-17 00:00:00")))
@@ -77,5 +76,28 @@ public class ConsultaControladorSprintTest {
 				.andExpect(jsonPath("$.diasHabiles", is(5)))
 				.andExpect(jsonPath("$.numeroPersonas", is(3)))
 				.andExpect(jsonPath("$.idProyecto", is(1)));
+	}
+
+	@Test
+	public void listarDetalles() throws Exception {
+		// arrange
+
+		// act - assert
+		mocMvc.perform(get("/proyectos/1/sprints/1/detalles")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.id", is(1)))
+				.andExpect(jsonPath("$.nombre", is("Sprint 1")))
+				.andExpect(jsonPath("$.fechaInicial", is("2020-03-17 00:00:00")))
+				.andExpect(jsonPath("$.fechaFinal", is("2020-03-24 23:59:59")))
+				.andExpect(jsonPath("$.diasHabiles", is(5)))
+				.andExpect(jsonPath("$.numeroPersonas", is(3)))
+				.andExpect(jsonPath("$.idProyecto", is(1)))
+				.andExpect(jsonPath("$.presupuestosSprint", hasSize(5)))
+				.andExpect(jsonPath("$.presupuestosSprint.[0].idConcepto", is(1)))
+				.andExpect(jsonPath("$.presupuestosSprint.[1].idConcepto", is(2)))
+				.andExpect(jsonPath("$.presupuestosSprint.[2].idConcepto", is(3)))
+				.andExpect(jsonPath("$.presupuestosSprint.[3].idConcepto", is(4)))
+				.andExpect(jsonPath("$.presupuestosSprint.[4].idConcepto", is(5)));
 	}
 }
