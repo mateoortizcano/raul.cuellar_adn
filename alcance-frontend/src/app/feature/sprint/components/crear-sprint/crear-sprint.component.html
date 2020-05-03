@@ -25,4 +25,20 @@
       <button class="btn btn-primary btn-lg btn-block" type="button" (click)="crear()">Añadir sprint</button>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12" *ngFor="let concepto of listaConceptos">
+      <div class="custom-control custom-checkbox">
+        <input
+        type="checkbox"
+        class="custom-control-input"
+        id="concepto_{{ concepto.id }}"
+        value="{{ concepto.id}}"
+        name="conceptos"
+        formControlName="conceptos"
+        (click)="updConceptoSeleccionado(concepto.id)">
+        <label class="custom-control-label" for="concepto_{{ concepto.id }}">{{ concepto.nombre }}</label>
+      </div>
+    </div>
+  </div>
 </form>
+<pre>{{ conceptosSeleccionados | json }} </pre>
