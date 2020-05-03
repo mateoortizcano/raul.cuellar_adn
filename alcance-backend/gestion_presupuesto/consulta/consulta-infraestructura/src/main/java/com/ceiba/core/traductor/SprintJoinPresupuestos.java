@@ -7,7 +7,7 @@ import com.ceiba.core.modelo.sprint.DtoSprintJoinPresupuestos;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SprintJoinPresupuestos {
+public final class SprintJoinPresupuestos {
 
     private SprintJoinPresupuestos(){}
 
