@@ -4,6 +4,7 @@ import { Sprint } from '../model/sprint';
 import { environment } from 'src/environments/environment';
 import { ComandoRespuesta } from '@core/modelo/comando-respuesta.model';
 import { SprintResumen } from '../model/sprint-resumen';
+import { SprintDetalles } from '../model/sprint-detalles';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class SprintService {
 
   public listarResumen(idProyecto: number) {
     return this.http.doGet<SprintResumen[]>(`${environment.endpoint}/proyectos/${idProyecto}/sprints/resumen`);
+  }
+
+  public listarDetalles(idProyecto: number, idSprint: number) {
+    return this.http.doGet<SprintDetalles>(`${environment.endpoint}/proyectos/${idProyecto}/sprints/${idSprint}/detalles`);
   }
 
   public crear(sprint: Sprint) {

@@ -12,5 +12,5 @@ ps.horas_planeadas,
 ps.horas_ejecutadas,
 ps.valor_planeado,
 ps.valor_ejecutado
-FROM sprint AS s INNER JOIN presupuesto_sprint AS ps ON ps.id_sprint = s.id
+FROM sprint AS s LEFT JOIN presupuesto_sprint AS ps ON ps.id_sprint = s.id
 Where s.id = :id

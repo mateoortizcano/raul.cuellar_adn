@@ -1,12 +1,10 @@
 package com.ceiba.core.modelo.sprint;
 
-import com.ceiba.core.modelo.presupuestosprint.DtoPresupuestoSprint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -19,5 +17,7 @@ public class DtoSprintResumen {
     private Integer diasHabiles;
     private Integer numeroPersonas;
     private Long idProyecto;
-    private List<DtoPresupuestoSprint> presupuestosSprint;
+    private Double valorPlaneado;
+    private Double valorEjecutado;
+    private Double desviacion;
 }

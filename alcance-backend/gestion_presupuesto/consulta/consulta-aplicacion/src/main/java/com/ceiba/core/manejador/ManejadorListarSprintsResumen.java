@@ -1,6 +1,5 @@
 package com.ceiba.core.manejador;
 
-import com.ceiba.core.dao.DaoPresupuestoSprint;
 import com.ceiba.core.dao.DaoSprint;
 import com.ceiba.core.modelo.sprint.DtoSprintResumen;
 import org.springframework.stereotype.Component;
@@ -11,19 +10,12 @@ import java.util.List;
 public class ManejadorListarSprintsResumen {
 
     private final DaoSprint daoSprint;
-    private final DaoPresupuestoSprint daoPresupuestoSprint;
 
-    public ManejadorListarSprintsResumen(DaoSprint daoSprint, DaoPresupuestoSprint daoPresupuestoSprint) {
+    public ManejadorListarSprintsResumen(DaoSprint daoSprint) {
         this.daoSprint = daoSprint;
-        this.daoPresupuestoSprint = daoPresupuestoSprint;
     }
 
     public List<DtoSprintResumen> ejecutar(Long idProyecto){
-        List<DtoSprintResumen> sprintResumen = this.daoSprint.listarResumen(idProyecto);
-        for (DtoSprintResumen sprint:sprintResumen ){
-            sprint.setPresupuestosSprint(
-                    this.daoPresupuestoSprint.listar(sprint.getId()));
-        }
-        return sprintResumen;
+        return this.daoSprint.listarResumen(idProyecto);
     }
 }

@@ -58,7 +58,8 @@ public class ConsultaControladorSprintTest {
 				.andExpect(jsonPath("$[0].diasHabiles", is(5)))
 				.andExpect(jsonPath("$[0].numeroPersonas", is(3)))
 				.andExpect(jsonPath("$[0].idProyecto", is(1)))
-				.andExpect(jsonPath("$[0].presupuestosSprint", hasSize(5)));
+				.andExpect(jsonPath("$[0].valorPlaneado", is(2.311947E7)))
+				.andExpect(jsonPath("$[0].valorEjecutado", is(2.7136186E7)));
 	}
 
 	@Test
