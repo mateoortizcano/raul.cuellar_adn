@@ -32,7 +32,7 @@ public class ConsultaControladorSprintTest {
 		mocMvc.perform(get("/proyectos/1/sprints")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$", hasSize(2)))
 				.andExpect(jsonPath("$[0].id", is(1)))
 				.andExpect(jsonPath("$[0].nombre", is("Sprint 1")))
 				.andExpect(jsonPath("$[0].fechaInicial", is("2020-03-17 00:00:00")))
@@ -50,7 +50,7 @@ public class ConsultaControladorSprintTest {
 		mocMvc.perform(get("/proyectos/1/sprints/resumen")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$", hasSize(2)))
 				.andExpect(jsonPath("$[0].id", is(1)))
 				.andExpect(jsonPath("$[0].nombre", is("Sprint 1")))
 				.andExpect(jsonPath("$[0].fechaInicial", is("2020-03-17 00:00:00")))
@@ -61,7 +61,6 @@ public class ConsultaControladorSprintTest {
 				.andExpect(jsonPath("$[0].valorPlaneado", is(2.311947E7)))
 				.andExpect(jsonPath("$[0].valorEjecutado", is(2.7136186E7)));
 	}
-
 	@Test
 	public void consultar() throws Exception {
 		// arrange
