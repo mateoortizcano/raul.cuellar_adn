@@ -62,12 +62,12 @@ export class CrearSprintComponent implements OnInit {
       // const selectedConceptos = this.sprintForm.value.conceptos
       // .map((checked, index) => checked ? this.listaConceptos[index].id : null)
       // .filter(value => value !== null);
-      // this.sprintService.crear(sprint).subscribe(resp => {
-      //   if (resp.valor > 0) {
-      //     this.alertaService.success('El sprint se ha creado');
-      //     this.router.navigate(['/sprints']);
-      //   }
-      // });
+      this.sprintService.crear(sprint).subscribe(resp => {
+        if (resp.valor > 0) {
+          this.alertaService.success('El sprint se ha creado');
+          this.router.navigate(['/sprints']);
+        }
+      });
     }
   }
 
