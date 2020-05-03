@@ -15,10 +15,9 @@ describe('ListarSprintsComponent', () => {
   let component: ListarSprintsComponent;
   let fixture: ComponentFixture<ListarSprintsComponent>;
   let sprintService: SprintService;
-  const presupuestoSprint: PresupuestoSprint[] = [];
   const listaSprints: SprintResumen[] = [
-    new SprintResumen(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1,presupuestoSprint),
-    new SprintResumen(2, 'Sprint 2', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1, presupuestoSprint)];
+    new SprintResumen(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1, 1, 1, 1),
+    new SprintResumen(2, 'Sprint 2', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1, 2, 2, 2)];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
