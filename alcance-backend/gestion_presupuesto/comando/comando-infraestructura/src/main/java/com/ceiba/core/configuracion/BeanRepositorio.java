@@ -23,4 +23,9 @@ public class BeanRepositorio {
 	public RepositorioSprint repositorioSprint(CustomNamedParameterJdbcTemplate repositorioGenerico){
 		return new RepositorioSprintMysql(repositorioGenerico);
 	}
+
+	@Bean
+	public RepositorioPresupuestoSprint repositorioPresupuestoSprint(CustomNamedParameterJdbcTemplate repositorioGenerico){
+		return new RepositorioPresupuestoSprintMysql(repositorioGenerico);
+	}
 }

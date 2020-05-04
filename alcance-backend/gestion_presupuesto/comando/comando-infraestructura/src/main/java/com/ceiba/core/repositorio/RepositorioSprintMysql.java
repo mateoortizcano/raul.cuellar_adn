@@ -2,6 +2,7 @@ package com.ceiba.core.repositorio;
 
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
+import com.ceiba.core.modelo.PresupuestoSprint;
 import com.ceiba.core.modelo.Sprint;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
@@ -32,13 +33,21 @@ public class RepositorioSprintMysql implements RepositorioSprint {
 	@SqlStatement(namespace = "sprint", value = "eliminar")
 	private String sqlEliminar;
 
+	@SqlStatement(namespace = "presupuesto_sprint", value = "crear")
+	private String sqlCrearPS;
+
 	public RepositorioSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
 	}
 
 	@Override
 	public Long crear(Sprint sprint) {
-		return this.customNamedParameterJdbcTemplate.crear(sprint, this.sqlCrear);
+		Long idSprint = this.customNamedParameterJdbcTemplate.crear(sprint, this.sqlCrear);
+		for(PresupuestoSprint presupuestoSprint: sprint.getPresupuestoSprint()){
+			presupuestoSprint.setIdSprint(idSprint);
+			this.customNamedParameterJdbcTemplate.crear(presupuestoSprint, sqlCrearPS);
+		}
+		return idSprint;
 	}
 
 	@Override

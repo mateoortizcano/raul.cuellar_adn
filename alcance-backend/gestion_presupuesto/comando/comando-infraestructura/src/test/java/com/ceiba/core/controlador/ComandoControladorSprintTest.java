@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -38,7 +39,8 @@ public class ComandoControladorSprintTest {
                 "Sprint 1",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
-                3
+                3,
+                new ArrayList<Long>()
         ).build();
 
         // act - assert
@@ -58,7 +60,8 @@ public class ComandoControladorSprintTest {
                 "Otro nombre",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
-                10).build();
+                10,
+                new ArrayList<Long>()).build();
 
         // act - assert
         mocMvc.perform(put("/sprints/{id}",id)

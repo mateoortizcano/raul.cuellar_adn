@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,4 +19,5 @@ public class ComandoSprint {
     private LocalDateTime fechaFinal;
     private Integer numeroPersonas;
     private Long idProyecto;
+    private List<Long> conceptos;
 }

@@ -3,6 +3,7 @@ package com.ceiba.core.servicio.testdatabuilder;
 import com.ceiba.core.modelo.Sprint;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class SprintTestDataBuilder {
 
@@ -23,6 +24,6 @@ public class SprintTestDataBuilder {
     }
 
     public Sprint build() {
-    	return new Sprint(id,nombre, fechaInicial, fechaFinal, numeroPersonas,idProyecto);
+    	return new Sprint(id,nombre, fechaInicial, fechaFinal, numeroPersonas,idProyecto, new ArrayList<>());
     }
 }

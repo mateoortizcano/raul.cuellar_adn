@@ -1,0 +1,2 @@
+INSERT INTO presupuesto_sprint (id_sprint, id_concepto, horas_planeadas, horas_ejecutadas, valor_planeado, valor_ejecutado)
+VALUES (:idSprint, :idConcepto, :horasPlaneadas, :horasEjecutadas, :valorPlaneado, :valorEjecutado);
