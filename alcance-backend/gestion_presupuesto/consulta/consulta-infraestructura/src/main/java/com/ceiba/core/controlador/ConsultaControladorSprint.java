@@ -49,7 +49,7 @@ public class ConsultaControladorSprint {
 	}
 
 	@GetMapping(value = "/resumen")
-	@ApiOperation("Consultar sprint más presupuestos")
+	@ApiOperation("Consultar sprint más indicadores")
 	public List<DtoSprintResumen> listarResumen(@PathVariable Long idProyecto) {
 		return this.manejadorListarSprintsResumen.ejecutar(idProyecto);
 	}
