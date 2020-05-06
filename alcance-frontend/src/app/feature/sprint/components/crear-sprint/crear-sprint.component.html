@@ -25,20 +25,31 @@
       <button class="btn btn-primary btn-lg btn-block" type="button" (click)="crear()">Añadir sprint</button>
     </div>
   </div>
+</form>
   <div class="row">
-    <div class="col-12" *ngFor="let concepto of listaConceptos">
-      <div class="custom-control custom-checkbox">
-        <input
-        type="checkbox"
-        class="custom-control-input"
-        id="concepto_{{ concepto.id }}"
-        value="{{ concepto.id}}"
-        name="conceptos"
-        formControlName="conceptos"
-        (click)="updConceptoSeleccionado(concepto.id)">
-        <label class="custom-control-label" for="concepto_{{ concepto.id }}">{{ concepto.nombre }}</label>
-      </div>
+    <div class="col">
+      <label for="">Roles</label>
+      <select name="" id="" class="form-control" [(ngModel)]="rolSeleccionado">
+        <option value="">Seleccione</option>
+        <option *ngFor="let concepto of listaConceptos" value="{{ concepto.id }}">{{ concepto.nombre }}</option>
+      </select>
+      <button class="btn btn-outline-info" (click)="agregarRol()">+</button>
     </div>
   </div>
-</form>
-<pre>{{ conceptosSeleccionados | json }} </pre>
+  <table class="table table-sm table-hover">
+    <tr>
+      <th>Rol</th>
+      <th>Tarifa</th>
+      <th>Horas planeadas</th>
+      <th>Valor planeado</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let concepto of conceptosSeleccionados">
+      <td>{{ concepto.nombre }}</td>
+      <td>{{ concepto.tarifa | number: '1.0-0' }}</td>
+      <td><input type="number" name="" id="" class="form-control" value="{{ concepto.horasSugeridas }}"></td>
+      <td><input type="number" name="" id="" class="form-control" value="{{ concepto.valorSugerido }}"></td>
+      <td><button class="btn btn-outline-danger" (click)="removerRol(concepto.id)">x</button></td>
+    </tr>
+  </table>
+

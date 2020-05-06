@@ -23,7 +23,7 @@ describe('CrearSprintComponent', () => {
     valor: 0
   } as ComandoRespuesta<number>;
 
-  const listaConceptos: Concepto[] = [new Concepto(1, 'Desarrollo', 'produccion')];
+  const listaConceptos: Concepto[] = [new Concepto(1, 'Desarrollo', 'produccion', true, 93000)];
 
   beforeEach(async(() => {
     sprintSpyService = jasmine.createSpyObj('SprintService', ['crear']);
@@ -70,7 +70,6 @@ describe('CrearSprintComponent', () => {
     component.sprintForm.controls.fechaInicial.setValue('2021-05-02 00:00:00');
     component.sprintForm.controls.fechaFinal.setValue('2021-05-20 23:59:59');
     component.sprintForm.controls.numeroPersonas.setValue('3');
-    component.sprintForm.controls.conceptos.setValue(true);
     sprintSpyService.crear.and.returnValue(
       of(comandoRespuesta)
     );

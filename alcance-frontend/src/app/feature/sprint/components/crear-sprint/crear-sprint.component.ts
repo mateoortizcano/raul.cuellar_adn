@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SprintService } from '@sprint/shared/service/sprint.service';
-import { Sprint } from '@sprint/shared/model/sprint';
 import { AlertaService } from '@core/services/alerta.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Concepto } from '@sprint/shared/model/concepto';
 import { ConceptoService } from '@sprint/shared/service/concepto.service';
+import { ComandoSprint } from '@sprint/shared/model/comando-sprint';
 
 @Component({
   selector: 'app-crear-sprint',
@@ -15,7 +15,9 @@ import { ConceptoService } from '@sprint/shared/service/concepto.service';
 export class CrearSprintComponent implements OnInit {
   sprintForm: FormGroup;
   listaConceptos: Concepto[];
-  conceptosSeleccionados: number[];
+  conceptosSeleccionados: Concepto[] = [];
+  rolSeleccionado: number;
+  idProyecto: number;
 
   constructor(
     private router: Router,
@@ -25,7 +27,8 @@ export class CrearSprintComponent implements OnInit {
     protected alertaService: AlertaService) { }
 
   ngOnInit(): void {
-    this.conceptoService.listar().subscribe(resp => {
+    this.idProyecto = +sessionStorage.getItem('idProyecto');
+    this.conceptoService.listar(this.idProyecto).subscribe(resp => {
       this.listaConceptos = resp;
     });
     this.construirFormularioSprint();
@@ -37,31 +40,39 @@ export class CrearSprintComponent implements OnInit {
       fechaInicial: new FormControl('', [Validators.required]),
       fechaFinal: new FormControl('', [Validators.required]),
       numeroPersonas: new FormControl('', [Validators.required]),
-      conceptos: new FormControl('', [Validators.required])
     });
   }
-  updConceptoSeleccionado(id: number) {
-    this.conceptosSeleccionados.push(id);
-    this.conceptosSeleccionados.filter(idConcepto => {
-      return idConcepto !== id;
-    });
+  agregarRol() {
+    this.rolSeleccionado = +this.rolSeleccionado;
+    const filtradas = this.listaConceptos.filter(c => c.id === this.rolSeleccionado);
+    if (filtradas.length) {
+      const concepto = filtradas.pop();
+      if (concepto.tiempoCompleto) {
+        concepto.horasSugeridas = this.sprintForm.value.numeroPersonas * 9 * 10;
+        concepto.valorSugerido = concepto.horasSugeridas * concepto.tarifa;
+      } else {
+        concepto.horasSugeridas = 0;
+        concepto.valorSugerido = 0;
+      }
+      this.conceptosSeleccionados.push(concepto);
+    }
+  }
+  removerRol(idConcepto: number) {
+    this.conceptosSeleccionados = this.conceptosSeleccionados.filter(c => c.id !== idConcepto);
   }
 
   crear() {
-    const idProyecto = +sessionStorage.getItem('idProyecto');
     if (this.sprintForm.valid) {
-      const sprint = new Sprint(
+      const conceptos = this.conceptosSeleccionados.map(c => c.id);
+      const sprint = new ComandoSprint(
         0,
         this.sprintForm.value.nombre,
         this.sprintForm.value.fechaInicial + ' 00:00:00',
         this.sprintForm.value.fechaFinal + ' 23:59:59',
-        0,
         this.sprintForm.value.numeroPersonas,
-        idProyecto
+        this.idProyecto,
+        conceptos
       );
-      // const selectedConceptos = this.sprintForm.value.conceptos
-      // .map((checked, index) => checked ? this.listaConceptos[index].id : null)
-      // .filter(value => value !== null);
       this.sprintService.crear(sprint).subscribe(resp => {
         if (resp.valor > 0) {
           this.alertaService.success('El sprint se ha creado');
