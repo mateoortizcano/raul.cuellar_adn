@@ -1,4 +1,4 @@
-package com.ceiba.core.manejador;
+package com.ceiba.core.manejador.proyecto;
 
 import com.ceiba.core.dao.DaoProyecto;
 import com.ceiba.core.modelo.proyecto.DtoProyectoResumen;

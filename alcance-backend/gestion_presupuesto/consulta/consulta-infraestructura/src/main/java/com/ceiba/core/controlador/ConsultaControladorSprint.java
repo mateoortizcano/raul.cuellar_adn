@@ -1,9 +1,9 @@
 package com.ceiba.core.controlador;
 
-import com.ceiba.core.manejador.ManejadorListarSprint;
-import com.ceiba.core.manejador.ManejadorListarSprintDetalles;
-import com.ceiba.core.manejador.ManejadorListarSprints;
-import com.ceiba.core.manejador.ManejadorListarSprintsResumen;
+import com.ceiba.core.manejador.sprint.ManejadorListarSprint;
+import com.ceiba.core.manejador.sprint.ManejadorListarSprintDetalles;
+import com.ceiba.core.manejador.sprint.ManejadorListarSprints;
+import com.ceiba.core.manejador.sprint.ManejadorListarSprintsResumen;
 import com.ceiba.core.modelo.sprint.DtoSprint;
 import com.ceiba.core.modelo.sprint.DtoSprintDetalles;
 import com.ceiba.core.modelo.sprint.DtoSprintResumen;

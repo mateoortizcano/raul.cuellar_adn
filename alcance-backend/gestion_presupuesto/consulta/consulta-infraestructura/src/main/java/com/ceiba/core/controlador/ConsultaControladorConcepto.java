@@ -1,6 +1,6 @@
 package com.ceiba.core.controlador;
 
-import com.ceiba.core.manejador.ManejadorListarConceptos;
+import com.ceiba.core.manejador.concepto.ManejadorListarConceptos;
 import com.ceiba.core.modelo.concepto.DtoConcepto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

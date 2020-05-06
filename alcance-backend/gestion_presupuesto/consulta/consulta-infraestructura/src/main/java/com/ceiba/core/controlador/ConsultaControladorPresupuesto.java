@@ -1,7 +1,7 @@
 package com.ceiba.core.controlador;
 
-import com.ceiba.core.manejador.ManejadorListarPresupuestos;
-import com.ceiba.core.manejador.ManejadorListarPresupuestosGlobal;
+import com.ceiba.core.manejador.presupuesto.ManejadorListarPresupuestos;
+import com.ceiba.core.manejador.presupuesto.ManejadorListarPresupuestosGlobal;
 import com.ceiba.core.modelo.presupuesto.DtoPresupuesto;
 import com.ceiba.core.modelo.presupuesto.DtoPresupuestoGlobal;
 import io.swagger.annotations.Api;

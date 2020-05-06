@@ -1,4 +1,4 @@
-package com.ceiba.core.manejador;
+package com.ceiba.core.manejador.sprint;
 
 import com.ceiba.core.dao.DaoSprint;
 import com.ceiba.core.modelo.sprint.DtoSprintResumen;

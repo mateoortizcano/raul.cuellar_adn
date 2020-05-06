@@ -1,4 +1,4 @@
-package com.ceiba.core.manejador;
+package com.ceiba.core.manejador.epica;
 
 import com.ceiba.core.dao.DaoEpica;
 import com.ceiba.core.modelo.epica.DtoEpica;

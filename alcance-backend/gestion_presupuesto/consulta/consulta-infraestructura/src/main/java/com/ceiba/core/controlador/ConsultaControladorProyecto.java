@@ -1,7 +1,7 @@
 package com.ceiba.core.controlador;
 
-import com.ceiba.core.manejador.ManejadorListarProyectos;
-import com.ceiba.core.manejador.ManejadorListarProyectosResumen;
+import com.ceiba.core.manejador.proyecto.ManejadorListarProyectos;
+import com.ceiba.core.manejador.proyecto.ManejadorListarProyectosResumen;
 import com.ceiba.core.modelo.proyecto.DtoProyecto;
 import com.ceiba.core.modelo.proyecto.DtoProyectoResumen;
 import io.swagger.annotations.Api;

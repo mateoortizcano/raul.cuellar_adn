@@ -1,4 +1,4 @@
-package com.ceiba.core.manejador;
+package com.ceiba.core.manejador.concepto;
 
 import com.ceiba.core.dao.DaoConcepto;
 import com.ceiba.core.modelo.concepto.DtoConcepto;

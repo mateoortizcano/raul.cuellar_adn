@@ -1,4 +1,4 @@
-package com.ceiba.core.manejador;
+package com.ceiba.core.manejador.presupuesto;
 
 import com.ceiba.core.dao.DaoPresupuesto;
 import com.ceiba.core.modelo.presupuesto.DtoPresupuesto;
