@@ -9,10 +9,13 @@ server:
       context-path: /gestion_presupuesto
 
 tiempoHealthCheck:
-   tiempo: 30000  
+   tiempo: 30000
+
 
 
 spring:
+   flyway:
+      outOfOrder: true
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource

@@ -3,7 +3,6 @@ package com.ceiba.core.modelo;
 import static com.ceiba.core.dominio.util.fechas.FechaUtil.diasEntreDosFechasSinContarFestivosNiFinesDeSemana;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import static com.ceiba.core.dominio.ValidadorArgumento.validarMenor;
 import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;
@@ -23,10 +22,9 @@ public class Sprint {
     private Integer diasHabiles;
     private Integer numeroPersonas;
     private Long idProyecto;
-    private List<PresupuestoSprint> presupuestoSprintList;
 
     public Sprint(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Integer numeroPersonas,
-                  Long idProyecto, List<PresupuestoSprint> presupuestoSprintList) {
+                  Long idProyecto) {
 
         validarObligatorio(nombre, MSG_NOMBRE_OBLIGATORIO);
         validarObligatorio(fechaInicial, MSG_FECHA_INICIAL_OBLIGATORIO);
@@ -41,7 +39,6 @@ public class Sprint {
         this.diasHabiles = diasEntreDosFechasSinContarFestivosNiFinesDeSemana(fechaInicial, fechaFinal);
         this.numeroPersonas = numeroPersonas;
         this.idProyecto = idProyecto;
-        this.presupuestoSprintList = presupuestoSprintList;
     }
 
     public Long getId() {
@@ -72,7 +69,4 @@ public class Sprint {
         return idProyecto;
     }
 
-    public List<PresupuestoSprint> getPresupuestoSprint() {
-        return presupuestoSprintList;
-    }
 }

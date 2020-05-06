@@ -33,21 +33,13 @@ public class RepositorioSprintMysql implements RepositorioSprint {
 	@SqlStatement(namespace = "sprint", value = "eliminar")
 	private String sqlEliminar;
 
-	@SqlStatement(namespace = "presupuesto_sprint", value = "crear")
-	private String sqlCrearPS;
-
 	public RepositorioSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
 	}
 
 	@Override
 	public Long crear(Sprint sprint) {
-		Long idSprint = this.customNamedParameterJdbcTemplate.crear(sprint, this.sqlCrear);
-		for(PresupuestoSprint presupuestoSprint: sprint.getPresupuestoSprint()){
-			presupuestoSprint.setIdSprint(idSprint);
-			this.customNamedParameterJdbcTemplate.crear(presupuestoSprint, sqlCrearPS);
-		}
-		return idSprint;
+		return this.customNamedParameterJdbcTemplate.crear(sprint, this.sqlCrear);
 	}
 
 	@Override

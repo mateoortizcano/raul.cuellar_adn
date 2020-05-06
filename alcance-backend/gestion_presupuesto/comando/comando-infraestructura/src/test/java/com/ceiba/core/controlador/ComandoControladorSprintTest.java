@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -34,13 +35,15 @@ public class ComandoControladorSprintTest {
     @Test
     public void crear() throws Exception{
         // arrange
+        List<Long> conceptos = new ArrayList<>();
+        conceptos.add(1L);
         ComandoSprint sprint = new ComandoSprintTestDataBuilder(
                 1L,
                 "Sprint 1",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 3,
-                new ArrayList<Long>()
+                conceptos
         ).build();
 
         // act - assert
