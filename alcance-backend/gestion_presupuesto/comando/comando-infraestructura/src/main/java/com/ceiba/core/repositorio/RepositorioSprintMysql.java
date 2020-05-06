@@ -2,7 +2,6 @@ package com.ceiba.core.repositorio;
 
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.core.modelo.PresupuestoSprint;
 import com.ceiba.core.modelo.Sprint;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
