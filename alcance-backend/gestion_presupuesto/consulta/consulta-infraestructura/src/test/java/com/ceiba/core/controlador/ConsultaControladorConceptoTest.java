@@ -29,7 +29,7 @@ public class ConsultaControladorConceptoTest {
         // arrange
 
         // act - assert
-    	mocMvc.perform(get("/conceptos")
+    	mocMvc.perform(get("/proyectos/1/conceptos")
     		      .contentType(MediaType.APPLICATION_JSON))
     		      .andExpect(status().isOk())
     		      .andExpect(jsonPath("$", hasSize(5)))

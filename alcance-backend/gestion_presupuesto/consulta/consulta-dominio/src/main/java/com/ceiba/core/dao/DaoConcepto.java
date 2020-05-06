@@ -8,7 +8,8 @@ public interface DaoConcepto {
 
     /**
      * Permite listar conceptos
+     * @param idProyecto
      * @return listado conceptos
      */
-    List<DtoConcepto> listar();
+    List<DtoConcepto> listar(Long idProyecto);
 }

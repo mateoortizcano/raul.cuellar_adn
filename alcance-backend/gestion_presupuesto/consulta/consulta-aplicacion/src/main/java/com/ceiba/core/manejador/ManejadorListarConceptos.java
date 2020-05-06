@@ -15,7 +15,7 @@ public class ManejadorListarConceptos {
         this.daoConcepto = daoConcepto;
     }
 
-    public List<DtoConcepto> ejecutar(){
-        return this.daoConcepto.listar();
+    public List<DtoConcepto> ejecutar(Long idProyecto){
+        return this.daoConcepto.listar(idProyecto);
     }
 }

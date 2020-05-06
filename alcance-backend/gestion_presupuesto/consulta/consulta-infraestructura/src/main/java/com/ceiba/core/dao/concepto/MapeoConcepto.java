@@ -14,7 +14,9 @@ public class MapeoConcepto implements RowMapper<DtoConcepto>, MapperResult {
         Long id = resultSet.getLong("id");
         String nombre = resultSet.getString("nombre");
         String gerencia = resultSet.getString("gerencia");
+        Boolean tiempoCompleto = resultSet.getBoolean("tiempo_completo");
+        Double tarifa = resultSet.getDouble("tarifa");
 
-        return new DtoConcepto(id, nombre, gerencia);
+        return new DtoConcepto(id, nombre, gerencia, tiempoCompleto, tarifa);
     }
 }
