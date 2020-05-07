@@ -32,11 +32,11 @@ public class ConsultaControladorCalendarioTest {
         // arrange
         ConsultaCalendario consultaCalendario = new ConsultaCalendario(
                 LocalDateTime.now(),
-                LocalDateTime.now()
+                LocalDateTime.now().plusDays(1L)
         );
         // act - assert
     	mocMvc.perform(post("/calendario")
-    		        .contentType(MediaType.TEXT_PLAIN)
+    		        .contentType(MediaType.APPLICATION_JSON_UTF8)
                     .content(objectMapper.writeValueAsString(consultaCalendario)))
     		      .andExpect(status().isOk());
     }
