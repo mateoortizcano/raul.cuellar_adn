@@ -21,6 +21,7 @@ dependencies {
 	implementation project(':consulta:consulta-aplicacion')
 	
 	implementation project(':comun:comun-infraestructura')
+	implementation project(':comun:comun-dominio')
 }
 
 test {
