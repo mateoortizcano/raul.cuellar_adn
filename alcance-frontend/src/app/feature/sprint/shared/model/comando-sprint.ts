@@ -7,10 +7,10 @@ export class ComandoSprint {
   fechaFinal: string;
   numeroPersonas: number;
   idProyecto: number;
-  conceptos: any[];
+  conceptos: Concepto[];
 
   constructor(id: number, nombre: string, fechaInicial: string, fechaFinal: string, numeroPersonas: number,
-              idProyecto: number, conceptos: any[]) {
+              idProyecto: number, conceptos: Concepto[]) {
       this.id = id;
       this.nombre = nombre;
       this.fechaInicial = fechaInicial;

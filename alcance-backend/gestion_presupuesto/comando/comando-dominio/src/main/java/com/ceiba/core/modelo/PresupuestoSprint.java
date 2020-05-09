@@ -47,4 +47,32 @@ public class PresupuestoSprint {
     public void setValorEjecutado(Double valorEjecutado) {
         this.valorEjecutado = valorEjecutado;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getIdSprint() {
+        return idSprint;
+    }
+
+    public Long getIdConcepto() {
+        return idConcepto;
+    }
+
+    public Double getHorasPlaneadas() {
+        return horasPlaneadas;
+    }
+
+    public Double getHorasEjecutadas() {
+        return horasEjecutadas;
+    }
+
+    public Double getValorPlaneado() {
+        return valorPlaneado;
+    }
+
+    public Double getValorEjecutado() {
+        return valorEjecutado;
+    }
 }

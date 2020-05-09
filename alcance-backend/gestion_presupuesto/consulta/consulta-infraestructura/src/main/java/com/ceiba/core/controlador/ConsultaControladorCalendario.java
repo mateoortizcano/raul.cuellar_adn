@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/calendario")
 @Api(tags={"Controlador consulta calendario"})
 public class ConsultaControladorCalendario {
-
-    public ConsultaControladorCalendario() {
-    }
-
+    
     @PostMapping
     @ApiOperation("Consultar días hábiles")
     public Integer diasFestivos(@RequestBody ConsultaCalendario consultaCalendario){
