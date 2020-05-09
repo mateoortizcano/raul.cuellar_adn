@@ -1,55 +1,74 @@
 <h2>Añadir sprint</h2>
-<form [formGroup]="sprintForm">
-  <div class="row">
-    <div class="col">
-      <label for="nombre">Nombre</label>
-      <input validar type="text" id="nombre" name="nombre" placeholder="Nombre de sprint"
-        class="form-control" formControlName="nombre">
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="sprintForm">
+      <div class="row">
+        <div class="col">
+          <label for="nombre">Nombre</label>
+          <input validar type="text" id="nombre" name="nombre" placeholder="Nombre de sprint" class="form-control"
+            formControlName="nombre">
+        </div>
+        <div class="col">
+          <label for="fechaInicial">Fecha inicial</label>
+          <input validar type="date" id="fechaInicial" name="fechaInicial" placeholder="Inicio del sprint"
+            class="form-control" formControlName="fechaInicial" (change)="consultarDiasHabiles()">
+        </div>
+        <div class="col">
+          <label for="fechaFinal">Fecha de finalización</label>
+          <input validar type="date" id="fechaFinal" name="fechaFinal" placeholder="Final del sprint"
+            class="form-control" formControlName="fechaFinal" (change)="consultarDiasHabiles()">
+        </div>
+        <div class="col">
+          <label for="diasHabiles">Días hábiles</label>
+          <input validar type="number" id="diasHabiles" name="diasHabiles"
+            placeholder="Días hábiles" class="form-control" formControlName="diasHabiles" disabled="disabled">
+        </div>
+        <div class="col-2">
+          <label for="numeroPersonas">Personas en el equipo</label>
+          <input validar type="number" id="numeroPersonas" name="numeroPersonas"
+            placeholder="Número de personas en el equipo" class="form-control" formControlName="numeroPersonas" (change)="actualizarValoresRoles()">
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-3">
+        <label for="">Roles</label>
+        <div class="input-group">
+          <select name="" id="" class="form-control" [(ngModel)]="rolSeleccionado">
+            <option value="">Seleccione</option>
+            <option *ngFor="let concepto of listaConceptos" value="{{ concepto.id }}">{{ concepto.nombre }}</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-outline-info" (click)="agregarRol()">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <table class="table table-sm table-hover mt-4">
+          <tr>
+            <th>Rol</th>
+            <th>Tarifa</th>
+            <th>Horas planeadas</th>
+            <th>Valor planeado</th>
+            <th></th>
+          </tr>
+          <tr *ngIf="conceptosSeleccionados.length <= 0">
+            <td colspan="5">Añada roles para configurar el presupuesto del sprint</td>
+          </tr>
+          <tr *ngFor="let concepto of conceptosSeleccionados">
+            <td>{{ concepto.nombre }}</td>
+            <td>{{ concepto.tarifa | number: '1.0-0' }}</td>
+            <td><input type="number" name="" id="" class="form-control" value="{{ concepto.horasSugeridas }}" (change)="actualizarConcepto($event, concepto)"></td>
+            <td><input type="number" name="" id="" class="form-control" value="{{ concepto.valorSugerido }}"></td>
+            <td><button class="btn btn-outline-danger" (click)="removerRol(concepto.id)">x</button></td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div class="col">
-      <label for="fechaInicial">Fecha inicial</label>
-      <input validar type="date" id="fechaInicial" name="fechaInicial" placeholder="Inicio del sprint"
-        class="form-control" formControlName="fechaInicial">
-    </div>
-    <div class="col">
-      <label for="fechaFinal">Fecha de finalización</label>
-      <input validar type="date" id="fechaFinal" name="fechaFinal" placeholder="Final del sprint"
-        class="form-control" formControlName="fechaFinal">
-    </div>
-    <div class="col-2">
-      <label for="numeroPersonas">Personas en el equipo</label>
-      <input validar type="number" id="numeroPersonas" name="numeroPersonas" placeholder="Número de personas en el equipo"
-        class="form-control" formControlName="numeroPersonas">
-    </div>
-    <div class="col">
-      <button class="btn btn-primary btn-lg btn-block" type="button" (click)="crear()">Añadir sprint</button>
+    <div class="row">
+      <div class="col-2 offset-10">
+        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="crear()">Añadir sprint</button>
+      </div>
     </div>
   </div>
-</form>
-  <div class="row">
-    <div class="col">
-      <label for="">Roles</label>
-      <select name="" id="" class="form-control" [(ngModel)]="rolSeleccionado">
-        <option value="">Seleccione</option>
-        <option *ngFor="let concepto of listaConceptos" value="{{ concepto.id }}">{{ concepto.nombre }}</option>
-      </select>
-      <button class="btn btn-outline-info" (click)="agregarRol()">+</button>
-    </div>
-  </div>
-  <table class="table table-sm table-hover">
-    <tr>
-      <th>Rol</th>
-      <th>Tarifa</th>
-      <th>Horas planeadas</th>
-      <th>Valor planeado</th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let concepto of conceptosSeleccionados">
-      <td>{{ concepto.nombre }}</td>
-      <td>{{ concepto.tarifa | number: '1.0-0' }}</td>
-      <td><input type="number" name="" id="" class="form-control" value="{{ concepto.horasSugeridas }}"></td>
-      <td><input type="number" name="" id="" class="form-control" value="{{ concepto.valorSugerido }}"></td>
-      <td><button class="btn btn-outline-danger" (click)="removerRol(concepto.id)">x</button></td>
-    </tr>
-  </table>
-
+</div>

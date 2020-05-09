@@ -19,5 +19,5 @@ public class ComandoSprint {
     private LocalDateTime fechaFinal;
     private Integer numeroPersonas;
     private Long idProyecto;
-    private List<Long> conceptos;
+    private List<ComandoConcepto> conceptos;
 }

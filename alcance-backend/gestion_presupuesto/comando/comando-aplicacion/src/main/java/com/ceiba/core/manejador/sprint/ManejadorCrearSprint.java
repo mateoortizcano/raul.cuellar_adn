@@ -2,6 +2,7 @@ package com.ceiba.core.manejador.sprint;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
 import com.ceiba.core.aplicacion.manejador.ManejadorComandoRespuesta;
+import com.ceiba.core.comando.ComandoConcepto;
 import com.ceiba.core.comando.ComandoSprint;
 import com.ceiba.core.fabrica.FabricaPresupuestoSprint;
 import com.ceiba.core.fabrica.FabricaSprint;
@@ -32,7 +33,7 @@ public class ManejadorCrearSprint implements ManejadorComandoRespuesta<ComandoSp
 	public ComandoRespuesta<Long> ejecutar(ComandoSprint comandoSprint) {
 		Sprint sprint = this.fabricaSprint.crear(comandoSprint);
 		Long idSprint = this.servicioCrearSprint.ejecutar(sprint);
-		for(Long concepto: comandoSprint.getConceptos()){
+		for(ComandoConcepto concepto: comandoSprint.getConceptos()){
 			PresupuestoSprint presupuestoSprint = this.fabricaPresupuestoSprint.crear(idSprint, concepto);
 			this.servicioCrearPresupuestoSprint.ejecutar(presupuestoSprint);
 		}

@@ -1,6 +1,7 @@
 package com.ceiba.core.controlador;
 
 import com.ceiba.core.ApplicationMock;
+import com.ceiba.core.comando.ComandoConcepto;
 import com.ceiba.core.comando.ComandoSprint;
 import com.ceiba.core.testdatabuilder.ComandoSprintTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,8 +36,8 @@ public class ComandoControladorSprintTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        List<Long> conceptos = new ArrayList<>();
-        conceptos.add(1L);
+        List<ComandoConcepto> conceptos = new ArrayList<>();
+        conceptos.add(new ComandoConcepto(1L, 180.0, 900.0));
         ComandoSprint sprint = new ComandoSprintTestDataBuilder(
                 1L,
                 "Sprint 1",
@@ -58,13 +59,15 @@ public class ComandoControladorSprintTest {
     public void actualizar() throws Exception{
         // arrange
         Long id = 1L;
+        List<ComandoConcepto> conceptos = new ArrayList<>();
+        conceptos.add(new ComandoConcepto());
         ComandoSprint sprint = new ComandoSprintTestDataBuilder(
                 id,
                 "Otro nombre",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 10,
-                new ArrayList<Long>()).build();
+                conceptos).build();
 
         // act - assert
         mocMvc.perform(put("/sprints/{id}",id)

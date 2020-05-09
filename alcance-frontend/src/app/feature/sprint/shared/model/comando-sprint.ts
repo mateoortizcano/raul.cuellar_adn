@@ -1,3 +1,5 @@
+import { Concepto } from './concepto';
+
 export class ComandoSprint {
   id: number;
   nombre: string;
@@ -5,9 +7,10 @@ export class ComandoSprint {
   fechaFinal: string;
   numeroPersonas: number;
   idProyecto: number;
-  conceptos: number[];
+  conceptos: any[];
 
-  constructor(id: number, nombre: string, fechaInicial: string, fechaFinal: string, numeroPersonas: number, idProyecto: number, conceptos: number[]) {
+  constructor(id: number, nombre: string, fechaInicial: string, fechaFinal: string, numeroPersonas: number,
+              idProyecto: number, conceptos: any[]) {
       this.id = id;
       this.nombre = nombre;
       this.fechaInicial = fechaInicial;

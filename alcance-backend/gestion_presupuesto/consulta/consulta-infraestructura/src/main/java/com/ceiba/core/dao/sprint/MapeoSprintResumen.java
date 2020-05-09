@@ -24,6 +24,6 @@ public class MapeoSprintResumen implements RowMapper<DtoSprintResumen>, MapperRe
         Double desviacion = (valorPlaneado - valorEjecutado) / valorEjecutado;
 
         return new DtoSprintResumen(id, nombre, fechaInicial, fechaFinal, diasHabiles,numeroPersonas,
-                idProyecto, valorPlaneado, valorEjecutado, desviacion.isNaN() ? 0 : desviacion);
+                idProyecto, valorPlaneado, valorEjecutado, desviacion.isNaN() || desviacion.isInfinite() ? 0 : desviacion);
     }
 }
