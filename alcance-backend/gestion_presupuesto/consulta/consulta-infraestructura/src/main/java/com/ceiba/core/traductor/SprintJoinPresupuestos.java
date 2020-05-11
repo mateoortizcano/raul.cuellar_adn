@@ -18,6 +18,7 @@ public final class SprintJoinPresupuestos {
                     sprintJoinPresupuestos.getIdPresupuesto(),
                     sprintJoinPresupuestos.getIdSprint(),
                     sprintJoinPresupuestos.getIdConcepto(),
+                    sprintJoinPresupuestos.getNombreConcepto(),
                     sprintJoinPresupuestos.getHorasPlaneadas(),
                     sprintJoinPresupuestos.getHorasEjecutadas(),
                     sprintJoinPresupuestos.getValorPlaneado(),

@@ -1,3 +1,1 @@
-delete 
-from sprint
-where id = :id
+delete from sprint where id = :id;

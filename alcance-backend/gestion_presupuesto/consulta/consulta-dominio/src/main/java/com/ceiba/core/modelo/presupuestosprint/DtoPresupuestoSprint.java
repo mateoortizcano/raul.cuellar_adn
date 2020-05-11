@@ -9,6 +9,7 @@ public class DtoPresupuestoSprint {
     private Long id;
     private Long idSprint;
     private Long idConcepto;
+    private String nombreConcepto;
     private Double horasPlaneadas;
     private Double horasEjecutadas;
     private Double valorPlaneado;

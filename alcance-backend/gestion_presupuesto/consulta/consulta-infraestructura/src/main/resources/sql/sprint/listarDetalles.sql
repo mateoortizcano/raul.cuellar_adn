@@ -8,9 +8,11 @@ s.numero_personas,
 s.id_proyecto,
 ps.id AS "idPresupuesto",
 ps.id_concepto,
+c.nombre AS "nombreConcepto",
 ps.horas_planeadas,
 ps.horas_ejecutadas,
 ps.valor_planeado,
 ps.valor_ejecutado
 FROM sprint AS s LEFT JOIN presupuesto_sprint AS ps ON ps.id_sprint = s.id
+LEFT JOIN concepto AS c ON ps.id_concepto = c.id
 Where s.id = :id
