@@ -2,7 +2,6 @@ package com.ceiba.core.manejador.concepto;
 
 import com.ceiba.core.dao.DaoConcepto;
 import com.ceiba.core.modelo.concepto.DtoConcepto;
-import jdk.vm.ci.meta.Local;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
