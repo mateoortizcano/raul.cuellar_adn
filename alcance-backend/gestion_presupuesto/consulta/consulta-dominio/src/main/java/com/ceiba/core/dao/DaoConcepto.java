@@ -2,6 +2,7 @@ package com.ceiba.core.dao;
 
 import com.ceiba.core.modelo.concepto.DtoConcepto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface DaoConcepto {
@@ -11,5 +12,6 @@ public interface DaoConcepto {
      * @param idProyecto
      * @return listado conceptos
      */
-    List<DtoConcepto> listar(Long idProyecto);
+    List<DtoConcepto> listar(Long idProyecto, LocalDateTime fechaInicial, LocalDateTime fechaFinal);
+
 }

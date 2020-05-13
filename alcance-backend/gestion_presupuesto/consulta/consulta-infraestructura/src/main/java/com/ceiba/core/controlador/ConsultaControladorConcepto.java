@@ -4,10 +4,7 @@ import com.ceiba.core.manejador.concepto.ManejadorListarConceptos;
 import com.ceiba.core.modelo.concepto.DtoConcepto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,10 +18,14 @@ public class ConsultaControladorConcepto {
         this.manejadorListarConceptos = manejadorListarConceptos;
     }
 
-    @GetMapping
+    @PostMapping
     @ApiOperation("Listar conceptos")
-    public List<DtoConcepto> listar(@PathVariable Long idProyecto){
-        return this.manejadorListarConceptos.ejecutar(idProyecto);
+    public List<DtoConcepto> listar(@PathVariable Long idProyecto,
+                                             @RequestBody ConsultaCalendario consultaCalendario){
+        return this.manejadorListarConceptos.ejecutar(
+                idProyecto,
+                consultaCalendario.getFechaInicial(),
+                consultaCalendario.getFechaFinal());
     }
 
 }
