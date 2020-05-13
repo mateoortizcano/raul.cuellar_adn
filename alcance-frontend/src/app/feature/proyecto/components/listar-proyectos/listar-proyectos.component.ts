@@ -17,6 +17,8 @@ export class ListarProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     sessionStorage.removeItem('idProyecto');
+    sessionStorage.removeItem('nombreProyecto');
+    sessionStorage.removeItem('clienteProyecto');
     this.cargarListarProyectos();
   }
 
@@ -28,9 +30,11 @@ export class ListarProyectosComponent implements OnInit {
     });
   }
 
-  irAProyecto(idProyecto: number) {
+  irAProyecto(proyecto: ProyectoResumen) {
     if (typeof(Storage) !== 'undefined') {
-      sessionStorage.setItem('idProyecto', idProyecto.toString());
+      sessionStorage.setItem('idProyecto', proyecto.id.toString());
+      sessionStorage.setItem('nombreProyecto', proyecto.nombre.toString());
+      sessionStorage.setItem('clienteProyecto', proyecto.cliente.toString());
     }
   }
 }

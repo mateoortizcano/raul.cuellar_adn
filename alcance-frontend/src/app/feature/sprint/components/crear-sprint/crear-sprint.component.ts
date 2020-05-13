@@ -64,7 +64,8 @@ export class CrearSprintComponent implements OnInit {
   }
   agregarRol() {
     const diasHabiles = this.sprintForm.value.diasHabiles;
-    if (diasHabiles > 0 && this.sprintForm.value.numeroPersonas > 0) {
+    const numeroPersonas = this.sprintForm.value.numeroPersonas;
+    if (diasHabiles > 0 && numeroPersonas > 0) {
       this.rolSeleccionado = +this.rolSeleccionado;
       const filtradas = this.listaConceptos.filter(c => c.id === this.rolSeleccionado);
       if (filtradas.length) {
@@ -78,8 +79,9 @@ export class CrearSprintComponent implements OnInit {
 
   calcularValoresPlaneados(concepto: Concepto) {
     const diasHabiles = this.sprintForm.value.diasHabiles;
+    const numeroPersonas = this.sprintForm.value.numeroPersonas;
     if (concepto.tiempoCompleto) {
-      concepto.horasSugeridas = this.sprintForm.value.numeroPersonas * 9 * diasHabiles;
+      concepto.horasSugeridas = numeroPersonas * 9 * diasHabiles;
       concepto.valorSugerido = concepto.horasSugeridas * concepto.tarifa;
     } else {
       concepto.horasSugeridas = 0;

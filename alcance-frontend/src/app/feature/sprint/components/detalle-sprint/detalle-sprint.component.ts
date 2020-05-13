@@ -11,19 +11,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalle-sprint.component.sass']
 })
 export class DetalleSprintComponent implements OnInit {
-  sprintDetalle: SprintDetalles;
+  public sprintDetalle: SprintDetalles;
 
   constructor(
     private route: ActivatedRoute,
     protected alertaService: AlertaService,
     protected sprintService: SprintService,
-    protected cargadorService: CargadorService) { }
+    protected cargadorService: CargadorService) {
+      // this.sprintDetalle = new SprintDetalles();
+    }
 
   ngOnInit(): void {
     this.cargarDetalles();
   }
 
-  cargarDetalles(){
+  cargarDetalles() {
     const idSprint = +this.route.snapshot.paramMap.get('id');
     const idProyecto = +sessionStorage.getItem('idProyecto');
     this.sprintService.listarDetalles(idProyecto, idSprint).subscribe(resp => {

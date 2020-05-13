@@ -8,7 +8,7 @@
       <h1 class="card-title pricing-card-title">${{ proyecto.presupuestoConsumido | number: '1.0-0' }}
         <small class="text-muted">/ ${{ proyecto.presupuestoGlobal | number: '1.0-0' }}</small></h1>
       <a class="btn btn-lg btn-block btn-primary"
-      routerLink="/sprints" (click)="irAProyecto(proyecto.id)">Ir al proyecto</a>
+      routerLink="/sprints" (click)="irAProyecto(proyecto)">Ir al proyecto</a>
     </div>
   </div>
 </div>

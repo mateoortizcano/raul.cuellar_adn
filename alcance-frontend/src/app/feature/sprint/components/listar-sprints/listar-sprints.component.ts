@@ -13,6 +13,8 @@ import { CargadorService } from '@core/services/cargador.service';
 export class ListarSprintsComponent implements OnInit {
   listaSprints: SprintResumen[];
   idProyecto: number;
+  nombreProyecto: string;
+  clienteProyecto: string;
 
   constructor(
     protected alertaService: AlertaService,
@@ -21,6 +23,8 @@ export class ListarSprintsComponent implements OnInit {
 
   ngOnInit(): void {
     this.idProyecto = +sessionStorage.getItem('idProyecto');
+    this.nombreProyecto = sessionStorage.getItem('nombreProyecto');
+    this.clienteProyecto = sessionStorage.getItem('clienteProyecto');
     this.cargarListaSprints(this.idProyecto);
   }
 

@@ -1,14 +1,51 @@
-<table class="table table-sm table-hover">
-  <tr>
-    <th colspan="2" class="text-center">Desarrollo</th>
-      <th colspan="2" class="text-center">Gestión</th>
-      <th colspan="2" class="text-center">Diseño</th>
-      <th colspan="2" class="text-center">Técnica</th>
-      <th colspan="2" class="text-center">Infraestructura</th>
-  </tr>
-  <tr>
-    <td>
-      <span class="text-muted d-block text-center"></span>
-    </td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-3">
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold text-uppercase">{{
+          sprintDetalle.nombre
+        }}</span>
+      </div>
+      <div class="card-body">
+        <span class="d-block"><span class="text-muted">Del </span>{{ sprintDetalle.fechaInicial | date }}</span>
+        <span class="d-block"><span class="text-muted">al </span>{{ sprintDetalle.fechaInicial | date }}</span>
+        <span class="d-block"><span class="badge badge-pill badge-light">{{
+            sprintDetalle.diasHabiles
+          }}</span>
+          días hábiles</span>
+        <span class="d-block"><span class="badge badge-pill badge-light">{{
+            sprintDetalle.numeroPersonas
+          }}</span>
+          personas</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-sm table-hover">
+          <tr>
+            <th>Concepto</th>
+            <th colspan="2" class="text-center">Planeado</th>
+            <th colspan="2" class="text-center">Ejecutado</th>
+          </tr>
+          <tr *ngFor="let presupuesto of sprintDetalle.presupuestosSprint">
+            <td>{{ presupuesto.nombreConcepto }}</td>
+            <td>
+              <span class="text-muted d-block text-center">{{ presupuesto.horasPlaneadas }}</span>
+            </td>
+            <td>
+              <span class="text-muted d-block text-center">${{ presupuesto.valorPlaneado | number: '1.0-0' }}</span>
+            </td>
+            <td>
+              <span class="d-block text-center">{{ presupuesto.horasEjecutadas }}</span>
+            </td>
+            <td>
+              <span class="d-block text-center">${{ presupuesto.valorEjecutado | number: '1.0-0' }}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
