@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -31,14 +31,9 @@ public class ConsultaControladorConceptoTest {
 
 	@Test
 	public void listarConceptos() throws Exception {
-		// arrange
-		ConsultaCalendario consultaCalendario = new ConsultaCalendario(
-				LocalDateTime.of(2020, 1, 5, 0,0,0),
-				LocalDateTime.of(2020,1,5,0,0,0));
 		// act - assert
-		mocMvc.perform(post("/proyectos/1/conceptos")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(consultaCalendario)))
+		mocMvc.perform(get("/proyectos/1/conceptos/1589241600")
+				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$", hasSize(5)))
 				.andExpect(jsonPath("$[0].id", is(1)))

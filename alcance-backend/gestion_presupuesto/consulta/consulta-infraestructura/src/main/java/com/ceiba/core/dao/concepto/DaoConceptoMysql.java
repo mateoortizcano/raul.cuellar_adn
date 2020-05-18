@@ -22,11 +22,10 @@ public class DaoConceptoMysql implements DaoConcepto {
     }
 
     @Override
-    public List<DtoConcepto> listar(Long idProyecto, LocalDateTime fechaInicial, LocalDateTime fechaFinal) {
+    public List<DtoConcepto> listar(Long idProyecto, LocalDateTime fechaInicial) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idProyecto", idProyecto);
         paramSource.addValue("fechaInicial", fechaInicial);
-        paramSource.addValue("fechaFinal", fechaFinal);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar,paramSource, new MapeoConcepto());
     }
 }

@@ -16,7 +16,7 @@ public class ManejadorListarConceptos {
         this.daoConcepto = daoConcepto;
     }
 
-    public List<DtoConcepto> ejecutar(Long idProyecto, LocalDateTime fechaInicial, LocalDateTime fechaFinal){
-        return this.daoConcepto.listar(idProyecto, fechaInicial, fechaFinal);
+    public List<DtoConcepto> ejecutar(Long idProyecto, LocalDateTime fechaInicial){
+        return this.daoConcepto.listar(idProyecto, fechaInicial);
     }
 }

@@ -12,6 +12,6 @@ public interface DaoConcepto {
      * @param idProyecto
      * @return listado conceptos
      */
-    List<DtoConcepto> listar(Long idProyecto, LocalDateTime fechaInicial, LocalDateTime fechaFinal);
+    List<DtoConcepto> listar(Long idProyecto, LocalDateTime fechaInicial);
 
 }
