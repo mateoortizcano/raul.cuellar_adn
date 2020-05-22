@@ -19,6 +19,8 @@ public class DtoSprintJoinPresupuestos {
     private Long idPresupuesto;
     private Long idConcepto;
     private String nombreConcepto;
+    private Double tarifaConcepto;
+    private Boolean tiempoCompletoConcepto;
     private Double horasPlaneadas;
     private Double horasEjecutadas;
     private Double valorPlaneado;

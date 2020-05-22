@@ -1,20 +1,20 @@
 package com.ceiba.core.fabrica;
 
-import com.ceiba.core.comando.ComandoConcepto;
+import com.ceiba.core.comando.ComandoPresupuestoSprint;
 import com.ceiba.core.modelo.PresupuestoSprint;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FabricaPresupuestoSprint {
-    public PresupuestoSprint crear(Long idSprint, ComandoConcepto concepto){
+    public PresupuestoSprint crear(Long idSprint, ComandoPresupuestoSprint comandoPresupuestoSprint){
         return new PresupuestoSprint(
-                0L,
+                comandoPresupuestoSprint.getId(),
                 idSprint,
-                concepto.getId(),
-                concepto.getHorasSugeridas(),
-                0.0,
-                concepto.getValorSugerido(),
-                0.0
+                comandoPresupuestoSprint.getIdConcepto(),
+                comandoPresupuestoSprint.getHorasPlaneadas(),
+                comandoPresupuestoSprint.getHorasEjecutadas(),
+                comandoPresupuestoSprint.getValorPlaneado(),
+                comandoPresupuestoSprint.getValorEjecutado()
         );
     }
 }

@@ -11,8 +11,6 @@ server:
 tiempoHealthCheck:
    tiempo: 30000
 
-
-
 spring:
    flyway:
       outOfOrder: true

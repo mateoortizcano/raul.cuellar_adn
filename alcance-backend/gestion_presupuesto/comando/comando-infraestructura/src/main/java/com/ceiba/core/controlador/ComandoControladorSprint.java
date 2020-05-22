@@ -38,7 +38,7 @@ public class ComandoControladorSprint {
 	}
 
 	@DeleteMapping(value="/{id}")
-	@ApiOperation("Eliminar Presupuesto")
+	@ApiOperation("Eliminar Sprint")
 	public void eliminar(@PathVariable Long id) {
 		manejadorEliminarSprint.ejecutar(id);
 	}

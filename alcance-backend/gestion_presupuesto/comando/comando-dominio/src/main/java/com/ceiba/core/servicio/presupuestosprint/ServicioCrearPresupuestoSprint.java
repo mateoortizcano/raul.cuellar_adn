@@ -1,4 +1,4 @@
-package com.ceiba.core.servicio.presupuesto_sprint;
+package com.ceiba.core.servicio.presupuestosprint;
 
 import com.ceiba.core.modelo.PresupuestoSprint;
 import com.ceiba.core.repositorio.RepositorioPresupuestoSprint;

@@ -9,8 +9,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComandoConcepto {
+public class ComandoPresupuestoSprint {
     private Long id;
-    private Double horasSugeridas;
-    private Double valorSugerido;
+    private Long idConcepto;
+    private Double horasPlaneadas;
+    private Double valorPlaneado;
+    private Double horasEjecutadas;
+    private Double valorEjecutado;
 }

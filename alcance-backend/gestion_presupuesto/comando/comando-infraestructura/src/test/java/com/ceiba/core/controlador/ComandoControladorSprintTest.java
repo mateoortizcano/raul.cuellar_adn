@@ -1,7 +1,7 @@
 package com.ceiba.core.controlador;
 
 import com.ceiba.core.ApplicationMock;
-import com.ceiba.core.comando.ComandoConcepto;
+import com.ceiba.core.comando.ComandoPresupuestoSprint;
 import com.ceiba.core.comando.ComandoSprint;
 import com.ceiba.core.testdatabuilder.ComandoSprintTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,15 +36,16 @@ public class ComandoControladorSprintTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        List<ComandoConcepto> conceptos = new ArrayList<>();
-        conceptos.add(new ComandoConcepto(1L, 180.0, 900.0));
+        List<ComandoPresupuestoSprint> comandoPresupuestoSprints = new ArrayList<>();
+        comandoPresupuestoSprints.add(new ComandoPresupuestoSprint(0L, 1L, 180.0, 900.0, 0.0, 0.0));
+        comandoPresupuestoSprints.add(new ComandoPresupuestoSprint(0L, 2L, 0.0, 0.0, 0.0, 0.0));
         ComandoSprint sprint = new ComandoSprintTestDataBuilder(
-                1L,
+                0L,
                 "Sprint 1",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 3,
-                conceptos
+                comandoPresupuestoSprints
         ).build();
 
         // act - assert
@@ -59,15 +60,16 @@ public class ComandoControladorSprintTest {
     public void actualizar() throws Exception{
         // arrange
         Long id = 1L;
-        List<ComandoConcepto> conceptos = new ArrayList<>();
-        conceptos.add(new ComandoConcepto());
+        List<ComandoPresupuestoSprint> comandoPresupuestoSprints = new ArrayList<>();
+        comandoPresupuestoSprints.add(new ComandoPresupuestoSprint(1L, 1L, 181.0, 901.0, 181.0, 901.0));
+        // comandoPresupuestoSprints.add(new ComandoPresupuestoSprint(0L, 3L, 1.0, 1.0, 1.0, 1.0));
         ComandoSprint sprint = new ComandoSprintTestDataBuilder(
                 id,
                 "Otro nombre",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 10,
-                conceptos).build();
+                comandoPresupuestoSprints).build();
 
         // act - assert
         mocMvc.perform(put("/sprints/{id}",id)

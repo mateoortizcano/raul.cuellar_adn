@@ -10,6 +10,8 @@ public class DtoPresupuestoSprint {
     private Long idSprint;
     private Long idConcepto;
     private String nombreConcepto;
+    private Double tarifaConcepto;
+    private Boolean tiempoCompletoConcepto;
     private Double horasPlaneadas;
     private Double horasEjecutadas;
     private Double valorPlaneado;

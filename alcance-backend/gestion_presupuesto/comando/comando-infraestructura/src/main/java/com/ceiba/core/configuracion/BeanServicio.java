@@ -2,7 +2,7 @@ package com.ceiba.core.configuracion;
 
 import com.ceiba.core.repositorio.RepositorioPresupuestoSprint;
 import com.ceiba.core.repositorio.RepositorioSprint;
-import com.ceiba.core.servicio.presupuesto_sprint.ServicioCrearPresupuestoSprint;
+import com.ceiba.core.servicio.presupuestosprint.ServicioCrearPresupuestoSprint;
 import com.ceiba.core.servicio.sprint.ServicioActualizarSprint;
 import com.ceiba.core.servicio.sprint.ServicioCrearSprint;
 import org.springframework.context.annotation.Bean;

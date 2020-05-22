@@ -1,6 +1,6 @@
 package com.ceiba.core.testdatabuilder;
 
-import com.ceiba.core.comando.ComandoConcepto;
+import com.ceiba.core.comando.ComandoPresupuestoSprint;
 import com.ceiba.core.comando.ComandoSprint;
 
 import java.time.LocalDateTime;
@@ -14,10 +14,10 @@ public class ComandoSprintTestDataBuilder {
     private LocalDateTime fechaFinal;
     private Integer numeroPersonas;
     private Long idProyecto;
-    private List<ComandoConcepto> conceptos;
+    private List<ComandoPresupuestoSprint> conceptos;
 
     public ComandoSprintTestDataBuilder(Long id, String nombre, LocalDateTime fechaInicial, LocalDateTime fechaFinal,
-                                        Integer numeroPersonas, List<ComandoConcepto> conceptos) {
+                                        Integer numeroPersonas, List<ComandoPresupuestoSprint> conceptos) {
         this.id = id;
         this.nombre = nombre;
         this.fechaInicial = fechaInicial;

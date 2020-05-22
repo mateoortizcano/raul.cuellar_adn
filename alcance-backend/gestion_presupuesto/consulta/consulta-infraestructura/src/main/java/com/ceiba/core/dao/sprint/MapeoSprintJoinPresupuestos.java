@@ -22,6 +22,8 @@ public class MapeoSprintJoinPresupuestos implements RowMapper<DtoSprintJoinPresu
         Long idPresupuesto = resultSet.getLong("idPresupuesto");
         Long idConcepto = resultSet.getLong("id_concepto");
         String nombreConcepto = resultSet.getString("nombreConcepto");
+        Double tarifaConcepto = resultSet.getDouble("tarifaConcepto");
+        Boolean tiempoCompletoConcepto = resultSet.getBoolean("tiempoCompletoConcepto");
         Double horasPlaneadas = resultSet.getDouble("horas_planeadas");
         Double horasEjecutadas = resultSet.getDouble("horas_ejecutadas");
         Double valorPlaneado = resultSet.getDouble("valor_planeado");
@@ -29,7 +31,8 @@ public class MapeoSprintJoinPresupuestos implements RowMapper<DtoSprintJoinPresu
 
         return new DtoSprintJoinPresupuestos(
                 idSprint, nombre, fechaInicial, fechaFinal, diasHabiles, numeroPersonas,
-                idProyecto, idPresupuesto, idConcepto, nombreConcepto,
+                idProyecto, idPresupuesto,
+                idConcepto, nombreConcepto, tarifaConcepto, tiempoCompletoConcepto,
                 horasPlaneadas, horasEjecutadas, valorPlaneado, valorEjecutado);
     }
 }

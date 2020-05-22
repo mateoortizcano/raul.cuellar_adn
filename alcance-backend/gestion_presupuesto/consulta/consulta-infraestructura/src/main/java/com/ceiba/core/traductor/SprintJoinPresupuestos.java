@@ -13,18 +13,22 @@ public final class SprintJoinPresupuestos {
 
     public static DtoSprintDetalles toSprintDetalles(List<DtoSprintJoinPresupuestos> sprintJoinPresupuestosList){
         List<DtoPresupuestoSprint> presupuestoSprintList = new ArrayList<>();
-        for(DtoSprintJoinPresupuestos sprintJoinPresupuestos: sprintJoinPresupuestosList){
-            DtoPresupuestoSprint dtoPresupuestoSprint = new DtoPresupuestoSprint(
-                    sprintJoinPresupuestos.getIdPresupuesto(),
-                    sprintJoinPresupuestos.getIdSprint(),
-                    sprintJoinPresupuestos.getIdConcepto(),
-                    sprintJoinPresupuestos.getNombreConcepto(),
-                    sprintJoinPresupuestos.getHorasPlaneadas(),
-                    sprintJoinPresupuestos.getHorasEjecutadas(),
-                    sprintJoinPresupuestos.getValorPlaneado(),
-                    sprintJoinPresupuestos.getValorEjecutado()
-            );
-            presupuestoSprintList.add(dtoPresupuestoSprint);
+        for(DtoSprintJoinPresupuestos sprintJoinPresupuesto: sprintJoinPresupuestosList){
+            if(sprintJoinPresupuesto.getIdPresupuesto() > 0){
+                DtoPresupuestoSprint dtoPresupuestoSprint = new DtoPresupuestoSprint(
+                        sprintJoinPresupuesto.getIdPresupuesto(),
+                        sprintJoinPresupuesto.getIdSprint(),
+                        sprintJoinPresupuesto.getIdConcepto(),
+                        sprintJoinPresupuesto.getNombreConcepto(),
+                        sprintJoinPresupuesto.getTarifaConcepto(),
+                        sprintJoinPresupuesto.getTiempoCompletoConcepto(),
+                        sprintJoinPresupuesto.getHorasPlaneadas(),
+                        sprintJoinPresupuesto.getHorasEjecutadas(),
+                        sprintJoinPresupuesto.getValorPlaneado(),
+                        sprintJoinPresupuesto.getValorEjecutado()
+                );
+                presupuestoSprintList.add(dtoPresupuestoSprint);
+            }
         }
         DtoSprintJoinPresupuestos sprintJoinPresupuestos0 = sprintJoinPresupuestosList.get(0);
         return new DtoSprintDetalles(
