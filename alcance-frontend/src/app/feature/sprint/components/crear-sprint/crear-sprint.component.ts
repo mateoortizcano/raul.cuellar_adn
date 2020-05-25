@@ -114,7 +114,7 @@ export class CrearSprintComponent implements OnInit {
   }
 
   removerRol(idConcepto: number) {
-    const filtradas = this.presupuestoSprintSeleccionados.filter(c => c.id === idConcepto);
+    const filtradas = this.presupuestoSprintSeleccionados.filter(ps => ps.id === idConcepto);
     const presupuestoSprint = filtradas.pop();
     this.listaConceptos.push(this.convertirEnConcepto(presupuestoSprint));
     this.presupuestoSprintSeleccionados = this.presupuestoSprintSeleccionados.filter(ps => ps.idConcepto !== presupuestoSprint.idConcepto);

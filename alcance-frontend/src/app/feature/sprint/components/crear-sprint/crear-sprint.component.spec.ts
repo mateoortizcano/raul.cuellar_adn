@@ -96,51 +96,52 @@ describe('CrearSprintComponent', () => {
     component.sprintForm.controls.fechaInicial.setValue('2021-05-02 00:00:00');
     component.sprintForm.controls.fechaFinal.setValue('2021-05-20 23:59:59');
 
-    // expect(component.diasHabiles).toBeLessThanOrEqual(0);
     component.consultarDiasHabiles();
-    // expect(calendarioService.consultarDiasHabiles).toHaveBeenCalled();
-    // expect(component.diasHabiles).toEqual(10);
+    expect(calendarioService.consultarDiasHabiles).toHaveBeenCalled();
+    expect(component.diasHabiles).toEqual(10);
   });
 
   it('Agregando rol full time', () => {
+    conceptoService = TestBed.inject(ConceptoService);
     component.sprintForm.controls.fechaInicial.setValue('2021-05-02 00:00:00');
     component.sprintForm.controls.fechaFinal.setValue('2021-05-20 23:59:59');
+    component.cambioEnCalendario();
     component.sprintForm.controls.numeroPersonas.setValue('3');
     component.diasHabiles = 10;
-
     component.rolSeleccionado = 1;
     component.agregarRol();
 
-    // expect(component.presupuestoSprintSeleccionados.length).toEqual(1);
-    // expect(component.presupuestoSprintSeleccionados[0].horasPlaneadas).toEqual(270);
-    // expect(component.presupuestoSprintSeleccionados[0].valorPlaneado).toEqual(25110000);
+    expect(component.presupuestoSprintSeleccionados.length).toEqual(1);
+    expect(component.presupuestoSprintSeleccionados[0].horasPlaneadas).toEqual(270);
+    expect(component.presupuestoSprintSeleccionados[0].valorPlaneado).toEqual(25110000);
   });
 
   it('Agregando rol no full time', () => {
     component.sprintForm.controls.fechaInicial.setValue('2021-05-02 00:00:00');
     component.sprintForm.controls.fechaFinal.setValue('2021-05-20 23:59:59');
+    component.cambioEnCalendario();
     component.sprintForm.controls.numeroPersonas.setValue('3');
     component.diasHabiles = 10;
 
     component.rolSeleccionado = 2;
     component.agregarRol();
 
-    // expect(component.presupuestoSprintSeleccionados.length).toEqual(1);
-    // expect(component.presupuestoSprintSeleccionados[0].horasPlaneadas).toEqual(0);
-    // expect(component.presupuestoSprintSeleccionados[0].valorPlaneado).toEqual(0);
+    expect(component.presupuestoSprintSeleccionados.length).toEqual(1);
+    expect(component.presupuestoSprintSeleccionados[0].horasPlaneadas).toEqual(0);
+    expect(component.presupuestoSprintSeleccionados[0].valorPlaneado).toEqual(0);
   });
 
-  // it('Remover rol', () => {
-  //   component.sprintForm.controls.fechaInicial.setValue('2021-05-02 00:00:00');
-  //   component.sprintForm.controls.fechaFinal.setValue('2021-05-20 23:59:59');
-  //   component.sprintForm.controls.numeroPersonas.setValue('3');
-  //   component.diasHabiles = 10;
+  it('Remover rol', () => {
+    component.sprintForm.controls.fechaInicial.setValue('2021-05-02 00:00:00');
+    component.sprintForm.controls.fechaFinal.setValue('2021-05-20 23:59:59');
+    component.cambioEnCalendario();
+    component.sprintForm.controls.numeroPersonas.setValue('3');
+    component.diasHabiles = 10;
+    component.rolSeleccionado = 2;
+    component.agregarRol();
 
-  //   component.rolSeleccionado = 2;
-  //   component.agregarRol();
-
-  //   // expect(component.presupuestoSprintSeleccionados.length).toEqual(1);
-  //   component.removerRol(2);
-  //   // expect(component.presupuestoSprintSeleccionados.length).toEqual(0);
-  // });
+    expect(component.presupuestoSprintSeleccionados.length).toEqual(1);
+    // component.removerRol(2);
+    // expect(component.presupuestoSprintSeleccionados.length).toEqual(0);
+  });
 });
