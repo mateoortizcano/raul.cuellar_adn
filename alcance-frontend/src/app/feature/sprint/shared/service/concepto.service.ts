@@ -10,7 +10,7 @@ export class ConceptoService {
 
   constructor(protected http: HttpService) { }
 
-  public listar(idProyecto: number) {
-    return this.http.doGet<Concepto[]>(`${environment.endpoint}/proyectos/${idProyecto}/conceptos`);
+  public listar(idProyecto: number, fechaInicial: number) {
+    return this.http.doGet<Concepto[]>(`${environment.endpoint}/proyectos/${idProyecto}/conceptos/${fechaInicial}`);
   }
 }

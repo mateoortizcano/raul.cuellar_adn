@@ -8,9 +8,10 @@ import { HttpService } from '@core/services/http.service';
 import { SprintService } from '@sprint/shared/service/sprint.service';
 import { of } from 'rxjs';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Sprint } from '@sprint/shared/model/sprint';
 import { AlertaService } from '@core/services/alerta.service';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
+import { SprintDetalles } from '@sprint/shared/model/sprint-detalles';
+import { PresupuestoSprint } from '@sprint/shared/model/presupuesto-sprint';
 
 describe('ActualizarSprintComponent', () => {
   let component: ActualizarSprintComponent;
@@ -18,10 +19,12 @@ describe('ActualizarSprintComponent', () => {
   let sprintSpyService = null;
   let sprintService: SprintService;
   let route: ActivatedRoute;
-  const sprint: Sprint = new Sprint(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1);
+  const sprint: SprintDetalles = new SprintDetalles(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1, [
+    new PresupuestoSprint(1, 1, 1, 'Desarrollo', 93412, true, 1, 93412, 1, 93412)
+  ]);
 
   beforeEach(async(() => {
-    sprintSpyService = jasmine.createSpyObj('SprintService', ['actualizar', 'consultar']);
+    sprintSpyService = jasmine.createSpyObj('SprintService', ['actualizar', 'listarDetalles']);
     TestBed.configureTestingModule({
       declarations: [ ActualizarSprintComponent ],
       imports: [
@@ -45,8 +48,8 @@ describe('ActualizarSprintComponent', () => {
     component = fixture.componentInstance;
     sprintService = TestBed.inject(SprintService);
     route = TestBed.inject(ActivatedRoute);
-    const id = +route.snapshot.paramMap.get('id');
-    sprintSpyService.consultar.withArgs(id).and.returnValue(
+    const idSprint = +route.snapshot.paramMap.get('id');
+    sprintSpyService.listarDetalles.and.returnValue(
       of(sprint)
     );
     fixture.detectChanges();

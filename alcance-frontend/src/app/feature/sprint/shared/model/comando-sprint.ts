@@ -1,4 +1,4 @@
-import { Concepto } from './concepto';
+import { PresupuestoSprint } from './presupuesto-sprint';
 
 export class ComandoSprint {
   id: number;
@@ -7,16 +7,16 @@ export class ComandoSprint {
   fechaFinal: string;
   numeroPersonas: number;
   idProyecto: number;
-  conceptos: Concepto[];
+  presupuestoSprint: PresupuestoSprint[];
 
   constructor(id: number, nombre: string, fechaInicial: string, fechaFinal: string, numeroPersonas: number,
-              idProyecto: number, conceptos: Concepto[]) {
+              idProyecto: number, presupuestoSprint: PresupuestoSprint[]) {
       this.id = id;
       this.nombre = nombre;
       this.fechaInicial = fechaInicial;
       this.fechaFinal = fechaFinal;
       this.numeroPersonas = numeroPersonas;
       this.idProyecto = idProyecto;
-      this.conceptos = conceptos;
+      this.presupuestoSprint = presupuestoSprint;
   }
 }

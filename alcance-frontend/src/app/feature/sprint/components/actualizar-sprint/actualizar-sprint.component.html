@@ -1,28 +1,74 @@
 <h2>Actualizar sprint</h2>
-<form [formGroup]="sprintForm">
-  <div class="row">
-    <div class="col">
-      <label for="nombre">Nombre</label>
-      <input validar type="text" id="nombre" name="nombre" placeholder="Nombre de sprint"
-        class="form-control" formControlName="nombre">
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="sprintForm">
+      <div class="row">
+        <div class="col">
+          <label for="nombre">Nombre</label>
+          <input validar type="text" id="nombre" name="nombre" placeholder="Nombre de sprint" class="form-control"
+            formControlName="nombre">
+        </div>
+        <div class="col">
+          <label for="fechaInicial">Fecha inicial</label>
+          <input validar type="date" id="fechaInicial" name="fechaInicial" placeholder="Inicio del sprint"
+            class="form-control" formControlName="fechaInicial" (change)="cambioEnCalendario()">
+        </div>
+        <div class="col">
+          <label for="fechaFinal">Fecha de finalización</label>
+          <input validar type="date" id="fechaFinal" name="fechaFinal" placeholder="Final del sprint"
+            class="form-control" formControlName="fechaFinal" (change)="cambioEnCalendario()">
+        </div>
+        <div class="col-2">
+          <label for="numeroPersonas">Personas en el equipo</label>
+          <input validar type="number" id="numeroPersonas" name="numeroPersonas"
+            placeholder="Número de personas en el equipo" class="form-control" formControlName="numeroPersonas" (change)="actualizarValoresRoles()">
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-3">
+        <label for="">Roles</label>
+        <div class="input-group">
+          <select name="" id="" class="form-control" [(ngModel)]="rolSeleccionado">
+            <option value="-1">Seleccione</option>
+            <option *ngFor="let concepto of listaConceptos" value="{{ concepto.id }}">{{ concepto.nombre }}</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-outline-info" (click)="agregarRol()">+</button>
+          </div>
+        </div>
+        <label for="diasHabiles" *ngIf="diasHabiles > 0">Días hábiles: </label><span class="font-weight-bold d-block">{{ diasHabiles }}</span>
+      </div>
+      <div class="col-9">
+        <table class="table table-sm table-hover mt-4">
+          <tr>
+            <th>Rol</th>
+            <th>Tarifa</th>
+            <th>Horas planeadas</th>
+            <th>Valor planeado</th>
+            <th>Horas ejecutadas</th>
+            <th>Valor ejecutado</th>
+            <th></th>
+          </tr>
+          <tr *ngIf="presupuestoSprintSeleccionados.length <= 0">
+            <td colspan="5">Para añadir roles seleccione un rango de fechas e ingrese el número de personas</td>
+          </tr>
+          <tr *ngFor="let presupuestoSprint of presupuestoSprintSeleccionados">
+            <td>{{ presupuestoSprint.nombreConcepto }}</td>
+            <td>{{ presupuestoSprint.tarifaConcepto | number: '1.0-0' }}</td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.horasPlaneadas }}" (change)="actualizarConceptoPlaneado($event, presupuestoSprint)"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.valorPlaneado"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.horasEjecutadas }}" (change)="actualizarConceptoEjecutado($event, presupuestoSprint)"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.valorEjecutado }}"></td>
+            <td><button class="btn btn-outline-danger" (click)="removerRol(presupuestoSprint.idConcepto)">x</button></td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div class="col">
-      <label for="fechaInicial">Fecha inicial</label>
-      <input validar type="date" id="fechaInicial" name="fechaInicial" placeholder="Inicio del sprint"
-        class="form-control" formControlName="fechaInicial">
-    </div>
-    <div class="col">
-      <label for="fechaFinal">Fecha de finalización</label>
-      <input validar type="date" id="fechaFinal" name="fechaFinal" placeholder="Final del sprint"
-        class="form-control" formControlName="fechaFinal">
-    </div>
-    <div class="col-2">
-      <label for="numeroPersonas">Personas en el equipo</label>
-      <input validar type="number" id="numeroPersonas" name="numeroPersonas" placeholder="Número de personas en el equipo"
-        class="form-control" formControlName="numeroPersonas">
-    </div>
-    <div class="col">
-      <button class="btn btn-primary btn-lg btn-block" type="button" (click)="actualizar()">Actualizar sprint</button>
+    <div class="row">
+      <div class="col-2 offset-10">
+        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="actualizar()">Añadir sprint</button>
+      </div>
     </div>
   </div>
-</form>
+</div>

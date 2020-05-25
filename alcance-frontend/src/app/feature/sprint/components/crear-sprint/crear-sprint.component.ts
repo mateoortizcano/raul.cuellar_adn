@@ -9,6 +9,7 @@ import { ComandoSprint } from '@sprint/shared/model/comando-sprint';
 import { CalendarioService } from '@sprint/shared/service/calendario.service';
 import { ConsultaCalendario } from '@sprint/shared/model/consulta-calendario';
 import { CargadorService } from '@core/services/cargador.service';
+import { PresupuestoSprint } from '@sprint/shared/model/presupuesto-sprint';
 
 @Component({
   selector: 'app-crear-sprint',
@@ -17,10 +18,11 @@ import { CargadorService } from '@core/services/cargador.service';
 })
 export class CrearSprintComponent implements OnInit {
   sprintForm: FormGroup;
-  listaConceptos: Concepto[];
-  conceptosSeleccionados: Concepto[] = [];
-  rolSeleccionado: number;
+  listaConceptos: Concepto[] = [];
+  presupuestoSprintSeleccionados: PresupuestoSprint[] = [];
+  rolSeleccionado = -1;
   idProyecto: number;
+  diasHabiles: number;
 
   constructor(
     private router: Router,
@@ -33,20 +35,30 @@ export class CrearSprintComponent implements OnInit {
 
   ngOnInit(): void {
     this.idProyecto = +sessionStorage.getItem('idProyecto');
-    this.conceptoService.listar(this.idProyecto).subscribe(resp => {
-      this.listaConceptos = resp;
-    });
     this.construirFormularioSprint();
   }
 
   construirFormularioSprint() {
     this.sprintForm = new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      nombre: new FormControl('Sprint ', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
       fechaInicial: new FormControl('', [Validators.required]),
       fechaFinal: new FormControl('', [Validators.required]),
-      diasHabiles: new FormControl('', [Validators.required]),
       numeroPersonas: new FormControl('', [Validators.required]),
     });
+  }
+  cambioEnCalendario() {
+    this.consultarConceptos();
+    this.consultarDiasHabiles();
+  }
+  consultarConceptos() {
+    const fechaInicial = new Date(this.sprintForm.value.fechaInicial).getTime() / 1000;
+    this.conceptoService.listar(this.idProyecto, fechaInicial).subscribe(resp => {
+      this.listaConceptos = resp;
+      this.limpiarConceptosSeleccionados();
+    });
+  }
+  limpiarConceptosSeleccionados() {
+    this.presupuestoSprintSeleccionados = [];
   }
   consultarDiasHabiles() {
     const fechaInicial = this.sprintForm.value.fechaInicial;
@@ -57,53 +69,85 @@ export class CrearSprintComponent implements OnInit {
         fechaInicial + ' 00:00:00',
         fechaFinal + ' 23:59:59'
       )).subscribe(resp => {
-        this.sprintForm.controls.diasHabiles.setValue(resp);
+        this.diasHabiles = resp;
         this.cargadorService.ocultar();
       });
     }
   }
   agregarRol() {
-    const diasHabiles = this.sprintForm.value.diasHabiles;
     const numeroPersonas = this.sprintForm.value.numeroPersonas;
-    if (diasHabiles > 0 && numeroPersonas > 0) {
+    if (this.diasHabiles > 0 && numeroPersonas > 0) {
       this.rolSeleccionado = +this.rolSeleccionado;
       const filtradas = this.listaConceptos.filter(c => c.id === this.rolSeleccionado);
       if (filtradas.length) {
         const concepto = filtradas.pop();
         this.listaConceptos = this.listaConceptos.filter(c => c.id !== concepto.id);
-        this.calcularValoresPlaneados(concepto);
-        this.conceptosSeleccionados.push(concepto);
+        this.presupuestoSprintSeleccionados.push(this.convertirEnPresupuestoSprint(concepto));
       }
     }
+    this.rolSeleccionado = -1;
   }
-
-  calcularValoresPlaneados(concepto: Concepto) {
-    const diasHabiles = this.sprintForm.value.diasHabiles;
+  convertirEnPresupuestoSprint(concepto: Concepto): PresupuestoSprint {
+    const presupuestoSprint = new PresupuestoSprint(
+      0,
+      0,
+      concepto.id,
+      concepto.nombre,
+      concepto.tarifa,
+      concepto.tiempoCompleto,
+      0,
+      0,
+      0,
+      0,
+    );
     const numeroPersonas = this.sprintForm.value.numeroPersonas;
     if (concepto.tiempoCompleto) {
-      concepto.horasSugeridas = numeroPersonas * 9 * diasHabiles;
-      concepto.valorSugerido = concepto.horasSugeridas * concepto.tarifa;
+      presupuestoSprint.horasPlaneadas = numeroPersonas * 9 * this.diasHabiles;
+      presupuestoSprint.valorPlaneado = presupuestoSprint.horasPlaneadas * concepto.tarifa;
     } else {
-      concepto.horasSugeridas = 0;
-      concepto.valorSugerido = 0;
+      presupuestoSprint.horasPlaneadas = 0;
+      presupuestoSprint.valorPlaneado = 0;
     }
+    presupuestoSprint.horasEjecutadas = 0;
+    presupuestoSprint.valorEjecutado = 0;
+    return presupuestoSprint;
   }
 
   removerRol(idConcepto: number) {
-    const filtradas = this.conceptosSeleccionados.filter(c => c.id === idConcepto);
-    const concepto = filtradas.pop();
-    this.listaConceptos.push(concepto);
-    this.conceptosSeleccionados = this.conceptosSeleccionados.filter(c => c.id !== concepto.id);
+    const filtradas = this.presupuestoSprintSeleccionados.filter(c => c.id === idConcepto);
+    const presupuestoSprint = filtradas.pop();
+    this.listaConceptos.push(this.convertirEnConcepto(presupuestoSprint));
+    this.presupuestoSprintSeleccionados = this.presupuestoSprintSeleccionados.filter(ps => ps.idConcepto !== presupuestoSprint.idConcepto);
+    this.rolSeleccionado = -1;
   }
 
-  actualizarConcepto(event: any, concepto: Concepto) {
-    concepto.horasSugeridas = event.target.value;
-    concepto.valorSugerido = concepto.horasSugeridas * concepto.tarifa;
+  convertirEnConcepto(presupuestoSprint: PresupuestoSprint): Concepto {
+    return new Concepto(
+      presupuestoSprint.idConcepto,
+      presupuestoSprint.nombreConcepto,
+      '',
+      presupuestoSprint.tiempoCompletoConcepto,
+      presupuestoSprint.tarifaConcepto);
   }
 
+  actualizarConcepto(event: any, presupuestoSprint: PresupuestoSprint) {
+    presupuestoSprint.horasPlaneadas = event.target.value;
+    presupuestoSprint.valorPlaneado = presupuestoSprint.horasPlaneadas * presupuestoSprint.tarifaConcepto;
+  }
+
+  calcularValoresPlaneados(presupuestoSprint: PresupuestoSprint) {
+    const numeroPersonas = this.sprintForm.value.numeroPersonas;
+    if (presupuestoSprint.tiempoCompletoConcepto) {
+      presupuestoSprint.horasPlaneadas = numeroPersonas * 9 * this.diasHabiles;
+      presupuestoSprint.valorPlaneado = presupuestoSprint.horasPlaneadas * presupuestoSprint.tarifaConcepto;
+    } else {
+      presupuestoSprint.horasPlaneadas = 0;
+      presupuestoSprint.valorPlaneado = 0;
+    }
+  }
   actualizarValoresRoles() {
-    this.conceptosSeleccionados.filter(c => c.tiempoCompleto).forEach(c =>
-      this.calcularValoresPlaneados(c)
+    this.presupuestoSprintSeleccionados.filter(ps => ps.tiempoCompletoConcepto).forEach(ps =>
+      this.calcularValoresPlaneados(ps)
     );
   }
   crear() {
@@ -115,7 +159,7 @@ export class CrearSprintComponent implements OnInit {
         this.sprintForm.value.fechaFinal + ' 23:59:59',
         this.sprintForm.value.numeroPersonas,
         this.idProyecto,
-        this.conceptosSeleccionados
+        this.presupuestoSprintSeleccionados
       );
       this.sprintService.crear(sprint).subscribe(resp => {
         if (resp.valor > 0) {
@@ -125,5 +169,4 @@ export class CrearSprintComponent implements OnInit {
       });
     }
   }
-
 }

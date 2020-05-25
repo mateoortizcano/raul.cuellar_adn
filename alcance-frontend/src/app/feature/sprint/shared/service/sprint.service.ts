@@ -34,8 +34,8 @@ export class SprintService {
     return this.http.doPost<ComandoSprint, ComandoRespuesta<number>>(`${environment.endpoint}/sprints`, sprint);
   }
 
-  public actualizar(sprint: Sprint) {
-    return this.http.doPut<Sprint>(`${environment.endpoint}/sprints/${sprint.id}`, sprint);
+  public actualizar(sprint: ComandoSprint) {
+    return this.http.doPut<ComandoSprint>(`${environment.endpoint}/sprints/${sprint.id}`, sprint);
   }
 
   public eliminar(id: number) {

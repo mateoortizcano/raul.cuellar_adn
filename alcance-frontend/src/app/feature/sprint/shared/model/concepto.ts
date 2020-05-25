@@ -4,8 +4,6 @@ export class Concepto {
   gerencia: string;
   tiempoCompleto: boolean;
   tarifa: number;
-  horasSugeridas: number;
-  valorSugerido: number;
 
   constructor(id: number, nombre: string, gerencia: string, tiempoCompleto: boolean, tarifa: number) {
     this.id = id;

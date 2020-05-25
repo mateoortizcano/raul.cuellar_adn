@@ -10,7 +10,12 @@ import { DetalleSprintComponent } from './components/detalle-sprint/detalle-spri
 
 
 @NgModule({
-  declarations: [SprintComponent, ListarSprintsComponent, CrearSprintComponent, ActualizarSprintComponent, DetalleSprintComponent],
+  declarations: [
+    SprintComponent,
+    ListarSprintsComponent,
+    CrearSprintComponent,
+    ActualizarSprintComponent,
+    DetalleSprintComponent],
   imports: [
     SharedModule,
     SprintRoutingModule
