@@ -12,6 +12,9 @@ import { AlertaService } from '@core/services/alerta.service';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { SprintDetalles } from '@sprint/shared/model/sprint-detalles';
 import { PresupuestoSprint } from '@sprint/shared/model/presupuesto-sprint';
+import { Concepto } from '@sprint/shared/model/concepto';
+import { CalendarioService } from '@sprint/shared/service/calendario.service';
+import { ConceptoService } from '@sprint/shared/service/concepto.service';
 
 describe('ActualizarSprintComponent', () => {
   let component: ActualizarSprintComponent;
@@ -19,9 +22,18 @@ describe('ActualizarSprintComponent', () => {
   let sprintSpyService = null;
   let sprintService: SprintService;
   let route: ActivatedRoute;
+  let calendarioService: CalendarioService;
+  let conceptoService: ConceptoService;
+
   const sprint: SprintDetalles = new SprintDetalles(1, 'Sprint 0', '2020-01-02 05:00:00', '2020-01-21 04:59:59', 12, 3, 1, [
     new PresupuestoSprint(1, 1, 1, 'Desarrollo', 93412, true, 1, 93412, 1, 93412)
   ]);
+
+  const listaConceptos: Concepto[] = [
+    new Concepto(1, 'Desarrollo', 'produccion', true, 93000),
+    new Concepto(2, 'Diseño', 'ceibalab', false, 93000)];
+
+  const diasHabiles = 10;
 
   beforeEach(async(() => {
     sprintSpyService = jasmine.createSpyObj('SprintService', ['actualizar', 'listarDetalles']);
@@ -48,10 +60,21 @@ describe('ActualizarSprintComponent', () => {
     component = fixture.componentInstance;
     sprintService = TestBed.inject(SprintService);
     route = TestBed.inject(ActivatedRoute);
-    const idSprint = +route.snapshot.paramMap.get('id');
+    // const idSprint = +route.snapshot.paramMap.get('id');
     sprintSpyService.listarDetalles.and.returnValue(
       of(sprint)
     );
+
+    conceptoService = TestBed.inject(ConceptoService);
+    spyOn(conceptoService, 'listar').and.returnValue(
+      of(listaConceptos)
+    );
+
+    calendarioService = TestBed.inject(CalendarioService);
+    spyOn(calendarioService, 'consultarDiasHabiles').and.returnValue(
+      of(diasHabiles)
+    );
+
     fixture.detectChanges();
   });
 
