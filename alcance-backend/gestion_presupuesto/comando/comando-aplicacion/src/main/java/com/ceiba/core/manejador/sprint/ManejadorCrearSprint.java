@@ -8,7 +8,7 @@ import com.ceiba.core.fabrica.FabricaPresupuestoSprint;
 import com.ceiba.core.fabrica.FabricaSprint;
 import com.ceiba.core.modelo.PresupuestoSprint;
 import com.ceiba.core.modelo.Sprint;
-import com.ceiba.core.servicio.presupuestosprint.ServicioCrearPresupuestoSprint;
+import com.ceiba.core.repositorio.RepositorioPresupuestoSprint;
 import com.ceiba.core.servicio.sprint.ServicioCrearSprint;
 import org.springframework.stereotype.Component;
 
@@ -18,16 +18,16 @@ public class ManejadorCrearSprint implements ManejadorComandoRespuesta<ComandoSp
 	private final FabricaSprint fabricaSprint;
 	private final FabricaPresupuestoSprint fabricaPresupuestoSprint;
 	private final ServicioCrearSprint servicioCrearSprint;
-	private final ServicioCrearPresupuestoSprint servicioCrearPresupuestoSprint;
+	private final RepositorioPresupuestoSprint repositorioPresupuestoSprint;
 
 	public ManejadorCrearSprint(FabricaSprint fabricaSprint,
 								FabricaPresupuestoSprint fabricaPresupuestoSprint,
 								ServicioCrearSprint servicioCrearSprint,
-								ServicioCrearPresupuestoSprint servicioCrearPresupuestoSprint) {
+								RepositorioPresupuestoSprint repositorioPresupuestoSprint) {
 		this.fabricaSprint = fabricaSprint;
 		this.fabricaPresupuestoSprint = fabricaPresupuestoSprint;
 		this.servicioCrearSprint = servicioCrearSprint;
-		this.servicioCrearPresupuestoSprint = servicioCrearPresupuestoSprint;
+		this.repositorioPresupuestoSprint = repositorioPresupuestoSprint;
 	}
 
 	public ComandoRespuesta<Long> ejecutar(ComandoSprint comandoSprint) {
@@ -35,7 +35,7 @@ public class ManejadorCrearSprint implements ManejadorComandoRespuesta<ComandoSp
 		Long idSprint = this.servicioCrearSprint.ejecutar(sprint);
 		for(ComandoPresupuestoSprint comandoPresupuestoSprint: comandoSprint.getPresupuestoSprint()){
 			PresupuestoSprint presupuestoSprint = this.fabricaPresupuestoSprint.crear(idSprint, comandoPresupuestoSprint);
-			this.servicioCrearPresupuestoSprint.ejecutar(presupuestoSprint);
+			this.repositorioPresupuestoSprint.crear(presupuestoSprint);
 		}
 		return new ComandoRespuesta<>(idSprint);
 	}

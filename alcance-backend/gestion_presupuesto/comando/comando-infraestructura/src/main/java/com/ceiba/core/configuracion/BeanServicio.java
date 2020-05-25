@@ -1,8 +1,6 @@
 package com.ceiba.core.configuracion;
 
-import com.ceiba.core.repositorio.RepositorioPresupuestoSprint;
 import com.ceiba.core.repositorio.RepositorioSprint;
-import com.ceiba.core.servicio.presupuestosprint.ServicioCrearPresupuestoSprint;
 import com.ceiba.core.servicio.sprint.ServicioActualizarSprint;
 import com.ceiba.core.servicio.sprint.ServicioCrearSprint;
 import org.springframework.context.annotation.Bean;
@@ -19,10 +17,5 @@ public class BeanServicio {
 	@Bean
 	public ServicioActualizarSprint servicioActualizarSprint(RepositorioSprint repositorioSprint){
 		return new ServicioActualizarSprint(repositorioSprint);
-	}
-
-	@Bean
-	public ServicioCrearPresupuestoSprint servicioCrearPresupuestoSprint(RepositorioPresupuestoSprint repositorioPresupuestoSprint){
-		return new ServicioCrearPresupuestoSprint(repositorioPresupuestoSprint);
 	}
 }
