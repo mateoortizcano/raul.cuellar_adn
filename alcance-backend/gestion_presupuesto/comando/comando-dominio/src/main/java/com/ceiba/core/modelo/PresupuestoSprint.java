@@ -1,6 +1,13 @@
 package com.ceiba.core.modelo;
 
+import static com.ceiba.core.dominio.ValidadorArgumento.validarPositivo;
+
 public class PresupuestoSprint {
+    private static final String MSG_H_PLANEADAS_POSITIVO_MAYOR_0 = "Proporcione un valor válido para las horas planeadas";
+    private static final String MSG_H_EJECUTADAS_POSITIVO_MAYOR_0 = "Proporcione un valor válido para las horas ejecutadas";
+    private static final String MSG_V_PLANEADO_POSITIVO_MAYOR_0 = "Proporcione un valor válido para el valor planeado";
+    private static final String MSG_V_EJECUTADO_POSITIVO_MAYOR_0 = "Proporcione un valor válido para el valor ejecutado";
+
     private Long id;
     private Long idSprint;
     private Long idConcepto;
@@ -11,6 +18,11 @@ public class PresupuestoSprint {
 
     public PresupuestoSprint(Long id, Long idSprint, Long idConcepto, Double horasPlaneadas,
                              Double horasEjecutadas, Double valorPlaneado, Double valorEjecutado) {
+        validarPositivo(horasPlaneadas, MSG_H_PLANEADAS_POSITIVO_MAYOR_0);
+        validarPositivo(horasEjecutadas, MSG_H_EJECUTADAS_POSITIVO_MAYOR_0);
+        validarPositivo(valorPlaneado, MSG_V_PLANEADO_POSITIVO_MAYOR_0);
+        validarPositivo(valorEjecutado, MSG_V_EJECUTADO_POSITIVO_MAYOR_0);
+
         this.id = id;
         this.idSprint = idSprint;
         this.idConcepto = idConcepto;
@@ -24,55 +36,8 @@ public class PresupuestoSprint {
         this.id = id;
     }
 
-    public void setIdSprint(Long idSprint) {
-        this.idSprint = idSprint;
-    }
-
-    public void setIdConcepto(Long idConcepto) {
-        this.idConcepto = idConcepto;
-    }
-
-    public void setHorasPlaneadas(Double horasPlaneadas) {
-        this.horasPlaneadas = horasPlaneadas;
-    }
-
-    public void setHorasEjecutadas(Double horasEjecutadas) {
-        this.horasEjecutadas = horasEjecutadas;
-    }
-
-    public void setValorPlaneado(Double valorPlaneado) {
-        this.valorPlaneado = valorPlaneado;
-    }
-
-    public void setValorEjecutado(Double valorEjecutado) {
-        this.valorEjecutado = valorEjecutado;
-    }
-
     public Long getId() {
         return id;
     }
 
-    public Long getIdSprint() {
-        return idSprint;
-    }
-
-    public Long getIdConcepto() {
-        return idConcepto;
-    }
-
-    public Double getHorasPlaneadas() {
-        return horasPlaneadas;
-    }
-
-    public Double getHorasEjecutadas() {
-        return horasEjecutadas;
-    }
-
-    public Double getValorPlaneado() {
-        return valorPlaneado;
-    }
-
-    public Double getValorEjecutado() {
-        return valorEjecutado;
-    }
 }
