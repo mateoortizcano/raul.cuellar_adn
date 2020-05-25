@@ -61,11 +61,17 @@ export class ActualizarSprintComponent implements OnInit {
   }
 
   private iniciarFormulario() {
+    const tz = (new Date()).getTimezoneOffset() * 60000;
+    const fechaInicial = new Date(this.sprint.fechaInicial);
+    const fechaFinal = new Date(this.sprint.fechaFinal);
+
+
     this.sprintForm.get('nombre').setValue(this.sprint.nombre);
     this.sprintForm.get('fechaInicial').setValue(
-      new Date(this.sprint.fechaInicial).toISOString().substring(0, 10));
+      (new Date(fechaInicial.getTime() - tz)).toISOString().substring(0, 10));
+
     this.sprintForm.get('fechaFinal').setValue(
-      new Date(this.sprint.fechaFinal).toISOString().substring(0, 10));
+      (new Date(fechaFinal.getTime() - tz)).toISOString().substring(0, 10));
     this.sprintForm.get('numeroPersonas').setValue(this.sprint.numeroPersonas);
   }
 
@@ -167,9 +173,9 @@ export class ActualizarSprintComponent implements OnInit {
   }
 
   actualizarValoresRoles() {
-    this.presupuestoSprintSeleccionados.filter(ps => ps.tiempoCompletoConcepto).forEach(ps =>
-      this.calcularValoresPlaneados(ps)
-    );
+    // this.presupuestoSprintSeleccionados.filter(ps => ps.tiempoCompletoConcepto).forEach(ps =>
+    //   this.calcularValoresPlaneados(ps)
+    // );
   }
   calcularValoresPlaneados(presupuestoSprint: PresupuestoSprint) {
     const numeroPersonas = this.sprintForm.value.numeroPersonas;

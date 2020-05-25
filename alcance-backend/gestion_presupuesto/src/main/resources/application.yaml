@@ -17,7 +17,7 @@ spring:
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:mysql://localhost/gestion_presupuesto?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      jdbcUrl: jdbc:mysql://localhost/gestion_presupuesto?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Bogota
       username: gestion_presupuesto
       password: mE4fLj6Ykl3IRWr5
       hikari:

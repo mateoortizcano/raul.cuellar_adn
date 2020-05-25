@@ -30,7 +30,7 @@ export class ListarSprintsComponent implements OnInit {
 
   eliminar(sprint: Sprint) {
     this.sprintService.eliminar(sprint.id).subscribe(resp => {
-      this.alertaService.success('Ya lo borramos');
+      this.alertaService.success('El sprint se ha eliminado');
       this.cargarListaSprints(this.idProyecto);
     });
     return false;

@@ -34,19 +34,20 @@ public class RepositorioPresupuestoSprintMysql implements RepositorioPresupuesto
     }
 
     @Override
-    public void eliminar(Long idSprint, List<Long> id) {
+    public void eliminar(Long idSprint, List<Long> idPresupuestoSprint) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         String cadenaIds = "";
-        for (int index = 0; index < id.size(); index++) {
-            cadenaIds = cadenaIds.concat(String.valueOf(id.get(index)).concat(","));
+        if(!idPresupuestoSprint.isEmpty()){
+            for (int index = 0; index < idPresupuestoSprint.size(); index++) {
+                cadenaIds = cadenaIds.concat(String.valueOf(idPresupuestoSprint.get(index)).concat(","));
+            }
+            if (!cadenaIds.isEmpty()) {
+                cadenaIds = cadenaIds.substring(0, cadenaIds.length() - 1);
+            } else {
+                cadenaIds = "-1";
+            }
+            cadenaIds = " AND id NOT IN (" . concat(cadenaIds) . concat(")");
         }
-        if (!cadenaIds.isEmpty()) {
-            cadenaIds = cadenaIds.substring(0, cadenaIds.length() - 1);
-        } else {
-            cadenaIds = "-1";
-        }
-        cadenaIds = " AND id NOT IN (" . concat(cadenaIds) . concat(")");
-        paramSource.addValue("idsPermanecer", cadenaIds);
         paramSource.addValue("idSprint", idSprint);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar .concat(cadenaIds), paramSource);

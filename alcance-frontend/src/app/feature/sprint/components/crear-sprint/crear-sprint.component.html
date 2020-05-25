@@ -54,8 +54,8 @@
           <tr *ngFor="let presupuestoSprint of presupuestoSprintSeleccionados">
             <td>{{ presupuestoSprint.nombreConcepto }}</td>
             <td>{{ presupuestoSprint.tarifaConcepto | number: '1.0-0' }}</td>
-            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.horasPlaneadas }}" (change)="actualizarConcepto($event, presupuestoSprint)"></td>
-            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.valorPlaneado }}"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.horasPlaneadas" (change)="actualizarConcepto($event, presupuestoSprint)"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.valorPlaneado"></td>
             <td><button class="btn btn-outline-danger" (click)="removerRol(presupuestoSprint.idConcepto)">x</button></td>
           </tr>
         </table>

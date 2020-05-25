@@ -56,10 +56,10 @@
           <tr *ngFor="let presupuestoSprint of presupuestoSprintSeleccionados">
             <td>{{ presupuestoSprint.nombreConcepto }}</td>
             <td>{{ presupuestoSprint.tarifaConcepto | number: '1.0-0' }}</td>
-            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.horasPlaneadas }}" (change)="actualizarConceptoPlaneado($event, presupuestoSprint)"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.horasPlaneadas" (change)="actualizarConceptoPlaneado($event, presupuestoSprint)"></td>
             <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.valorPlaneado"></td>
-            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.horasEjecutadas }}" (change)="actualizarConceptoEjecutado($event, presupuestoSprint)"></td>
-            <td><input type="number" name="" id="" class="form-control text-right" value="{{ presupuestoSprint.valorEjecutado }}"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.horasEjecutadas" (change)="actualizarConceptoEjecutado($event, presupuestoSprint)"></td>
+            <td><input type="number" name="" id="" class="form-control text-right" value="" [(ngModel)]="presupuestoSprint.valorEjecutado"></td>
             <td><button class="btn btn-outline-danger" (click)="removerRol(presupuestoSprint.idConcepto)">x</button></td>
           </tr>
         </table>
@@ -67,7 +67,7 @@
     </div>
     <div class="row">
       <div class="col-2 offset-10">
-        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="actualizar()">Añadir sprint</button>
+        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="actualizar()">Actualizar sprint</button>
       </div>
     </div>
   </div>
