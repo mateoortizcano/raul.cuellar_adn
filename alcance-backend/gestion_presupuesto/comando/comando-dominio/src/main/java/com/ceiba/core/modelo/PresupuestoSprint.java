@@ -1,6 +1,6 @@
 package com.ceiba.core.modelo;
 
-import static com.ceiba.core.dominio.ValidadorArgumento.validarPositivo;
+import static com.ceiba.core.dominio.ValidadorArgumento.validarPositivoCero;
 
 public class PresupuestoSprint {
     private static final String MSG_H_PLANEADAS_POSITIVO_MAYOR_0 = "Proporcione un valor válido para las horas planeadas";
@@ -18,10 +18,10 @@ public class PresupuestoSprint {
 
     public PresupuestoSprint(Long id, Long idSprint, Long idConcepto, Double horasPlaneadas,
                              Double horasEjecutadas, Double valorPlaneado, Double valorEjecutado) {
-        validarPositivo(horasPlaneadas, MSG_H_PLANEADAS_POSITIVO_MAYOR_0);
-        validarPositivo(horasEjecutadas, MSG_H_EJECUTADAS_POSITIVO_MAYOR_0);
-        validarPositivo(valorPlaneado, MSG_V_PLANEADO_POSITIVO_MAYOR_0);
-        validarPositivo(valorEjecutado, MSG_V_EJECUTADO_POSITIVO_MAYOR_0);
+        validarPositivoCero(horasPlaneadas, MSG_H_PLANEADAS_POSITIVO_MAYOR_0);
+        validarPositivoCero(horasEjecutadas, MSG_H_EJECUTADAS_POSITIVO_MAYOR_0);
+        validarPositivoCero(valorPlaneado, MSG_V_PLANEADO_POSITIVO_MAYOR_0);
+        validarPositivoCero(valorEjecutado, MSG_V_EJECUTADO_POSITIVO_MAYOR_0);
 
         this.id = id;
         this.idSprint = idSprint;
@@ -32,12 +32,59 @@ public class PresupuestoSprint {
         this.valorEjecutado = valorEjecutado;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdSprint() {
+        return idSprint;
+    }
+
+    public void setIdSprint(Long idSprint) {
+        this.idSprint = idSprint;
+    }
+
+    public Long getIdConcepto() {
+        return idConcepto;
+    }
+
+    public void setIdConcepto(Long idConcepto) {
+        this.idConcepto = idConcepto;
+    }
+
+    public Double getHorasPlaneadas() {
+        return horasPlaneadas;
+    }
+
+    public void setHorasPlaneadas(Double horasPlaneadas) {
+        this.horasPlaneadas = horasPlaneadas;
+    }
+
+    public Double getHorasEjecutadas() {
+        return horasEjecutadas;
+    }
+
+    public void setHorasEjecutadas(Double horasEjecutadas) {
+        this.horasEjecutadas = horasEjecutadas;
+    }
+
+    public Double getValorPlaneado() {
+        return valorPlaneado;
+    }
+
+    public void setValorPlaneado(Double valorPlaneado) {
+        this.valorPlaneado = valorPlaneado;
+    }
+
+    public Double getValorEjecutado() {
+        return valorEjecutado;
+    }
+
+    public void setValorEjecutado(Double valorEjecutado) {
+        this.valorEjecutado = valorEjecutado;
+    }
 }
