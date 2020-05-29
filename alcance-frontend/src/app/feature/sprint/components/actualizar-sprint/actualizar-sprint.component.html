@@ -51,7 +51,7 @@
             <th></th>
           </tr>
           <tr *ngIf="presupuestoSprintSeleccionados.length <= 0">
-            <td colspan="5">Para añadir roles seleccione un rango de fechas e ingrese el número de personas</td>
+            <td colspan="7">Para añadir roles seleccione un rango de fechas e ingrese el número de personas</td>
           </tr>
           <tr *ngFor="let presupuestoSprint of presupuestoSprintSeleccionados">
             <td>{{ presupuestoSprint.nombreConcepto }}</td>
