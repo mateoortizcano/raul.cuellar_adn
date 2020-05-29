@@ -13,7 +13,7 @@ import com.ceiba.core.modelo.epica.DtoEpica;
 public class DaoEpicaMysql implements DaoEpica {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
     @SqlStatement(namespace="epica", value="listar")
-    private String sqlListar;
+    private static String sqlListar;
 
     public DaoEpicaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

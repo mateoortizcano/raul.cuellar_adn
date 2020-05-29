@@ -19,16 +19,16 @@ public class DaoSprintMysql implements DaoSprint {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="sprint", value="listar")
-    private String sqlListar;
+    private static String sqlListar;
 
     @SqlStatement(namespace = "sprint", value = "consultar")
-    private String sqlConsultar;
+    private static String sqlConsultar;
 
     @SqlStatement(namespace="sprint", value="listarResumen")
-    private String sqlListarResumen;
+    private static String sqlListarResumen;
 
     @SqlStatement(namespace="sprint", value="listarDetalles")
-    private String sqlListarDetalles;
+    private static String sqlListarDetalles;
 
     public DaoSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

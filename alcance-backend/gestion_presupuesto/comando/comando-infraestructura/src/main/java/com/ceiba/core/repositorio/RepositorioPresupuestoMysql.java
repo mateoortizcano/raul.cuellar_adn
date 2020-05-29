@@ -10,10 +10,10 @@ public class RepositorioPresupuestoMysql implements RepositorioPresupuesto{
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="presupuesto", value="crear")
-    private String sqlCrear;
+    private static String sqlCrear;
 
     @SqlStatement(namespace="presupuesto", value="eliminar")
-    private String sqlEliminar;
+    private static String sqlEliminar;
 
     public RepositorioPresupuestoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

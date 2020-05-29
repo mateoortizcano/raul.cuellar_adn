@@ -16,10 +16,10 @@ public class DaoPresupuestoMysql implements DaoPresupuesto {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="presupuesto", value="listar")
-    private String sqlListar;
+    private static String sqlListar;
 
     @SqlStatement(namespace = "presupuesto", value="listarGlobal")
-    private String sqlListarGlobal;
+    private static String sqlListarGlobal;
 
     public DaoPresupuestoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

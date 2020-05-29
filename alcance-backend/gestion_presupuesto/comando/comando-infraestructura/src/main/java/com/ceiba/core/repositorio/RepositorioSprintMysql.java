@@ -12,25 +12,25 @@ public class RepositorioSprintMysql implements RepositorioSprint {
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
 	@SqlStatement(namespace = "sprint", value = "crear")
-	private String sqlCrear;
+	private static String sqlCrear;
 
 	@SqlStatement(namespace = "sprint", value = "actualizar")
-	private String sqlActualizar;
+	private static String sqlActualizar;
 
 	@SqlStatement(namespace = "sprint", value = "existeNombre")
-	private String sqlExisteNombre;
+	private static String sqlExisteNombre;
 
 	@SqlStatement(namespace = "sprint", value = "existeEnPeriodo")
-	private String sqlExisteEnPeriodo;
+	private static String sqlExisteEnPeriodo;
 
 	@SqlStatement(namespace = "sprint", value = "existeNombreExcluyendoId")
-	private String sqlExisteNombreExcluyendoId;
+	private static String sqlExisteNombreExcluyendoId;
 
 	@SqlStatement(namespace = "sprint", value = "existeEnPeriodoExcluyendoId")
-	private String sqlExisteEnPeriodoExcluyendoId;
+	private static String sqlExisteEnPeriodoExcluyendoId;
 
 	@SqlStatement(namespace = "sprint", value = "eliminar")
-	private String sqlEliminar;
+	private static String sqlEliminar;
 
 	public RepositorioSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

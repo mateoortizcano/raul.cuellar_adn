@@ -15,7 +15,7 @@ public class DaoConceptoMysql implements DaoConcepto {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="concepto", value="listar")
-    private String sqlListar;
+    private static String sqlListar;
 
     public DaoConceptoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

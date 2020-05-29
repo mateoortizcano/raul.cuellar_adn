@@ -14,10 +14,10 @@ public class DaoProyectoMysql implements DaoProyecto {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="proyecto", value="listar")
-    private String sqlListar;
+    private static String sqlListar;
 
     @SqlStatement(namespace="proyecto", value="listarResumen")
-    private String sqlListarResumen;
+    private static String sqlListarResumen;
 
     public DaoProyectoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;

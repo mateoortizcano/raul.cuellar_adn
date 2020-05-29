@@ -12,13 +12,13 @@ public class RepositorioPresupuestoSprintMysql implements RepositorioPresupuesto
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="presupuestosprint", value="crear")
-    private String sqlCrear;
+    private static String sqlCrear;
 
     @SqlStatement(namespace = "presupuestosprint", value = "actualizar")
-    private String sqlActualizar;
+    private static String sqlActualizar;
 
     @SqlStatement(namespace = "presupuestosprint", value = "eliminar")
-    private String sqlEliminar;
+    private static String sqlEliminar;
 
     public RepositorioPresupuestoSprintMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
